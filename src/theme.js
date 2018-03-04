@@ -1,36 +1,35 @@
-import { accordion } from './themes/accordion.theme'
-import { border } from './themes/border.theme'
-import { button } from './themes/button.theme'
-import { buttonSquared } from './themes/buttonSquared.theme'
-import { checkbox } from './themes/checkbox.theme'
-import { close } from './themes/close.theme'
-import { font } from './themes/font.theme'
-import { form } from './themes/form.theme'
-import { input } from './themes/input.theme'
-import { list } from './themes/list.theme'
-import { logo } from './themes/logo.theme'
-import { modal } from './themes/modal.theme'
-import { nav } from './themes/nav.theme'
-
-import { select } from './themes/select.theme'
-import { sidebar } from './themes/sidebar.theme'
-import { statusbar } from './themes/statusbar.theme'
-import { row } from './themes/row.theme'
-import { tabs } from './themes/tabs.theme'
-import { textarea } from './themes/textarea.theme'
-import { toolbar } from './themes/toolbar.theme'
-import { inject } from './themes/inject.theme'
+import { accordion } from './Accordion/accordion.theme'
+import { button } from './Button/button.theme'
+import { buttonGroup } from './ButtonGroup/buttonGroup.theme'
+import { checkbox } from './Checkbox/checkbox.theme'
+import { close } from './Close/close.theme'
+import { form } from './Form/form.theme'
+import { iconButton } from './IconButton/iconButton.theme'
+import { input } from './Input/input.theme'
+import { list } from './List/list.theme'
+import { logo } from './Logo/logo.theme'
+import { modal } from './Modal/modal.theme'
+import { nav } from './Nav/nav.theme'
+import { row } from './Row/row.theme'
+import { select } from './Select/select.theme'
+import { sidebar } from './Sidebar/sidebar.theme'
+import { statusbar } from './Statusbar/statusbar.theme'
+import { svg } from './Svg/svg.theme'
+import { tabs } from './Tabs/tabs.theme'
+import { textarea } from './Textarea/textarea.theme'
+import { toolbar } from './Toolbar/toolbar.theme'
 
 // shared
-import { animation as Animation } from './themes/animation.theme'
-import { border as Border } from './themes/border.theme'
-import { clearfix as Clearfix } from './themes/clearfix.theme'
-import { depth as Depth } from './themes/depth.theme'
-import { font as Font } from './themes/font.theme'
-import { globalStyles as Global } from './themes/global.theme'
-import { media as Media } from './themes/media.theme'
-import { scrollbar as Scrollbar } from './themes/scrollbar.theme'
-import { spacing as Spacing } from './themes/spacing.theme'
+import { animation as Animation } from './shared/animation.theme'
+import { border as Border } from './shared/border.theme'
+import { clearfix as Clearfix } from './shared/clearfix.theme'
+import { depth as Depth } from './shared/depth.theme'
+import { font as Font } from './shared/font.theme'
+import { globalStyles as Global } from './shared/global.theme'
+import { inject } from './shared/inject.theme'
+import { media as Media } from './shared/media.theme'
+import { scrollbar as Scrollbar } from './shared/scrollbar.theme'
+import { spacing as Spacing } from './shared/spacing.theme'
 
 const defaults = {
   animation: {},
@@ -44,7 +43,7 @@ const defaults = {
   extend: () => {}
 }
 
-export function theme(props = defaults) {
+export function theme(props = {}) {
   const {
     animation,
     border,
@@ -55,7 +54,7 @@ export function theme(props = defaults) {
     scrollbar,
     spacing,
     extend
-  } = props
+  } = { ...defaults, ...props }
 
   return function(colors = {}) {
     const _animation = Animation(animation || {})
@@ -87,19 +86,21 @@ export function theme(props = defaults) {
       ...base,
       accordion: accordion(base),
       button: button(base),
-      buttonSquared: buttonSquared(base),
+      buttonGroup: buttonGroup(base),
       checkbox: checkbox(base),
       close: close(base),
       form: form(base),
+      iconButton: iconButton(base),
       input: input(base),
       list: list(base),
       logo: logo(base),
       modal: modal(base),
       nav: nav(base),
+      row: row(base),
       select: select(base),
       sidebar: sidebar(base),
       statusbar: statusbar(base),
-      row: row(base),
+      svg: svg(base),
       tabs: tabs(base),
       textarea: textarea(base),
       toolbar: toolbar(base),

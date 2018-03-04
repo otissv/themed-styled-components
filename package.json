@@ -6,22 +6,32 @@
   "homepage": "https://codesandbox.io/s/new",
   "main": "src/index.js",
   "dependencies": {
+    "@storybook/addon-backgrounds": "^3.3.14",
+    "@storybook/addon-console": "^1.0.0",
+    "@storybook/addon-info": "^3.3.14",
+    "@storybook/addon-knobs": "^3.3.14",
+    "@storybook/addon-notes": "^3.3.14",
+    "@storybook/addon-options": "^3.3.14",
+    "@storybook/addon-storyshots": "^3.3.14",
     "kebab-case": "^1.0.0",
     "lodash": "^4.17.5",
     "prop-types": "^15.6.1",
     "react": "16.3.0-alpha.1",
     "react-dom": "16.3.0-alpha.1",
+    "react-inlinesvg": "^0.7.5",
+    "react-inlinesvg-extended": "^0.0.2",
     "react-scripts": "1.1.0",
     "styled-components": "3.1.6",
     "styled-media-query": "^2.0.2",
     "styled-normalize": "^4.0.0"
   },
   "devDependencies": {
-    "@storybook/react": "^3.3.14",
     "@storybook/addon-actions": "^3.3.14",
     "@storybook/addon-links": "^3.3.14",
     "@storybook/addons": "^3.3.14",
-    "babel-core": "^6.26.0"
+    "@storybook/react": "^3.3.14",
+    "babel-core": "^6.26.0",
+    "react-test-renderer": "^16.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

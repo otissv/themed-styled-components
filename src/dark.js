@@ -5,17 +5,18 @@ const foregroundInvert = '#000000'
 const backgroundInvert = '#f1f1f1'
 
 const primary = '#E10098'
+const primary2 = '#d8eafc'
 const secondary = '#515151'
 const tertiary = '#1d1d1d'
 
-const danger = '#f0506e'
-const dangerSecondary = '#fef4f6'
+const error = '#f0506e'
+const error2 = '#fef4f6'
 const info = '#1e87f0'
-const infoSecondary = '#d8eafc'
+const info2 = '#d8eafc'
 const success = '#32d296'
-const successSecondary = '#edfbf6'
+const success2 = '#edfbf6'
 const warning = '#faa05a'
-const warningSecondary = '#fff6ee'
+const warning2 = '#fff6ee'
 
 export const dark = {
   // Default
@@ -40,55 +41,55 @@ export const dark = {
   visitedBackground: secondary,
   visitedForeground: background,
 
-  // Danger
-  danger,
-  dangerSecondary,
-  borderDanger: danger,
-  activeBackgroundDanger: dangerSecondary,
-  activeForegroundDanger: danger,
-  focusBackgroundDanger: dangerSecondary,
-  focusForegroundDanger: danger,
-  hoverBackgroundDanger: dangerSecondary,
-  hoverForegroundDanger: danger,
-  visitedBackgroundDanger: dangerSecondary,
-  visitedForegroundDanger: danger,
+  // error
+  error,
+  error2,
+  bordererror: error,
+  activeBackgrounderror: error2,
+  activeForegrounderror: error,
+  focusBackgrounderror: error2,
+  focusForegrounderror: error,
+  hoverBackgrounderror: error2,
+  hoverForegrounderror: error,
+  visitedBackgrounderror: error2,
+  visitedForegrounderror: error,
 
   // Info
   info,
-  infoSecondary,
+  info2,
   borderInfo: info,
-  activeBackgroundInfo: infoSecondary,
+  activeBackgroundInfo: info2,
   activeForegroundInfo: info,
-  focusBackgroundInfo: infoSecondary,
+  focusBackgroundInfo: info2,
   focusForegroundInfo: info,
-  hoverBackgroundInfo: infoSecondary,
+  hoverBackgroundInfo: info2,
   hoverForegroundInfo: info,
-  visitedBackgroundInfo: infoSecondary,
+  visitedBackgroundInfo: info2,
   visitedForegroundInfo: info,
 
   // Success
   success,
-  successSecondary,
+  success2,
   borderSuccess: success,
-  activeBackgroundSuccess: successSecondary,
+  activeBackgroundSuccess: success2,
   activeForegroundSuccess: success,
-  focusBackgroundSuccess: successSecondary,
+  focusBackgroundSuccess: success2,
   focusForegroundSuccess: success,
-  hoverBackgroundSuccess: successSecondary,
+  hoverBackgroundSuccess: success2,
   hoverForegroundSuccess: success,
-  visitedBackgroundSuccess: successSecondary,
+  visitedBackgroundSuccess: success2,
   visitedForegroundSuccess: success,
 
   // Warning
   warning,
-  warningSecondary,
+  warning2,
   borderWarning: warning,
-  activeBackgroundWarning: warningSecondary,
+  activeBackgroundWarning: warning2,
   activeForegroundWarning: warning,
-  focusBackgroundWarning: warningSecondary,
+  focusBackgroundWarning: warning2,
   focusForegroundWarning: warning,
-  hoverBackgroundWarning: warningSecondary,
+  hoverBackgroundWarning: warning2,
   hoverForegroundWarning: warning,
-  visitedBackgroundWarning: warningSecondary,
+  visitedBackgroundWarning: warning2,
   visitedForegroundWarning: warning
 }
