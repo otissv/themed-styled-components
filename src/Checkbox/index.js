@@ -82,8 +82,6 @@ const CheckboxStyled = styled.input`
 
   ${props => props.styledButton};
 `
-// return `
-// margin-bottom: ${props => props.theme.spacing.small}
 
 const Label = styled.label`
   ${props => {

@@ -1,6 +1,7 @@
 import { accordion } from './Accordion/accordion.theme'
 import { button } from './Button/button.theme'
 import { buttonGroup } from './ButtonGroup/buttonGroup.theme'
+import { card } from './Card/card.theme'
 import { checkbox } from './Checkbox/checkbox.theme'
 import { close } from './Close/close.theme'
 import { form } from './Form/form.theme'
@@ -87,6 +88,7 @@ export function theme(props = {}) {
       accordion: accordion(base),
       button: button(base),
       buttonGroup: buttonGroup(base),
+      card: card(base),
       checkbox: checkbox(base),
       close: close(base),
       form: form(base),
