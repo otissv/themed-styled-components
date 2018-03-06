@@ -25,6 +25,22 @@ export function card({ animation, border, colors, depth, font, spacing }) {
       border: border.thinTertiary,
       boxShadow: depth.d3
     },
+    accent: {
+      backgroundColor: colors.accent,
+      color: colors.foregroundInvert,
+      '&:hover': {
+        backgroundColor: colors.accent2,
+        boxShadow: depth.d3
+      },
+      '&:active': {
+        backgroundColor: colors.accent2,
+        boxShadow: depth.d3
+      },
+      '&:focus': {
+        backgroundColor: colors.accent2,
+        boxShadow: depth.d3
+      }
+    },
     primary: {
       backgroundColor: colors.primary,
       color: colors.foregroundInvert,
@@ -107,6 +123,9 @@ export function card({ animation, border, colors, depth, font, spacing }) {
       padding: spacing.large
     },
     header: {
+      image: {
+        pos: 'flex-start'
+      },
       borderBottom: border.thinSecondary,
       padding: `${spacing.small} ${spacing.large}`,
       small: {
@@ -124,6 +143,10 @@ export function card({ animation, border, colors, depth, font, spacing }) {
       large: {
         padding: spacing.xlarge
       }
+    },
+    meta: {
+      fontSize: font.xsmall,
+      color: colors.secondary
     },
     footer: {
       borderTop: border.thinSecondary,

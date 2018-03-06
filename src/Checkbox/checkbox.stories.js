@@ -50,6 +50,27 @@ stories
     ))
   )
 
+  /* ==========================================================================
+  * Checkbox Context
+  * ======================================================================== */
+
+  .add(
+    'Context - Accent Checkbox',
+    withInfo(`
+
+    ~~~js
+    <Checkbox context="accent" theme={theme()(colors)} onChange={() => {}}>
+      Checkbox
+    </Checkbox>
+    ~~~
+
+  `)(() => (
+      <Checkbox context="accent" theme={theme()(colors)} onChange={() => {}}>
+        Accent
+      </Checkbox>
+    ))
+  )
+
   .add(
     'Context - Primary Checkbox',
     withInfo(`
@@ -62,24 +83,7 @@ stories
 
     `)(() => (
       <Checkbox context="primary" theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
-      </Checkbox>
-    ))
-  )
-
-  .add(
-    'Context - Secondary Checkbox',
-    withInfo(`
-  
-      ~~~js
-      <Checkbox context="secondary" theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
-      </Checkbox>
-      ~~~
-
-    `)(() => (
-      <Checkbox context="secondary" theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
+        Primary
       </Checkbox>
     ))
   )
@@ -96,7 +100,7 @@ stories
 
     `)(() => (
       <Checkbox context="danger" theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
+        Danger
       </Checkbox>
     ))
   )
@@ -107,7 +111,7 @@ stories
   
       ~~~js
       <Checkbox size="small" theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
+      Small
       </Checkbox>
       ~~~
 
@@ -123,12 +127,14 @@ stories
     withInfo(`
   
       ~~~js
-     
+      <Checkbox size="large" theme={theme()(colors)} onChange={() => {}}>
+        Large
+      </Checkbox>
       ~~~
 
     `)(() => (
       <Checkbox size="large" theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
+        Large
       </Checkbox>
     ))
   )

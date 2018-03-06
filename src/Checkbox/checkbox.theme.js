@@ -39,6 +39,26 @@ export function checkbox({ animation, border, colors, font, spacing }) {
       color: colors.background,
       backgroundImage: datauri.check
     },
+    accent: {
+      backgroundColor: colors.background,
+      border: border.thinAccent,
+      '&:hover': {
+        backgroundColor: colors.accent2
+      },
+      '&:focus': {
+        backgroundColor: colors.accent2
+      },
+      '&:indeterminate': {
+        backgroundColor: colors.accent,
+        color: colors.background,
+        backgroundImage: datauri.check
+      },
+      '&:checked': {
+        backgroundColor: colors.accent,
+        color: colors.background,
+        backgroundImage: datauri.check
+      }
+    },
     primary: {
       backgroundColor: colors.background,
       border: border.thinPrimary,
@@ -59,26 +79,7 @@ export function checkbox({ animation, border, colors, font, spacing }) {
         backgroundImage: datauri.check
       }
     },
-    secondary: {
-      backgroundColor: colors.background,
-      border: border.thinSecondary,
-      '&:hover': {
-        backgroundColor: colors.secondary2
-      },
-      '&:focus': {
-        backgroundColor: colors.secondary2
-      },
-      '&:indeterminate': {
-        backgroundColor: colors.secondary,
-        color: colors.background,
-        backgroundImage: datauri.check
-      },
-      '&:checked': {
-        backgroundColor: colors.secondary,
-        color: colors.background,
-        backgroundImage: datauri.check
-      }
-    },
+
     danger: {
       backgroundColor: colors.background,
       border: border.thinDanger,

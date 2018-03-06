@@ -1,3 +1,5 @@
+import upperFirst from 'lodash/fp/upperFirst'
+
 export function border({ colors }) {
   return {
     none: 0,
@@ -18,20 +20,11 @@ export function border({ colors }) {
     thinStyle: 'solid',
     thinTransparent: `1px solid rgba(0, 0, 0, 0);`,
 
-    // primary
-    thickPrimary: `2px solid ${colors.primary}`,
-    thinPrimary: `1px solid ${colors.primary}`,
-
-    // danger
-    thickDanger: `2px solid ${colors.danger}`,
-    thinDanger: `1px solid ${colors.danger}`,
-
-    // secondary
-    thickSecondary: `2px solid ${colors.secondary}`,
-    thinSecondary: `1px solid ${colors.secondary}`,
-
-    // tertiary
-    thickTertiary: `2px solid ${colors.tertiary}`,
-    thinTertiary: `1px solid ${colors.tertiary}`
+    ...Object.keys(colors).reduce((previous, key) => ({
+      ...previous,
+      [key]: colors[key],
+      [`thick${upperFirst(key)}`]: `2px solid ${colors[key]}`,
+      [`thin${upperFirst(key)}`]: `1px solid ${colors[key]}`
+    }))
   }
 }

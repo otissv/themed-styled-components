@@ -17,7 +17,7 @@ stories
       
       ~~~js
       <Card className="Card" theme={theme()(colors)}>
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Default</h3>
             <p>
@@ -32,9 +32,48 @@ stories
 
     `)(() => (
       <Card className="Card" theme={theme()(colors)}>
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Default</h3>
+            <p>
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua.
+            </p>
+          </Fragment>
+        )}
+      </Card>
+    ))
+  )
+
+  /* ==========================================================================
+  * Card Context
+  * ======================================================================== */
+
+  .add(
+    'Context - Accent Card',
+    withInfo(`
+    
+    ~~~js
+    <Card className="Card" theme={theme()(colors)} context="accent">
+      {() => (
+        <Fragment>
+          <h3>Accent</h3>
+          <p>
+            Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua.
+          </p>
+        </Fragment>
+      )}
+    </Card>
+    ~~~
+
+  `)(() => (
+      <Card className="Card" theme={theme()(colors)} context="accent">
+        {() => (
+          <Fragment>
+            <h3>Accent</h3>
             <p>
               Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -52,7 +91,7 @@ stories
       
       ~~~js
       <Card className="Card" theme={theme()(colors)} context="primary">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Primary</h3>
             <p>
@@ -67,44 +106,9 @@ stories
 
     `)(() => (
       <Card className="Card" theme={theme()(colors)} context="primary">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Primary</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
-    ))
-  )
-
-  .add(
-    'Context - Secondary Card',
-    withInfo(`
-   
-      ~~~js
-      <Card className="Card" theme={theme()(colors)} context="secondary">
-        {({ cardBodyProps, cardHeaderProps }) => (
-          <Fragment>
-            <h3>Secondary</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
-      ~~~
-
-    `)(() => (
-      <Card className="Card" theme={theme()(colors)} context="secondary">
-        {({ cardBodyProps, cardHeaderProps }) => (
-          <Fragment>
-            <h3>Secondary</h3>
             <p>
               Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
               elit, sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -122,7 +126,7 @@ stories
    
       ~~~js
       <Card className="Card" theme={theme()(colors)} context="danger">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Danger</h3>
             <p>
@@ -137,7 +141,7 @@ stories
 
     `)(() => (
       <Card className="Card" theme={theme()(colors)} context="danger">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Danger</h3>
             <p>
@@ -157,7 +161,7 @@ stories
    
       ~~~js
       <Card className="Card" theme={theme()(colors)} context="ghost">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Ghost</h3>
             <p>
@@ -172,7 +176,7 @@ stories
 
     `)(() => (
       <Card className="Card" theme={theme()(colors)} context="ghost">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Ghost</h3>
             <p>
@@ -186,13 +190,17 @@ stories
     ))
   )
 
+  /* ==========================================================================
+  * Card Size
+  * ======================================================================== */
+
   .add(
     'Size - Small Card',
     withInfo(`
       
       ~~~js
       <Card className="Card" theme={theme()(colors)} size="small">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Small</h3>
             <p>
@@ -207,7 +215,7 @@ stories
 
     `)(() => (
       <Card className="Card" theme={theme()(colors)} size="small">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Small</h3>
             <p>
@@ -227,7 +235,7 @@ stories
       
       ~~~js
       <Card className="Card" theme={theme()(colors)} size="large">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Large</h3>
             <p>
@@ -242,7 +250,7 @@ stories
 
     `)(() => (
       <Card className="Card" theme={theme()(colors)} size="large">
-        {({ cardBodyProps, cardHeaderProps }) => (
+        {() => (
           <Fragment>
             <h3>Large</h3>
             <p>
@@ -256,6 +264,9 @@ stories
     ))
   )
 
+  /* ==========================================================================
+  * Card Header and Footer
+  * ======================================================================== */
   .add(
     'Card Header and Footer',
     withInfo(`

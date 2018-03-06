@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import kebabCase from 'lodash/fp/kebabCase'
 import { getThemedValue } from '../utils/getThemedValue.util'
-import { makeStyles } from '../utils/makeStyles'
+import { makeStyles } from '../utils/makeStyles.util'
 
 const RowStyled = styled.div`
   display: flex;

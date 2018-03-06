@@ -32,6 +32,23 @@ export function button({ animation, border, colors, depth, font, spacing }) {
       backgroundColor: colors.background,
       border: border.thinTertiary
     },
+    accent: {
+      backgroundColor: colors.accent,
+      border: border.thinAccent,
+      color: colors.foregroundInvert,
+      '&:hover': {
+        backgroundColor: colors.accent2,
+        border: border.thinAccent
+      },
+      '&:active': {
+        backgroundColor: colors.accent2,
+        border: border.thinAccent
+      },
+      '&:focus': {
+        backgroundColor: colors.accent2,
+        border: border.thinAccent
+      }
+    },
     primary: {
       backgroundColor: colors.primary,
       border: border.thinPrimary,
@@ -47,26 +64,6 @@ export function button({ animation, border, colors, depth, font, spacing }) {
       '&:focus': {
         backgroundColor: colors.primary2,
         border: border.thinPrimary
-      }
-    },
-    secondary: {
-      backgroundColor: colors.secondary,
-      border: border.thinSecondary,
-      color: colors.foregroundInvert,
-      '&:hover': {
-        backgroundColor: colors.foreground,
-        border: border.thickSecondary,
-        color: colors.secondary
-      },
-      '&:active': {
-        backgroundColor: colors.foreground,
-        border: border.thickSecondary,
-        color: colors.secondary
-      },
-      '&:focus': {
-        backgroundColor: colors.foreground,
-        border: border.thickSecondary,
-        color: colors.secondary
       }
     },
     danger: {

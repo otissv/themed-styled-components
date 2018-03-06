@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import kebabCase from 'lodash/fp/kebabCase'
 import { stateStyled } from '../utils/stateStyled.util'
 import { getThemedValue } from '../utils/getThemedValue.util'
-import { makeStyles } from '../utils/makeStyles'
+import { makeStyles } from '../utils/makeStyles.util'
 
 const ButtonStyled = styled.button`
   ${props => {

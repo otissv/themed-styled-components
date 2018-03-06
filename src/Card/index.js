@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import kebabCase from 'lodash/fp/kebabCase'
 import { stateStyled } from '../utils/stateStyled.util'
 import { getThemedValue } from '../utils/getThemedValue.util'
-import { makeStyles } from '../utils/makeStyles'
+import { makeStyles } from '../utils/makeStyles.util'
 
 const CardStyled = styled.div`
   ${props => {
@@ -193,7 +193,13 @@ export class Card extends PureComponent {
   static propTypes = {
     size: PropTypes.oneOf(['small', 'large']),
     children: PropTypes.func.isRequired,
-    context: PropTypes.oneOf(['primary', 'secondary', 'danger', 'ghost']),
+    context: PropTypes.oneOf([
+      'accent',
+      'primary',
+      'secondary',
+      'danger',
+      'ghost'
+    ]),
     collapse: PropTypes.bool,
     theme: PropTypes.object.isRequired
   }

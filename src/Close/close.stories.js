@@ -18,5 +18,5 @@ stories.add(
       
       ~~~
 
-    `)(() => <Close theme={theme()(colors)} />)
+    `)(() => <Close pos="right" theme={theme()(colors)} />)
 )

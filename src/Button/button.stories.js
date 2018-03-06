@@ -20,16 +20,28 @@ stories
       <Button>Default</Button>
       ~~~
 
-    `)(() => (
-      <Button theme={theme()(colors)} onClick={action('clicked')}>
-        Default
-      </Button>
-    ))
+    `)(() => <Button theme={theme()(colors)}>Default</Button>)
   )
 
   /* ========================================================
   *  Context
   *  ===================================================== */
+
+  .add(
+    'Context - Accent Button',
+    withInfo(`
+    context="accent" adds the context styles to the button.
+  
+    ~~~js
+    <Button context="accent">Accent</Button>
+    ~~~
+
+    `)(() => (
+      <Button theme={theme()(colors)} context="accent">
+        Accent
+      </Button>
+    ))
+  )
 
   .add(
     'Context - Primary Button',
@@ -41,32 +53,8 @@ stories
       ~~~
 
       `)(() => (
-      <Button
-        theme={theme()(colors)}
-        context="primary"
-        onClick={action('clicked')}
-      >
+      <Button theme={theme()(colors)} context="primary">
         Primary
-      </Button>
-    ))
-  )
-
-  .add(
-    'Context - Secondary Button',
-    withInfo(`
-      context="secondary" adds the context styles to the button.
-    
-      ~~~js
-      <Button size="small">Secondary</Button>
-      ~~~
-
-      `)(() => (
-      <Button
-        theme={theme()(colors)}
-        context="secondary"
-        onClick={action('clicked')}
-      >
-        Secondary
       </Button>
     ))
   )
@@ -81,11 +69,7 @@ stories
       ~~~
 
       `)(() => (
-      <Button
-        theme={theme()(colors)}
-        context="danger"
-        onClick={action('clicked')}
-      >
+      <Button theme={theme()(colors)} context="danger">
         Danger
       </Button>
     ))
@@ -101,11 +85,7 @@ stories
       ~~~
 
       `)(() => (
-      <Button
-        theme={theme()(colors)}
-        context="ghost"
-        onClick={action('clicked')}
-      >
+      <Button theme={theme()(colors)} context="ghost">
         Ghost
       </Button>
     ))
@@ -125,7 +105,7 @@ stories
     ~~~
 
  `)(() => (
-      <Button theme={theme()(colors)} size="large" onClick={action('clicked')}>
+      <Button theme={theme()(colors)} size="large">
         Large Button
       </Button>
     ))
@@ -141,7 +121,7 @@ stories
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} size="small" onClick={action('clicked')}>
+      <Button theme={theme()(colors)} size="small">
         Small Button
       </Button>
     ))
@@ -161,7 +141,7 @@ stories
   ~~~
 
 `)(() => (
-      <Button theme={theme()(colors)} stretch onClick={action('clicked')}>
+      <Button theme={theme()(colors)} stretch>
         Stretch Button
       </Button>
     ))
