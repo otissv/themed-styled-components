@@ -17,6 +17,7 @@ import { sidebar } from './Sidebar/sidebar.theme'
 import { statusbar } from './Statusbar/statusbar.theme'
 import { svg } from './Svg/svg.theme'
 import { tabs } from './Tabs/tabs.theme'
+import { text } from './Text/text.theme'
 import { textarea } from './Textarea/textarea.theme'
 import { toolbar } from './Toolbar/toolbar.theme'
 
@@ -104,6 +105,7 @@ export function theme(props = {}) {
       statusbar: statusbar(base),
       svg: svg(base),
       tabs: tabs(base),
+      text: text(base),
       textarea: textarea(base),
       toolbar: toolbar(base),
       ...extend(base)
