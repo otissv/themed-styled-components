@@ -21,7 +21,7 @@ const CloseStyled = styled.button`
   }};
 `
 
-export class Close extends React.PureComponent {
+class Close extends React.PureComponent {
   static propTypes = {
     svgProps: PropTypes.object,
     onClick: PropTypes.func,
@@ -38,3 +38,5 @@ export class Close extends React.PureComponent {
     )
   }
 }
+
+export const close = styled(Close)

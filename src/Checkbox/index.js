@@ -103,7 +103,7 @@ const Label = styled.label`
   }}};
 `
 
-export class Checkbox extends PureComponent {
+class Checkbox extends PureComponent {
   static propTypes = {
     labelProps: PropTypes.object,
     children: PropTypes.any.isRequired,
@@ -129,3 +129,5 @@ export class Checkbox extends PureComponent {
     )
   }
 }
+
+export const checkbox = styled(Checkbox)

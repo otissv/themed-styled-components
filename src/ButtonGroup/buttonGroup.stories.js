@@ -3,11 +3,13 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { ButtonGroup } from './index'
+import { buttonGroup } from './index'
 import { Button } from '../Button'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
+
+const ButtonGroup = buttonGroup``
 
 const stories = storiesOf('Button Group', module)
 

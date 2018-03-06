@@ -3,12 +3,13 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { Svg } from './index'
+import { svg } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
 import homeIcon from '../icons/web-application/home.svg'
 
+const Svg = svg``
 const stories = storiesOf('Svg', module)
 
 stories

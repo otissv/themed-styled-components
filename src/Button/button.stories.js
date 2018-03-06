@@ -3,10 +3,12 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { Button } from './index'
+import { button } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
+
+const Button = button``
 
 const stories = storiesOf('Button', module)
 

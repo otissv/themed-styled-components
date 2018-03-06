@@ -3,10 +3,12 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { Checkbox } from './index'
+import { checkbox } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
+
+const Checkbox = checkbox``
 
 const stories = storiesOf('Checkbox', module)
 

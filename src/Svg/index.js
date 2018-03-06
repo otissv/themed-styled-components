@@ -51,8 +51,10 @@ const SvgStyled = styled(Isvg)`
   }}};
 `
 
-export class Svg extends PureComponent {
+class Svg extends PureComponent {
   render() {
     return <SvgStyled {...this.props} />
   }
 }
+
+export const svg = styled(Svg)

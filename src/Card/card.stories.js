@@ -3,10 +3,16 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { Card, CardHeader, CardBody, CardFooter } from './index'
+import { card, cardHeader, cardBody, cardFooter } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
+
+const Card = card`
+`
+const CardHeader = cardHeader
+const CardBody = cardBody
+const CardFooter = cardFooter
 
 const stories = storiesOf('Card', module)
 

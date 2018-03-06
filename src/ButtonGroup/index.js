@@ -22,7 +22,7 @@ const ButtonGroupStyled = styled.div`
   }};
 `
 
-export class ButtonGroup extends PureComponent {
+class ButtonGroup extends PureComponent {
   static propTypes = {
     buttonProps: PropTypes.object,
     children: PropTypes.func.isRequired,
@@ -32,10 +32,13 @@ export class ButtonGroup extends PureComponent {
 
   render() {
     const { buttonProps, children, stretch, theme } = this.props
-    return (
-      <ButtonGroupStyled {...this.props}>
-        {children({ theme, stretch: true, ...buttonProps })}
-      </ButtonGroupStyled>
-    )
+
+    const child =
+      typeof children === 'function'
+        ? children({ theme, stretch: true, ...buttonProps })
+        : children
+    return <ButtonGroupStyled {...this.props}>{child}</ButtonGroupStyled>
   }
 }
+
+export const buttonGroup= styled(ButtonGroup)

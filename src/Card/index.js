@@ -92,7 +92,7 @@ const CardHeaderStyled = styled.div`
   ${props => props.styled};
 `
 
-export class CardHeader extends PureComponent {
+class CardHeader extends PureComponent {
   static propTypes = {
     backgroundImage: PropTypes.string,
     children: PropTypes.any.isRequired,
@@ -133,7 +133,7 @@ const CardBodyStyled = styled.div`
   ${props => props.styled};
 `
 
-export class CardBody extends PureComponent {
+class CardBody extends PureComponent {
   static propTypes = {
     backgroundImage: PropTypes.string,
     children: PropTypes.any.isRequired,
@@ -173,7 +173,7 @@ const CardFooterStyled = styled.div`
   ${props => props.styled};
 `
 
-export class CardFooter extends PureComponent {
+class CardFooter extends PureComponent {
   static propTypes = {
     backgroundImage: PropTypes.string,
     size: PropTypes.oneOf(['small', 'large']),
@@ -189,7 +189,7 @@ export class CardFooter extends PureComponent {
   }
 }
 
-export class Card extends PureComponent {
+class Card extends PureComponent {
   static propTypes = {
     size: PropTypes.oneOf(['small', 'large']),
     children: PropTypes.func.isRequired,
@@ -225,3 +225,7 @@ export class Card extends PureComponent {
     )
   }
 }
+
+export const card = styled(Card)
+export const cardHeader = styled(CardHeader)
+export const cardFooter = styled(CardFooter)

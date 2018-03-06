@@ -24,7 +24,7 @@ const RowStyled = styled.div`
   }};
 `
 
-export class Row extends PureComponent {
+class Row extends PureComponent {
   static propTypes = {
     container: PropTypes.string,
     margin: PropTypes.string,
@@ -35,3 +35,5 @@ export class Row extends PureComponent {
     return <RowStyled {...this.props}>{this.props.children}</RowStyled>
   }
 }
+
+export const row = styled(Row)

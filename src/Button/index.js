@@ -83,13 +83,16 @@ const ButtonStyled = styled.button`
 export class Button extends PureComponent {
   static propTypes = {
     size: PropTypes.oneOf(['small', 'large']),
-    context: PropTypes.oneOf(['primary', 'secondary', 'danger', 'ghost']),
+    context: PropTypes.oneOf(['accent', 'primary', 'danger', 'ghost']),
     theme: PropTypes.object.isRequired
   }
 
   render() {
-    const { value, children } = this.props
+    const { value, children, theme } = this.props
+    const child = typeof children === 'function' ? children(theme) : children
 
-    return <ButtonStyled {...this.props}>{value || children}</ButtonStyled>
+    return <ButtonStyled {...this.props}>{child}</ButtonStyled>
   }
 }
+
+export const button = styled(Button)
