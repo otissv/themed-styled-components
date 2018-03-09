@@ -8,11 +8,10 @@ import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
 
-const Card = card`
-`
-const CardHeader = cardHeader
-const CardBody = cardBody
-const CardFooter = cardFooter
+const Card = card``
+const CardHeader = cardHeader``
+const CardBody = cardBody``
+const CardFooter = cardFooter``
 
 const stories = storiesOf('Card', module)
 

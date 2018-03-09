@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const AccordionItemStyled = styled.ul`
@@ -13,7 +13,7 @@ const AccordionItemStyled = styled.ul`
   ${props => props.styledAccordionItem};
 `;
 
-export default class AccordionItem extends PureComponent {
+export default class AccordionItem extends Component {
   render() {
     return <AccordionItemStyled className="Accordion-item" {...this.props} />;
   }

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ const NavLinkStyled = styled(LinkWrapper)`
   }
 `;
 
-export class NavLink extends PureComponent {
+export class NavLink extends Component {
   render() {
     return <NavLinkStyled className="NavLink" {...this.props} />;
   }

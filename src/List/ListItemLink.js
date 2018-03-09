@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ListItemLinkStyled = styled.a`
@@ -22,7 +22,7 @@ const ListItemLinkStyled = styled.a`
   ${props => props.styledListItemLink};
 `;
 
-export class ListItemLink extends PureComponent {
+export class ListItemLink extends Component {
   render() {
     return <ListItemLinkStyled className="List-item-link" {...this.props} />;
   }

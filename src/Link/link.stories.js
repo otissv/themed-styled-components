@@ -3,22 +3,22 @@ import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
-import { close } from './index'
+import { link } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
 
-const stories = storiesOf('Close', module)
+const stories = storiesOf('Link', module)
 
-const Close = close``
+const Link = link``
 
 stories.add(
-  'Default Close',
+  'Default Link',
   withInfo(`
   
       ~~~js
       
       ~~~
 
-    `)(() => <Close pos="right" theme={theme()(colors)} />)
+    `)(() => <Link theme={theme()(colors)}>Link</Link>)
 )

@@ -2,15 +2,17 @@ export function button({ animation, border, colors, depth, font, spacing }) {
   return {
     backgroundColor: colors.background,
     border: border.thinSecondary,
-    boxSizing: 'border-box',
     boxShadow: 'none',
+    boxSizing: 'border-box',
     color: colors.foreground,
+    cursor: 'pointer',
     display: 'inline-block',
-    fontSize: font.default,
     font: 'inherit',
+    fontSize: font.default,
     letterSpacing: font.letterSpacing,
     lineHeight: '2.7',
     margin: 0,
+    outline: 'none',
     overflow: 'visible',
     padding: `0 ${spacing.large}`,
     textAlign: 'center',
@@ -18,8 +20,7 @@ export function button({ animation, border, colors, depth, font, spacing }) {
     textTransform: 'uppercase',
     transition: animation.easeMedium(),
     verticalAlign: 'middle',
-    outline: 'none',
-    cursor: 'pointer',
+
     '&:hover': {
       backgroundColor: colors.background,
       border: border.thinTertiary
@@ -32,6 +33,11 @@ export function button({ animation, border, colors, depth, font, spacing }) {
       backgroundColor: colors.background,
       border: border.thinTertiary
     },
+
+    /* =====================================
+    * Context 
+    * =================================== */
+
     accent: {
       backgroundColor: colors.accent,
       border: border.thinAccent,
@@ -47,23 +53,6 @@ export function button({ animation, border, colors, depth, font, spacing }) {
       '&:focus': {
         backgroundColor: colors.accent2,
         border: border.thinAccent
-      }
-    },
-    primary: {
-      backgroundColor: colors.primary,
-      border: border.thinPrimary,
-      color: colors.foregroundInvert,
-      '&:hover': {
-        backgroundColor: colors.primary2,
-        border: border.thinPrimary
-      },
-      '&:active': {
-        backgroundColor: colors.primary2,
-        border: border.thinPrimary
-      },
-      '&:focus': {
-        backgroundColor: colors.primary2,
-        border: border.thinPrimary
       }
     },
     danger: {
@@ -100,14 +89,74 @@ export function button({ animation, border, colors, depth, font, spacing }) {
         color: colors.foreground
       }
     },
-    small: {
-      padding: '0 15px',
-      lineHeight: '2'
+    primary: {
+      backgroundColor: colors.primary,
+      border: border.thinPrimary,
+      color: colors.foregroundInvert,
+      '&:hover': {
+        backgroundColor: colors.primary2,
+        border: border.thinPrimary
+      },
+      '&:active': {
+        backgroundColor: colors.primary2,
+        border: border.thinPrimary
+      },
+      '&:focus': {
+        backgroundColor: colors.primary2,
+        border: border.thinPrimary
+      }
     },
+    success: {
+      backgroundColor: colors.success,
+      border: border.thinSuccess,
+      color: colors.foregroundInvert,
+      '&:hover': {
+        backgroundColor: colors.success2,
+        border: border.thinSuccess
+      },
+      '&:active': {
+        backgroundColor: colors.success2,
+        border: border.thinSuccess
+      },
+      '&:focus': {
+        backgroundColor: colors.success2,
+        border: border.thinSuccess
+      }
+    },
+    warning: {
+      backgroundColor: colors.warning,
+      border: border.thinWarning,
+      color: colors.foregroundInvert,
+      '&:hover': {
+        backgroundColor: colors.warning2,
+        border: border.thinWarning
+      },
+      '&:active': {
+        backgroundColor: colors.warning2,
+        border: border.thinWarning
+      },
+      '&:focus': {
+        backgroundColor: colors.warning2,
+        border: border.thinWarning
+      }
+    },
+
+    /* =====================================
+    * Size 
+    * =================================== */
+
     large: {
       padding: '0 40px',
       lineHeight: '4'
     },
-    stretch: '100%'
+    small: {
+      padding: '0 15px',
+      lineHeight: '2'
+    },
+
+    /* =====================================
+    * Stretch 
+    * =================================== */
+    stretch: { width: '100%' }
   }
 }

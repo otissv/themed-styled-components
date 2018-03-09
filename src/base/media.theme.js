@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 export function media(

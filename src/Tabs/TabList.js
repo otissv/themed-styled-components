@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import autobind from 'class-autobind';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ const TabListStyled = styled.ul`
   ${props => props.styledTabList};
 `;
 
-export class TabList extends PureComponent {
+export class TabList extends Component {
   constructor(props) {
     super(...arguments);
     autobind(this);

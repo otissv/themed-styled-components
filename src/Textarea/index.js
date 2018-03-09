@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const TextareaStyled = styled.textarea`
@@ -40,7 +40,7 @@ function maybeModifier(initial) {
   return value => Boolean(initial && initial === value);
 }
 
-export class Textarea extends PureComponent {
+export class Textarea extends Component {
   render() {
     const isContext = maybeModifier(this.props.context);
     const isWidth = maybeModifier(this.props.widths);

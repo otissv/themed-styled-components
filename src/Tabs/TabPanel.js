@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const TabPanelStyled = styled.div`
@@ -7,7 +7,7 @@ const TabPanelStyled = styled.div`
   ${props => props.styledTabPanel};
 `;
 
-export class TabPanel extends PureComponent {
+export class TabPanel extends Component {
   render() {
     const { styledTabPanel, component } = this.props.item;
     const Component = component && component.element;

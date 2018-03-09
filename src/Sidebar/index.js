@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import autobind from 'class-autobind'
 import styled from 'styled-components'
 import { SidebarButton } from './SidebarButton'
@@ -31,7 +31,7 @@ const SidebarButtons = styled.div`
   display: ${props => props.theme.sidebar.buttons.display};
 `
 
-export class Sidebar extends PureComponent {
+export class Sidebar extends Component {
   constructor(props) {
     super(props)
     autobind(this)

@@ -1,4 +1,4 @@
-import { PureComponent } from 'react'
+import { Component } from 'react'
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { Button } from '../Button'
@@ -62,7 +62,7 @@ const OpenIcon = styled.div`
   ${props => props.styledSelectOpenIcon};
 `
 
-export class Select extends PureComponent {
+export class Select extends Component {
   constructor(props) {
     super(...arguments)
 

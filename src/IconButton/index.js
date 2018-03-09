@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { ButtonSquared } from './ButtonSquared'
 import { Svg } from './Svg'
 
-export class IconButton extends React.PureComponent {
+export class IconButton extends React.Component {
   render() {
     const {
       onClick,

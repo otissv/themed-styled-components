@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const LogoContainer = styled.div`
@@ -15,7 +15,7 @@ const LogoImg = styled.img`
   text-decoration: ${props => props.theme.logo.img.textDecoration};
 `;
 
-export class Logo extends PureComponent {
+export class Logo extends Component {
   render() {
     return (
       <LogoContainer>

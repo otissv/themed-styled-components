@@ -8,8 +8,15 @@ export function buttonGroup({
 }) {
   return {
     display: 'inline-flex',
-    verticalAlign: 'middle',
     position: 'relative',
-    stretch: 'flex'
+    transition: animation.easeMedium(),
+    verticalAlign: 'middle',
+
+    /* =====================================
+    * Stretch 
+    * =================================== */
+    stretch: {
+      display: 'flex'
+    }
   }
 }

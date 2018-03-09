@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ToolbarItemStyled = styled.li`
@@ -6,7 +6,7 @@ const ToolbarItemStyled = styled.li`
   ${props => props.styledToolbarItem};
 `;
 
-export class ToolbarItem extends PureComponent {
+export class ToolbarItem extends Component {
   render() {
     return <ToolbarItemStyled className="Toolbar-item" {...this.props} />;
   }

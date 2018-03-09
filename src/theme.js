@@ -7,6 +7,7 @@ import { close } from './Close/close.theme'
 import { form } from './Form/form.theme'
 import { iconButton } from './IconButton/iconButton.theme'
 import { input } from './Input/input.theme'
+import { link } from './Link/link.theme'
 import { list } from './List/list.theme'
 import { logo } from './Logo/logo.theme'
 import { modal } from './Modal/modal.theme'
@@ -22,16 +23,16 @@ import { textarea } from './Textarea/textarea.theme'
 import { toolbar } from './Toolbar/toolbar.theme'
 
 // shared
-import { animation as Animation } from './shared/animation.theme'
-import { border as Border } from './shared/border.theme'
-import { clearfix as Clearfix } from './shared/clearfix.theme'
-import { depth as Depth } from './shared/depth.theme'
-import { font as Font } from './shared/font.theme'
-import { globalStyles as Global } from './shared/global.theme'
-import { inject } from './shared/inject.theme'
-import { media as Media } from './shared/media.theme'
-import { scrollbar as Scrollbar } from './shared/scrollbar.theme'
-import { spacing as Spacing } from './shared/spacing.theme'
+import { animation as Animation } from './base/animation.theme'
+import { border as Border } from './base/border.theme'
+import { clearfix as Clearfix } from './base/clearfix.theme'
+import { depth as Depth } from './base/depth.theme'
+import { font as Font } from './base/font.theme'
+import { globalStyles as Global } from './base/global.theme'
+import { inject } from './base/inject.theme'
+import { media as Media } from './base/media.theme'
+import { scrollbar as Scrollbar } from './base/scrollbar.theme'
+import { spacing as Spacing } from './base/spacing.theme'
 
 const defaults = {
   animation: {},
@@ -95,6 +96,7 @@ export function theme(props = {}) {
       form: form(base),
       iconButton: iconButton(base),
       input: input(base),
+      link: link(base),
       list: list(base),
       logo: logo(base),
       modal: modal(base),

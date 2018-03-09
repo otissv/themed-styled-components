@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ListStyled = styled.ul`
@@ -10,7 +10,7 @@ const ListStyled = styled.ul`
   ${props => props.styledList};
 `;
 
-export class List extends PureComponent {
+export class List extends Component {
   render() {
     return <ListStyled className="List" {...this.props} />;
   }

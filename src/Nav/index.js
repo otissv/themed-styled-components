@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const NavStyled = styled.nav`
@@ -12,7 +12,7 @@ const NavStyled = styled.nav`
   ${props => props.styledNav};
 `;
 
-export class Nav extends PureComponent {
+export class Nav extends Component {
   render() {
     return <NavStyled className="Nav" {...this.props} />;
   }

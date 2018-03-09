@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import autobind from 'class-autobind'
 import styled from 'styled-components'
 import circleIcon from '../icons/form/circle.svg'
@@ -26,7 +26,7 @@ const Svg = styled(Isvg)`
   ${props => props.styledIcon};
 `
 
-class CloseTab extends PureComponent {
+class CloseTab extends Component {
   render() {
     const { onClick, src } = this.props
     return (
@@ -44,7 +44,7 @@ const TabItemStyled = styled.li`
   ${props => props.styledTabItem};
 `
 
-export class TabItem extends PureComponent {
+export class TabItem extends Component {
   constructor(props) {
     super(props)
     autobind(this)

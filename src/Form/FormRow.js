@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const FormRowStyled = styled.div`
@@ -7,7 +7,7 @@ const FormRowStyled = styled.div`
   ${props => props.styledFormRow};
 `;
 
-export class FormRow extends PureComponent {
+export class FormRow extends Component {
   render() {
     return <FormRowStyled {...this.props} />;
   }

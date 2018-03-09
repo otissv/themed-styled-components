@@ -25,5 +25,5 @@ export const light = makeColorScheme({
   success: '#32d296',
   success2: '#edfbf6',
   warning: '#faa05a',
-  warning: '#fff6ee'
+  warning2: '#fff6ee'
 })

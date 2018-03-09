@@ -46,22 +46,6 @@ stories
   )
 
   .add(
-    'Context - Primary Button',
-    withInfo(`
-      context="primary" adds the context styles to the button.
-    
-      ~~~js
-      <Button context="primary">Primary</Button>
-      ~~~
-
-      `)(() => (
-      <Button theme={theme()(colors)} context="primary">
-        Primary
-      </Button>
-    ))
-  )
-
-  .add(
     'Context - Danger Button',
     withInfo(`
       context="danger" adds the context styles to the button.
@@ -89,6 +73,54 @@ stories
       `)(() => (
       <Button theme={theme()(colors)} context="ghost">
         Ghost
+      </Button>
+    ))
+  )
+
+  .add(
+    'Context - Success Button',
+    withInfo(`
+      context="success" adds the context styles to the button.
+    
+      ~~~js
+      <Button context="primary">Success</Button>
+      ~~~
+
+      `)(() => (
+      <Button theme={theme()(colors)} context="success">
+        Success
+      </Button>
+    ))
+  )
+
+  .add(
+    'Context - Warning Button',
+    withInfo(`
+      context="warning" adds the context styles to the button.
+    
+      ~~~js
+      <Button context="warning">Warning</Button>
+      ~~~
+
+      `)(() => (
+      <Button theme={theme()(colors)} context="warning">
+        Warning
+      </Button>
+    ))
+  )
+
+  .add(
+    'Context - Primary Button',
+    withInfo(`
+      context="primary" adds the context styles to the button.
+    
+      ~~~js
+      <Button context="primary">Primary</Button>
+      ~~~
+
+      `)(() => (
+      <Button theme={theme()(colors)} context="primary">
+        Primary
       </Button>
     ))
   )

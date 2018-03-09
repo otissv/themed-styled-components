@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import autobind from 'class-autobind'
 import styled from 'styled-components'
 import { TabList } from './TabList'
@@ -13,7 +13,7 @@ const TabContainer = styled.div`
   flex: ${props => props.theme.tabs.flex};
 `
 
-export class Tabs extends PureComponent {
+export class Tabs extends Component {
   constructor(props) {
     super(...arguments)
     autobind(this)

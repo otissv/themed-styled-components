@@ -35,7 +35,6 @@ export function globalStyles({ colors, font, spacing, inject }) {
     button {
       font-family: ${font.serif};
       ${font.smooth};
-      font-weight: normal;
       letter-spacing: ${font.letterSpacing};
     }
 
@@ -46,14 +45,6 @@ export function globalStyles({ colors, font, spacing, inject }) {
       font-size: ${font.default};
     }
     
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-size: ${font.large};
-    }
 
     * {
       box-sizing: border-box;
@@ -64,7 +55,8 @@ export function globalStyles({ colors, font, spacing, inject }) {
       color: #ffffff;
     }
 
-    pre {
+    code,
+    pre code {
       font-size: ${font.small};
       font-family: ${font.code};
       line-height: 1.3;
@@ -73,8 +65,6 @@ export function globalStyles({ colors, font, spacing, inject }) {
     a, area, button, input, label, select, summary, textarea {
       touch-action: manipulation;
     }
-
-    
 
     ${inject}
   `

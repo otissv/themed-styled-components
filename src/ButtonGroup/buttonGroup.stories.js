@@ -79,33 +79,6 @@ stories
   )
 
   .add(
-    'Context - Primary Button Group',
-    withInfo(`
-    
-      ~~~js
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'primary' }}>
-        {buttonProps => <Fragment>
-          <Button {...buttonProps}>Primary</Button>
-          <Button {...buttonProps}>Primary</Button>
-          <Button {...buttonProps}>Primary</Button>
-          </Fragment>}
-      </ButtonGroup>
-      ~~~
-
-    `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'primary' }}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Primary</Button>
-            <Button {...buttonProps}>Primary</Button>
-            <Button {...buttonProps}>Primary</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
-    ))
-  )
-
-  .add(
     'Context - Danger Button Group',
     withInfo(`
          
@@ -162,6 +135,60 @@ stories
   )
 
   .add(
+    'Context - Success Button Group',
+    withInfo(`
+    
+      ~~~js
+      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'success' }}>
+        {buttonProps => <Fragment>
+          <Button {...buttonProps}>Success</Button>
+          <Button {...buttonProps}>Success</Button>
+          <Button {...buttonProps}>Success</Button>
+          </Fragment>}
+      </ButtonGroup>
+      ~~~
+
+    `)(() => (
+      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'success' }}>
+        {buttonProps => (
+          <Fragment>
+            <Button {...buttonProps}>Success</Button>
+            <Button {...buttonProps}>Success</Button>
+            <Button {...buttonProps}>Success</Button>
+          </Fragment>
+        )}
+      </ButtonGroup>
+    ))
+  )
+
+  .add(
+    'Context - Warning Button Group',
+    withInfo(`
+    
+      ~~~js
+      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'warning' }}>
+        {buttonProps => <Fragment>
+          <Button {...buttonProps}>Warning</Button>
+          <Button {...buttonProps}>Warning</Button>
+          <Button {...buttonProps}>Warning</Button>
+          </Fragment>}
+      </ButtonGroup>
+      ~~~
+
+    `)(() => (
+      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'warning' }}>
+        {buttonProps => (
+          <Fragment>
+            <Button {...buttonProps}>Warning</Button>
+            <Button {...buttonProps}>Warning</Button>
+            <Button {...buttonProps}>Warning</Button>
+          </Fragment>
+        )}
+      </ButtonGroup>
+    ))
+  )
+
+  .add(
     'Size - Small Button Group',
     withInfo(`
          
@@ -196,6 +223,10 @@ stories
     ))
   )
 
+  /* ==========================================================================
+  * Button Group Size
+  * ======================================================================== */
+
   .add(
     'Size - Large Button Group',
     withInfo(`
@@ -224,6 +255,10 @@ stories
       </ButtonGroup>
     ))
   )
+
+  /* ==========================================================================
+  * Button Group Stretch
+  * ======================================================================== */
 
   .add(
     'Stretch Button',

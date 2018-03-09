@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const FormErrorListStyled = styled.div`
@@ -14,7 +14,7 @@ const FormErrorListStyled = styled.div`
   ${props => props.styledFormErrorList};
 `;
 
-export class FormErrorList extends PureComponent {
+export class FormErrorList extends Component {
   getErrors = () => {
     const { list, errors } = this.props;
     return list ? errors.message : 'Some fields are incorrect';

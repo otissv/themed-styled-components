@@ -1,9 +1,5 @@
-export function close({ animation, colors }) {
+export function link({ animation, colors }) {
   return {
-    float: 'right',
-    border: 'none',
-    background: 'none',
-    outline: 'none',
     transition: animation.easeMedium(),
 
     /* =====================================
@@ -15,17 +11,14 @@ export function close({ animation, colors }) {
     danger: {
       color: colors.danger
     },
-    muted: {
-      color: colors.secondary
-    },
     primary: {
       color: colors.primary
     },
+    waring: {
+      color: colors.waring
+    },
     success: {
       color: colors.success
-    },
-    warning: {
-      color: colors.warning
     }
   }
 }

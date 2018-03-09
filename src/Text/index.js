@@ -1,223 +1,290 @@
-'use strict';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import {
+  getThemedValue,
+  kebabCase,
+  makeStyles,
+  stateStyled
+} from '../utils/theme.util'
+import styled from 'styled-components'
 
-import { PureComponent } from 'react';
-import styled from 'styled-components';
-import { getThemeProp } from '../utils/getThemeProp.util';
-
-function getTextConText(style, props) {
-  return getThemeProp({
-    theme: 'text',
-    prop: 'size',
-    props,
-    style
-  });
-}
-
-function getTextSize(style, props) {
-  return getThemeProp({
-    theme: 'text',
-    prop: 'b',
-    props,
-    style
-  });
-}
-
-const Link = styled.a`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Abbr = styled.abbr`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Code = styled.code`
-color: getTextConText('color', props);
-font-size: ${props => props.size || props.theme.text.fontSize}
-font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-${props => props.styledText};
-`;
-
-const Del = styled.del`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Dfn = styled.dfn`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Em = styled.em`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const H1 = styled.h1`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-const H2 = styled.h2`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const H3 = styled.h3`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const H4 = styled.h4`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const H5 = styled.h5`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const H6 = styled.h6`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Hr = styled.hr`
-  ${props => props.styledText};
-`;
-
-const Ins = styled.ins`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Q = styled.q`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Mark = styled.mark`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const P = styled.p`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Small = styled.small`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Span = styled.span`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-const Strong = styled.Strong`
-  color: getTextConText('color', props);
-  font-size: ${props => props.size || props.theme.text.fontSize}
-  font-weight: ${props => (props.bold && props.theme.text.bold) || null};
-  ${props => props.styledText};
-`;
-
-export class Text extends PureComponent {
-  render() {
-    const { children, href, title } = this.props;
-
-    // Elements
-    const type = {
-      a: (
-        <Link href={props.href} {...this.props}>
-          {children}
-        </Link>
-      ),
-
-      abbr: <Abbr {...this.props}>{children}</Abbr>,
-
-      code: <Code {...this.props}>{children}</Code>,
-
-      del: <Del {...this.props}>{children}</Del>,
-
-      dfn: (
-        <Dfn {...this.props} title={props.title}>
-          {children}
-        </Dfn>
-      ),
-
-      em: <Em {...this.props}>{children}</Em>,
-
-      h1: <H1 {...this.props}>{children}</H1>,
-
-      h2: <H2 {...this.props}>{children}</H2>,
-
-      h3: <H3 {...this.props}>{children}</H3>,
-
-      h4: <H4 {...this.props}>{children}</H4>,
-
-      h5: <H5 {...this.props}>{children}</H5>,
-
-      h6: <H6 {...this.props}>{children}</H6>,
-
-      hr: <Hr {...this.props} />,
-
-      ins: <Ins {...this.props}>{children}</Ins>,
-
-      mark: <Mark {...this.props}>{children}</Mark>,
-
-      q: <Q {...this.props}>{children}</Q>,
-
-      p: <P {...this.props}>{children}</P>,
-
-      small: <Small {...this.props}>{children}</Small>,
-
-      span: <Span {...this.props}>{children}</Span>,
-
-      strong: <Strong {...this.props}>{children}</Strong>
-    };
-
-    // Return Component
-    return type[props.type] || type['p'];
+function ignoreProps(ignore) {
+  return function(props) {
+    return Object.keys(props).reduce((previous, key) => {
+      if (ignore.includes(key)) return previous
+      return {
+        ...previous,
+        [key]: props[key]
+      }
+    }, {})
   }
 }
 
+const cleanProps = ignoreProps('type')
+
+function styles(props) {
+  const THEME = 'text'
+  const theme = props.theme[THEME]
+
+  return makeStyles(theme, key => {
+    const THEME = 'text'
+    const theme = props.theme[THEME]
+
+    switch (key) {
+      case 'color':
+        return `color: ${getThemedValue({
+          style: 'color',
+          props,
+          key: 'context',
+          theme: THEME
+        })};`
+      case 'fontSize':
+        return `font-size: ${getThemedValue({
+          style: 'fontSize',
+          props,
+          key: 'size',
+          theme: THEME
+        })};`
+      case 'fontWeight':
+        return `font-weight: ${getThemedValue({
+          style: 'fontWeight',
+          props,
+          key: 'bold',
+          theme: THEME
+        })};`
+      case 'lineHeight':
+        return `line-height: ${getThemedValue({
+          style: 'lineHeight',
+          props,
+          key: 'size',
+          theme: THEME
+        })};`
+
+      case '&:hover':
+        return stateStyled({
+          key,
+          props,
+          theme: THEME
+        })
+      case '&:active':
+        return stateStyled({
+          key,
+          props,
+          theme: THEME
+        })
+      case '&:focus':
+        return stateStyled({
+          key,
+          props,
+          theme: THEME
+        })
+      default:
+        return `${key[0] === '-' ? '-' : ''}${kebabCase(key)}: ${theme[key]};`
+    }
+  })
+}
+
+function textWrapStyles(props) {
+  if (!props.textWrap) return ''
+
+  const THEME = `text.${props.textWrap}`
+  const theme = props.theme[THEME]
+  return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
+}
+
+function getStyles(props) {
+  ;`${styles(props)} ${textWrapStyles(props)}`
+}
+
+const Link = styled.a`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Abbr = styled.abbr`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Code = styled.code`
+  ${props => getStyles(props)} ${props => {
+    const theme = props.theme.text.code
+    return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
+  }};
+
+  ${props => props.styled};
+`
+
+const Del = styled.del`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Dfn = styled.dfn`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Em = styled.em`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const H1 = styled.h1`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+const H2 = styled.h2`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const H3 = styled.h3`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const H4 = styled.h4`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const H5 = styled.h5`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const H6 = styled.h6`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Hr = styled.hr`
+  ${props => props.styledText};
+`
+
+const Ins = styled.ins`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Q = styled.q`
+  ${props => getStyles(props)} ${props => {
+    const theme = props.theme.text.q
+    return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
+  }};
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Mark = styled.mark`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const P = styled.p`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Sm = styled.small`
+  ${props => getStyles(props)} ${props => {
+    const theme = props.theme.text.small
+    return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
+  }};
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Span = styled.span`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+const Strong = styled.strong`
+  ${props => getStyles(props)} ${props => props.styled};
+`
+
+class Text extends Component {
+  static propTypes = {
+    bold: PropTypes.bool,
+    context: PropTypes.oneOf([
+      'accent',
+      'danger',
+      'muted',
+      'primary',
+      'success',
+      'warning'
+    ]),
+    heading: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+    href: PropTypes.string,
+    textWrap: PropTypes.oneOf(['truncate', 'break', 'nowrap']),
+    size: PropTypes.oneOf(['small', 'large']),
+    type: PropTypes.oneOf([
+      'a',
+      'abbr',
+      'code',
+      'del',
+      'dfn',
+      'em',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'h5',
+      'h6',
+      'hr',
+      'ins',
+      'mark',
+      'q',
+      'p',
+      'sm',
+      'span',
+      'strong'
+    ])
+  }
+
+  render() {
+    // Elements
+    const type = {
+      a: props => (
+        <Link href={props.href} {...props}>
+          {props.children}
+        </Link>
+      ),
+
+      abbr: props => <Abbr {...props}>{props.children}</Abbr>,
+
+      code: props => <Code {...props}>{props.children}</Code>,
+
+      del: props => <Del {...props}>{props.children}</Del>,
+
+      dfn: props => (
+        <Dfn {...props} title={props.title}>
+          {props.children}
+        </Dfn>
+      ),
+
+      em: props => <Em {...props}>{props.children}</Em>,
+
+      h1: props => <H1 {...props}>{props.children}</H1>,
+
+      h2: props => <H2 {...props}>{props.children}</H2>,
+
+      h3: props => <H3 {...props}>{props.children}</H3>,
+
+      h4: props => <H4 {...props}>{props.children}</H4>,
+
+      h5: props => <H5 {...props}>{props.children}</H5>,
+
+      h6: props => <H6 {...props}>{props.children}</H6>,
+
+      hr: props => <Hr {...props} />,
+
+      ins: props => <Ins {...props}>{props.children}</Ins>,
+
+      mark: props => <Mark {...props}>{props.children}</Mark>,
+
+      q: props => <Q {...props}>{props.children}</Q>,
+
+      p: props => <P {...props}>{props.children}</P>,
+
+      sm: props => <Sm {...props}>{props.children}</Sm>,
+
+      span: props => <Span {...props}>{props.children}</Span>,
+
+      strong: props => <Strong {...props}>{props.children}</Strong>
+    }
+
+    const Component = type[this.props.type] || type['p']
+    return <Component {...cleanProps(this.props)} />
+  }
+}
+
+export const text = styled(Text)
 // textAlign='left'	Aligns text to the left.
 // textAlign='leftSmall'	Aligns text to the left only on small devices.
 // textAlign='leftMedium'	Aligns text to the left on medium and small devices.
@@ -234,39 +301,6 @@ export class Text extends PureComponent {
 // textWrap='truncate'	Prevents text from wrapping into multiple lines, truncating it instead.
 // textWrap='break'	Breaks strings if their length exceeds the width of their container.
 // textWrap='nowrap'	Breaks strings if their length exceeds the width of their container.
-
-// Text.propTypes = {
-//   bold: React.PropTypes.bool,
-//   className: React.PropTypes.string,
-//   classes: React.PropTypes.array,
-//   context: React.PropTypes.oneOf(['muted', 'primary', 'success', 'warning', 'error', 'contrast']),
-//   heading: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-//   href: React.PropTypes.string,
-//   kitid: React.PropTypes.string,
-//   size: React.PropTypes.oneOf(['small', 'large']),
-//   type: React.PropTypes.oneOf([
-//     'a',
-//     'abbr',
-//     'code',
-//     'del',
-//     'dfn',
-//     'em',
-//     'h1',
-//     'h2',
-//     'h3',
-//     'h4',
-//     'h5',
-//     'h6',
-//     'hr',
-//     'ins',
-//     'mark',
-//     'q',
-//     'p',
-//     'small',
-//     'span',
-//     'strong'
-//   ])
-// };
 
 //   }
 // }

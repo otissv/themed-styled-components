@@ -1,4 +1,4 @@
-import { PureComponent } from 'react'
+import { Component } from 'react'
 import styled from 'styled-components'
 import { keysToUniqueList } from '../utils/keysToUniqueList.util'
 
@@ -48,7 +48,7 @@ function headFromBodyKeys(list) {
   return keysToUniqueList(list).map((k, i) => <Th key={i}>{k}</Th>)
 }
 
-export class TableHead extends PureComponent {
+export class TableHead extends Component {
   render() {
     const { body, head, numbered } = this.props
     return (

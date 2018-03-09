@@ -1,28 +1,16 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import kebabCase from 'lodash/fp/kebabCase'
-import { stateStyled } from '../utils/stateStyled.util'
-import { getThemedValue } from '../utils/getThemedValue.util'
-import { makeStyles } from '../utils/makeStyles.util'
+import { styles } from '../utils/theme.util'
 
 const ButtonGroupStyled = styled.div`
-  ${props => {
-    const THEME = 'buttonGroup'
-    const theme = props.theme[THEME]
+  ${styles('buttonGroup')};
+  ${styles('buttonGroup.stretch')};
 
-    return makeStyles(theme, key => {
-      switch (key) {
-        case 'display':
-          return `display: ${props.stretch ? theme.stretch : theme[key]};`
-        default:
-          return `${kebabCase(key)}: ${theme[key]};`
-      }
-    })
-  }};
+  ${props => props.styled};
 `
 
-class ButtonGroup extends PureComponent {
+class ButtonGroup extends Component {
   static propTypes = {
     buttonProps: PropTypes.object,
     children: PropTypes.func.isRequired,
@@ -41,4 +29,4 @@ class ButtonGroup extends PureComponent {
   }
 }
 
-export const buttonGroup= styled(ButtonGroup)
+export const buttonGroup = styled(ButtonGroup)

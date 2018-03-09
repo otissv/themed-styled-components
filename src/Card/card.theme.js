@@ -2,19 +2,14 @@ export function card({ animation, border, colors, depth, font, spacing }) {
   return {
     backgroundColor: colors.background,
     border: border.thinSecondary,
+    boxShadow: depth.d2,
     color: colors.foreground,
     marginBottom: 0,
-    width: '100%',
     maxWidth: '100%',
-    boxShadow: depth.d2,
     padding: `${spacing.small} ${spacing.large}`,
-    transition: `boxShadow ${animation.easeInOutFast}`,
+    transition: animation.easeMedium(),
+    width: '100%',
 
-    '&:hover': {
-      backgroundColor: colors.background,
-      border: border.thinTertiary,
-      boxShadow: depth.d3
-    },
     '&:focus': {
       backgroundColor: colors.background,
       border: border.thinTertiary,
@@ -25,13 +20,20 @@ export function card({ animation, border, colors, depth, font, spacing }) {
       border: border.thinTertiary,
       boxShadow: depth.d3
     },
+    '&:hover': {
+      backgroundColor: colors.background,
+      border: border.thinTertiary,
+      boxShadow: depth.d3
+    },
+
+    /* =====================================
+    * Context 
+    * =================================== */
+
     accent: {
       backgroundColor: colors.accent,
       color: colors.foregroundInvert,
-      '&:hover': {
-        backgroundColor: colors.accent2,
-        boxShadow: depth.d3
-      },
+
       '&:active': {
         backgroundColor: colors.accent2,
         boxShadow: depth.d3
@@ -39,41 +41,9 @@ export function card({ animation, border, colors, depth, font, spacing }) {
       '&:focus': {
         backgroundColor: colors.accent2,
         boxShadow: depth.d3
-      }
-    },
-    primary: {
-      backgroundColor: colors.primary,
-      color: colors.foregroundInvert,
+      },
       '&:hover': {
-        backgroundColor: colors.primary2,
-        boxShadow: depth.d3
-      },
-      '&:active': {
-        backgroundColor: colors.primary2,
-        boxShadow: depth.d3
-      },
-      '&:focus': {
-        backgroundColor: colors.primary2,
-        boxShadow: depth.d3
-      }
-    },
-    secondary: {
-      backgroundColor: colors.secondary,
-      border: border.thinSecondary,
-      color: colors.foregroundInvert,
-      '&:hover': {
-        backgroundColor: colors.foreground,
-        color: colors.secondary,
-        boxShadow: depth.d3
-      },
-      '&:active': {
-        backgroundColor: colors.foreground,
-        color: colors.secondary,
-        boxShadow: depth.d3
-      },
-      '&:focus': {
-        backgroundColor: colors.foreground,
-        color: colors.secondary,
+        backgroundColor: colors.accent2,
         boxShadow: depth.d3
       }
     },
@@ -81,15 +51,16 @@ export function card({ animation, border, colors, depth, font, spacing }) {
       backgroundColor: colors.danger,
       border: border.thinDanger,
       color: colors.foregroundInvert,
-      '&:hover': {
-        backgroundColor: colors.danger2,
-        boxShadow: depth.d3
-      },
+
       '&:active': {
         backgroundColor: colors.danger2,
         boxShadow: depth.d3
       },
       '&:focus': {
+        backgroundColor: colors.danger2,
+        boxShadow: depth.d3
+      },
+      '&:hover': {
         backgroundColor: colors.danger2,
         boxShadow: depth.d3
       }
@@ -97,7 +68,7 @@ export function card({ animation, border, colors, depth, font, spacing }) {
     ghost: {
       backgroundColor: colors.transparent,
       border: border.thinTransparent,
-      '&:hover': {
+      '&:active': {
         backgroundColor: colors.background,
         color: colors.foreground,
         boxShadow: depth.d3
@@ -107,55 +78,144 @@ export function card({ animation, border, colors, depth, font, spacing }) {
         color: colors.foreground,
         boxShadow: depth.d3
       },
-      '&:active': {
+      '&:hover': {
         backgroundColor: colors.background,
         color: colors.foreground,
         boxShadow: depth.d3
       }
     },
-    small: {
-      padding: spacing.small
+    success: {
+      backgroundColor: colors.success,
+      color: colors.foregroundInvert,
+
+      '&:active': {
+        backgroundColor: colors.success2,
+        boxShadow: depth.d3
+      },
+      '&:focus': {
+        backgroundColor: colors.success2,
+        boxShadow: depth.d3
+      },
+      '&:hover': {
+        backgroundColor: colors.success2,
+        boxShadow: depth.d3
+      }
     },
+    warning: {
+      backgroundColor: colors.warning,
+      color: colors.foregroundInvert,
+
+      '&:active': {
+        backgroundColor: colors.warning2,
+        boxShadow: depth.d3
+      },
+      '&:focus': {
+        backgroundColor: colors.warning2,
+        boxShadow: depth.d3
+      },
+      '&:hover': {
+        backgroundColor: colors.warning2,
+        boxShadow: depth.d3
+      }
+    },
+
+    /* =====================================
+    * Collapse 
+    * =================================== */
+    collapse: {
+      padding: 0
+    },
+
+    /* =====================================
+    * Size 
+    * =================================== */
+
     large: {
       padding: spacing.xlarge
     },
-    body: {
-      padding: spacing.large
+    small: {
+      padding: spacing.small
     },
+
+    /* =====================================
+    * Card Header 
+    * =================================== */
+
     header: {
+      borderBottom: border.thinSecondary,
+      padding: `${spacing.small} ${spacing.large}`,
+      transition: animation.easeMedium(),
+
+      // image
       image: {
         pos: 'flex-start'
       },
-      borderBottom: border.thinSecondary,
-      padding: `${spacing.small} ${spacing.large}`,
-      small: {
-        padding: spacing.small
+
+      // Collapse
+      collapse: {
+        padding: 0
       },
+
+      // Size
       large: {
         padding: spacing.xlarge
+      },
+      small: {
+        padding: spacing.small
       }
     },
+
+    /* =====================================
+    * Card Body 
+    * =================================== */
+
     body: {
-      padding: ` 30px 30px`,
-      small: {
-        padding: spacing.small
+      padding: spacing.large,
+      transition: animation.easeMedium(),
+
+      // Collapse
+      collapse: {
+        padding: 0
       },
+
+      // Size
       large: {
         padding: spacing.xlarge
+      },
+      small: {
+        padding: spacing.small
       }
     },
+
+    /* =====================================
+    * Card Meta 
+    * =================================== */
     meta: {
       fontSize: font.xsmall,
-      color: colors.secondary
+      color: colors.secondary,
+      transition: animation.easeMedium()
     },
+
+    /* =====================================
+    * Card Footer 
+    * =================================== */
+
     footer: {
       borderTop: border.thinSecondary,
       padding: `${spacing.small} ${spacing.large}`,
-      small: {
-        padding: spacing.small
+      transition: animation.easeMedium(),
+
+      // Collapse
+      collapse: {
+        padding: 0
       },
+
+      // Size
       large: {
         padding: spacing.xlarge
+      },
+      small: {
+        padding: spacing.small
       }
     }
   }

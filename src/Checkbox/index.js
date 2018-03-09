@@ -1,77 +1,13 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import kebabCase from 'lodash/fp/kebabCase'
-import { stateStyled } from '../utils/stateStyled.util'
-import { getThemedValue } from '../utils/getThemedValue.util'
-import { makeStyles } from '../utils/makeStyles.util'
+import { styles } from '../utils/theme.util'
 
 const CheckboxStyled = styled.input`
-  ${props => {
-    const THEME = 'checkbox'
-    const theme = props.theme[THEME]
-
-    return makeStyles(theme, key => {
-      switch (key) {
-        case 'backgroundColor':
-          return `background-color: ${getThemedValue({
-            style: 'backgroundColor',
-            props,
-            key: 'context',
-            theme: THEME
-          })};`
-        case 'border':
-          return `border: ${getThemedValue({
-            style: 'border',
-            props,
-            key: 'context',
-            theme: THEME
-          })};`
-        case 'color':
-          return `color: ${getThemedValue({
-            style: 'color',
-            props,
-            key: 'context',
-            theme: THEME
-          })};`
-        case 'height':
-          return `height: ${getThemedValue({
-            style: 'height',
-            props,
-            key: 'size',
-            theme: THEME
-          })};`
-        case 'width':
-          return `width: ${getThemedValue({
-            style: 'width',
-            props,
-            key: 'size',
-            theme: THEME
-          })};`
-
-        case '&:hover':
-          return stateStyled({
-            key,
-            props,
-            theme: THEME
-          })
-        case '&:active':
-          return stateStyled({
-            key,
-            props,
-            theme: THEME
-          })
-        case '&:focus':
-          return stateStyled({
-            key,
-            props,
-            theme: THEME
-          })
-        default:
-          return `${key[0] === '-' ? '-' : ''}${kebabCase(key)}: ${theme[key]};`
-      }
-    })
-  }} &:checked, 
+  ${styles('checkbox')};
+  ${styles('checkbox', 'context')};
+  ${styles('checkbox', 'size')};
+  &:checked,
   &:indeterminate {
     background-color: ${props =>
       props.theme.checkbox['&:checked'].backgroundColor};
@@ -80,36 +16,31 @@ const CheckboxStyled = styled.input`
       props.theme.checkbox['&:checked'].backgroundImage});
   }
 
-  ${props => props.styledButton};
+  ${props => props.styled};
 `
 
 const Label = styled.label`
-  ${props => {
-    const theme = props.theme.checkbox.label
+  ${props => styles(props.theme.checkbox.label)};
+  ${props =>
+    props.context && styles(props.theme.checkbox.label[props.context])};
+  ${props => props.size && styles(props.theme.checkbox.label[props.size])};
 
-    return makeStyles(theme, key => {
-      switch (key) {
-        case 'fontSize':
-          return `font-size: ${getThemedValue({
-            style: 'fontSize',
-            props,
-            key: 'size',
-            theme: 'checkbox.label'
-          })}`
-        default:
-          return `${key[0] === '-' ? '-' : ''}${kebabCase(key)}: ${theme[key]};`
-      }
-    })
-  }}};
+  ${props => props.styled};
 `
 
-class Checkbox extends PureComponent {
+class Checkbox extends Component {
   static propTypes = {
     labelProps: PropTypes.object,
-    children: PropTypes.any.isRequired,
+    children: PropTypes.any,
+    context: PropTypes.oneOf([
+      'accent',
+      'danger',
+      'primary',
+      'success',
+      'warning'
+    ]),
     onChange: PropTypes.func.isRequired,
-    theme: PropTypes.object.isRequired,
-    context: PropTypes.oneOf(['primary', 'secondary', 'danger'])
+    theme: PropTypes.object.isRequired
   }
 
   render() {

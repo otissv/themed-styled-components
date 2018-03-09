@@ -1,89 +1,28 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import kebabCase from 'lodash/fp/kebabCase'
-import { stateStyled } from '../utils/stateStyled.util'
-import { getThemedValue } from '../utils/getThemedValue.util'
-import { makeStyles } from '../utils/makeStyles.util'
+import { styles } from '../utils/theme.util'
 
 const ButtonStyled = styled.button`
-  ${props => {
-    const THEME = 'button'
-    const theme = props.theme[THEME]
+  ${styles('button')};
+  ${styles('button', 'context')};
+  ${styles('button', 'size')};
+  ${styles('button.stretch')};
 
-    return makeStyles(theme, key => {
-      switch (key) {
-        case 'backgroundColor':
-          return `background-color: ${getThemedValue({
-            style: 'backgroundColor',
-            props,
-            key: 'context',
-            theme: THEME
-          })};`
-        case 'border':
-          return `border: ${getThemedValue({
-            style: 'border',
-            props,
-            key: 'context',
-            theme: THEME
-          })};`
-        case 'color':
-          return `color: ${getThemedValue({
-            style: 'color',
-            props,
-            key: 'context',
-            theme: THEME
-          })};`
-        case 'lineHeight':
-          return `line-height: ${getThemedValue({
-            style: 'lineHeight',
-            props,
-            key: 'size',
-            theme: THEME
-          })};`
-        case 'padding':
-          return `padding: ${getThemedValue({
-            style: 'padding',
-            props,
-            key: 'size',
-            theme: THEME
-          })};`
-        case 'stretch':
-          return ` ${props.stretch ? 'width:' + getThemedValue({
-                  style: 'stretch',
-                  props: { ...props, stretch: null },
-                  key: 'stretch',
-                  theme: THEME
-                }) : ''};`
-        case '&:hover':
-          return stateStyled({
-            key,
-            props,
-            theme: THEME
-          })
-        case '&:active':
-          return stateStyled({
-            key,
-            props,
-            theme: THEME
-          })
-        case '&:focus':
-          return stateStyled({
-            key,
-            props,
-            theme: THEME
-          })
-        default:
-          return `${kebabCase(key)}: ${theme[key]};`
-      }
-    })
-  }};
+  ${props => props.styled};
 `
 
-export class Button extends PureComponent {
+export class Button extends Component {
   static propTypes = {
     size: PropTypes.oneOf(['small', 'large']),
-    context: PropTypes.oneOf(['accent', 'primary', 'danger', 'ghost']),
+    context: PropTypes.oneOf([
+      'accent',
+      'danger',
+      'primary',
+      'success',
+      'warning',
+      'ghost'
+    ]),
     theme: PropTypes.object.isRequired
   }
 

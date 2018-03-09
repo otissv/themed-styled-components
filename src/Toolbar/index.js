@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ToolbarStyled = styled.ul`
@@ -9,7 +9,7 @@ const ToolbarStyled = styled.ul`
   ${props => props.styledToolbar};
 `;
 
-export class Toolbar extends PureComponent {
+export class Toolbar extends Component {
   render() {
     return (
       <ToolbarStyled className="Toolbar" {...this.props}>

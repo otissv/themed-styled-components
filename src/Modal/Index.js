@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import autobind from 'class-autobind'
 import styled from 'styled-components'
 import { Button } from '../Button'
@@ -77,7 +77,7 @@ const DialogSubmit = props => {
   ) : null
 }
 
-export class InputModal extends PureComponent {
+export class InputModal extends Component {
   constructor(props) {
     super(...arguments)
     autobind(this)

@@ -1,32 +1,32 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { makeStyles } from '../utils/makeStyles.util'
-import kebabCase from 'lodash/fp/kebabCase'
-import { getThemedValue } from '../utils/getThemedValue.util'
-import { Svg } from '../Svg'
+import { styles } from '../utils/theme.util'
+import { svg } from '../Svg'
 import closeIcon from '../icons/web-application/close.svg'
 
-const CloseStyled = styled.button`
-  ${props => {
-    const theme = props.theme.close
-    console.log(theme)
+const Svg = svg``
 
-    return makeStyles(theme, key => {
-      switch (key) {
-        default:
-          return `${kebabCase(key)}: ${theme[key]};`
-      }
-    })
-  }};
+const CloseStyled = styled.button`
+  ${styles('close')};
+  ${styles('close', 'context')};
+  ${styles('close', 'size')};
+
+  ${props => props.styled};
 `
 
-class Close extends React.PureComponent {
+class Close extends React.Component {
   static propTypes = {
     svgProps: PropTypes.object,
     onClick: PropTypes.func,
     theme: PropTypes.object.isRequired,
-    context: PropTypes.oneOf(['primary', 'secondary', 'danger'])
+    context: PropTypes.oneOf([
+      'accent',
+      'danger',
+      'primary',
+      'success',
+      'warning'
+    ])
   }
 
   render() {

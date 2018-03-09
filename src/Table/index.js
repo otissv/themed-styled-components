@@ -1,4 +1,4 @@
-import { PureComponent } from 'react'
+import { Component } from 'react'
 import styled from 'styled-components'
 import { TableRows } from './Table-rows'
 import { TableHead } from './Table-head'
@@ -24,7 +24,7 @@ const Caption = styled.caption`
   ${props => props.styledCation};
 `
 
-export class TableStyled extends PureComponent {
+export class TableStyled extends Component {
   render() {
     const { numbered, head, body, caption, children, overflow } = this.props
     const thead = head ? (

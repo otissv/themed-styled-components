@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import autobind from 'class-autobind';
 import styled from 'styled-components';
 
@@ -54,7 +54,7 @@ const Indicator = styled.span`
   width: ${props => props.theme.accordion.button.indicator.width};
 `;
 
-export class AccordionButton extends PureComponent {
+export class AccordionButton extends Component {
   constructor(props) {
     super(props);
     autobind(this);

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const ButtonSquaredStyled = styled.button`
@@ -35,7 +35,7 @@ const ButtonSquaredStyled = styled.button`
   ${props => props.styledButtonSquared};
 `;
 
-export class ButtonSquared extends PureComponent {
+export class ButtonSquared extends Component {
   render() {
     return <ButtonSquaredStyled className="Button-Circle" {...this.props} />;
   }

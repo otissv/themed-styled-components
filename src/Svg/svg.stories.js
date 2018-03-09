@@ -26,41 +26,91 @@ stories
     `)(() => <Svg theme={theme()(colors)} src={homeIcon} />)
   )
 
+  /* ==========================================================================
+  * SVG Context
+  * ======================================================================== */
   .add(
-    'Context - Primary Svg',
+    'Context - Accent Svg',
     withInfo(`
-  
-      ~~~js
-      import homeIcon from '../icons/web-application/home.svg'
-      ...
 
-      ~~~
+    ~~~js
+    import homeIcon from '../icons/web-application/home.svg'
+    ...
 
-    `)(() => <Svg context="primary" theme={theme()(colors)} src={homeIcon} />)
+    ~~~
+
+  `)(() => <Svg context="accent" theme={theme()(colors)} src={homeIcon} />)
   )
 
   .add(
-    'Context - Secondary Svg',
+    'Context - Danger Svg',
     withInfo(`
-  
+
       ~~~js
       import homeIcon from '../icons/web-application/home.svg'
       ...
 
       ~~~
 
-    `)(() => <Svg context="secondary" theme={theme()(colors)} src={homeIcon} />)
+    `)(() => <Svg context="danger" theme={theme()(colors)} src={homeIcon} />)
+  )
+
+  .add(
+    'Context - Success Svg',
+    withInfo(`
+
+      ~~~js
+      import homeIcon from '../icons/web-application/home.svg'
+      ...
+
+      ~~~
+
+    `)(() => <Svg context="success" theme={theme()(colors)} src={homeIcon} />)
+  )
+
+  .add(
+    'Context - Warning Svg',
+    withInfo(`
+
+      ~~~js
+      import homeIcon from '../icons/web-application/home.svg'
+      ...
+
+      ~~~
+
+    `)(() => <Svg context="warning" theme={theme()(colors)} src={homeIcon} />)
+  )
+
+  /* ==========================================================================
+  * SVG Size
+  * ======================================================================== */
+
+  .add(
+    'Size - Large Svg',
+    withInfo(`
+
+    ~~~js
+    import homeIcon from '../icons/web-application/home.svg'
+    ...
+
+    <Svg size="large" theme={theme()(colors)} src={homeIcon} />
+
+    ~~~
+
+  `)(() => <Svg size="large" theme={theme()(colors)} src={homeIcon} />)
   )
 
   .add(
     'Size - Small Svg',
     withInfo(`
-  
-      ~~~js
-      import homeIcon from '../icons/web-application/home.svg'
-      ...
 
-      ~~~
+~~~js
+  import homeIcon from '../icons/web-application/home.svg'
+  ...
 
-    `)(() => <Svg size="small" theme={theme()(colors)} src={homeIcon} />)
+  <Svg size="small" theme={theme()(colors)} src={homeIcon} />
+
+  ~~~
+
+`)(() => <Svg size="small" theme={theme()(colors)} src={homeIcon} />)
   )

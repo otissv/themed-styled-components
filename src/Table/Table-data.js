@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { Component } from 'react';
 import styled from 'styled-components';
 
 export const Td = styled.td`

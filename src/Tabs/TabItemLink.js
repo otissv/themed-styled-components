@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const TabItemLinkStyled = styled.a`
@@ -25,7 +25,7 @@ const TabItemLinkStyled = styled.a`
   ${props => props.styledTabItemLink};
 `;
 
-export class TabItemLink extends PureComponent {
+export class TabItemLink extends Component {
   render() {
     return (
       <TabItemLinkStyled className="Tab-item-link" {...this.props}>

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 
 import { Link } from 'react-router-dom'
@@ -29,7 +29,7 @@ const TabItemNavLinkStyled = styled(LinkWrapper)`
   ${props => props.styledTabNavItemLink};
 `
 
-export class TabItemNavLink extends PureComponent {
+export class TabItemNavLink extends Component {
   render() {
     return (
       <TabItemNavLinkStyled className="Tab-item-link" {...this.props}>

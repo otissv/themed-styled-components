@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const AccordionContentStyled = styled.div`
@@ -6,7 +6,7 @@ const AccordionContentStyled = styled.div`
   ${props => props.styledAccordionContent};
 `;
 
-export class AccordionContent extends PureComponent {
+export class AccordionContent extends Component {
   render() {
     return (
       <AccordionContentStyled className="Accordion-content" {...this.props} />

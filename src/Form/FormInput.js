@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
 import { FormRow } from './FormRow'
 import { FormLabel } from './FormLabel'
@@ -7,7 +7,7 @@ import { Input } from '../Input'
 import { Select } from '../Select'
 import { Checkbox } from '../Checkbox'
 
-export class FormInput extends PureComponent {
+export class FormInput extends Component {
   getInputType = () => {
     const {
       aligned,

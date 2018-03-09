@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const InputStyled = styled.input`
@@ -53,7 +53,7 @@ function maybeModifier(initial) {
   return value => Boolean(initial && initial === value);
 }
 
-export class Input extends PureComponent {
+export class Input extends Component {
   render() {
     const isContext = maybeModifier(this.props.context);
 
