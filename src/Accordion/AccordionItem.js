@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component, Children } from 'react'
+import styled from 'styled-components'
+import { styles, sharedStyles } from '../utils/theme.util'
 
-const AccordionItemStyled = styled.ul`
-  cursor: ${props => props.theme.accordion.item.cursor};
-  cursor: ${props => props.theme.accordion.item.cursor};
-  font-size: ${props => props.theme.accordion.item.fontSize};
-  line-height: ${props => props.theme.accordion.item.lineHeight};
-  margin: ${props => props.theme.accordion.item.margin};
-  overflow: ${props => props.theme.accordion.item.overflow};
-  padding: ${props => props.theme.accordion.item.padding};
+const AccordionItemStyled = styled.li`
+  ${styles('accordion.item')};
+  ${sharedStyles('accordion.item')};
+  ${props => props.styled};
+`
 
-  ${props => props.styledAccordionItem};
-`;
-
-export default class AccordionItem extends Component {
+class AccordionItem extends Component {
   render() {
-    return <AccordionItemStyled className="Accordion-item" {...this.props} />;
+    const { children, theme } = this.props
+    return (
+      <AccordionItemStyled className="Accordion-item" {...this.props}>
+        {children({ theme })}
+      </AccordionItemStyled>
+    )
   }
 }
+
+export const accordionItem = styled(AccordionItem)

@@ -7,55 +7,82 @@ import { text } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
-import homeIcon from '../icons/web-application/home.svg'
 
 const Text = text``
 const stories = storiesOf('Text', module)
 
-stories.add(
-  'Default Text',
-  withInfo(`
+stories
+  .add(
+    'Default Text',
+    withInfo(`
   
       ~~~js
       <Text theme={theme()(colors)}>Default text</Text>
       ~~~
 
     `)(() => <Text theme={theme()(colors)}>Default text</Text>)
-)
+  )
 
-stories
+  /* ========================================================
+  *  Bold
+  *  ===================================================== */
 
   .add(
-    'Type - a',
+    'Bold Text',
+    withInfo(`
+
+  Usage
+
+  ~~~js
+  <Text bold={true} theme={theme()(colors)}>
+    bold text.
+  </Text>
+  ~~~
+
+`)(() => (
+      <div>
+        <Text bold theme={theme()(colors)}>
+          Bold text.
+        </Text>
+      </div>
+    ))
+  )
+
+  /* ========================================================
+  *  Element
+  *  ===================================================== */
+
+  .add(
+    'Element - a',
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)} type="a">
-      a type.
+      <Text theme={theme()(colors)} element="a">
+      a element.
       </Text>
       ~~~
 
     `)(() => (
       <div>
-        Turn text into hypertext using the
-        <Text theme={theme()(colors)} type="a">
-          a type.
+        Turn text into hypertext using the{' '}
+        <Text href="#" theme={theme()(colors)} element="a">
+          a element.
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - abbr',
+    'Element - abbr',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="abbr"
+          element="abbr"
           title="Abbreviation Component"
         >
-          abbr type
+          abbr element
         </Text>
       ~~~
 
@@ -64,366 +91,475 @@ stories
         Define an abbreviation using the{' '}
         <Text
           theme={theme()(colors)}
-          type="abbr"
+          element="abbr"
           title="Abbreviation Component"
         >
-          abbr type
+          abbr element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - code',
+    'Element - code',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="code"
+          element="code"
         >
-          code type
+          code element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define inline code snippets using the{' '}
-        <Text theme={theme()(colors)} type="code">
-          code type
+        <Text theme={theme()(colors)} element="code">
+          code element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - del',
+    'Element - del',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="del"
+          element="del"
         >
-        del type
+        del element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Mark document changes as deleted text using the{' '}
-        <Text theme={theme()(colors)} type="del">
-          del type
+        <Text theme={theme()(colors)} element="del">
+          del element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - dfn',
+    'Element - dfn',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="dfn"
+          element="dfn"
         >
-        dfn type
+        dfn element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a definition term using the{' '}
-        <Text theme={theme()(colors)} type="dfn">
-          dfn type
+        <Text theme={theme()(colors)} element="dfn">
+          dfn element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - em',
+    'Element - em',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="em"
+          element="em"
         >
-        em type
+        em element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a definition term using the{' '}
-        <Text theme={theme()(colors)} type="em">
-          em type
+        <Text theme={theme()(colors)} element="em">
+          em element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - h1',
+    'Element - h1',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="h1"
+          element="h1"
         >
-        h1 type
+        h1 element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a h1 heading term using the{' '}
-        <Text theme={theme()(colors)} type="h1" styled="display:inline;">
-          h1 type
+        <Text theme={theme()(colors)} element="h1" styled="display:inline;">
+          h1 element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - h2',
+    'Element - h2',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="h2"
+          element="h2"
         >
-        h2 type
+        h2 element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a h2 heading term using the{' '}
-        <Text theme={theme()(colors)} type="h2" styled="display:inline;">
-          h2 type
+        <Text theme={theme()(colors)} element="h2" styled="display:inline;">
+          h2 element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - h3',
+    'Element - h3',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="h3"
+          element="h3"
         >
-        h3 type
+        h3 element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a h3 heading term using the{' '}
-        <Text theme={theme()(colors)} type="h3" styled="display:inline;">
-          h3 type
+        <Text theme={theme()(colors)} element="h3" styled="display:inline;">
+          h3 element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - h4',
+    'Element - h4',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="h4"
+          element="h4"
         >
-        h4 type
+        h4 element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a h4 heading term using the{' '}
-        <Text theme={theme()(colors)} type="h4" styled="display:inline;">
-          h4 type
+        <Text theme={theme()(colors)} element="h4" styled="display:inline;">
+          h4 element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - h5',
+    'Element - h5',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="h5"
+          element="h5"
         >
-        h5 type
+        h5 element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a h5 heading term using the{' '}
-        <Text theme={theme()(colors)} type="h5" styled="display:inline;">
-          h5 type
+        <Text theme={theme()(colors)} element="h5" styled="display:inline;">
+          h5 element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - h6',
+    'Element - h6',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="h6"
+          element="h6"
         >
-        h6 type
+        h6 element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define a h6 heading term using the{' '}
-        <Text theme={theme()(colors)} type="h6" styled="display:inline;">
-          h6 type
+        <Text theme={theme()(colors)} element="h6" styled="display:inline;">
+          h6 element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - hr',
+    'Element - hr',
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)} type="hr"/>
+      <Text theme={theme()(colors)} element="hr"/>
       ~~~
 
     `)(() => (
       <div>
-        <Text theme={theme()(colors)} type="hr" />
+        <Text theme={theme()(colors)} element="hr" />
       </div>
     ))
   )
 
   .add(
-    'Type - q',
+    'Element - q',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="q"
+          element="q"
         >
-        q type
+        q element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define inline quotations using{' '}
-        <Text theme={theme()(colors)} type="q">
-          q type
+        <Text theme={theme()(colors)} element="q">
+          q element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - sm',
+    'Element - sm',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="sm"
+          element="sm"
         >
-        sm type
+        sm element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         De-emphasize text for sm print using the{' '}
-        <Text theme={theme()(colors)} type="sm">
-          sm type
+        <Text theme={theme()(colors)} element="sm">
+          sm element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - span',
+    'Element - span',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="span"
+          element="span"
         >
-        span type
+        span element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Define parts of inline text with the{' '}
-        <Text theme={theme()(colors)} type="span">
-          span type
+        <Text theme={theme()(colors)} element="span">
+          span element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - strong',
+    'Element - strong',
     withInfo(`
   
       ~~~js
       <Text
           theme={theme()(colors)}
-          type="strong"
+          element="strong"
         >
-        strong type
+        strong element
         </Text>
       ~~~
 
     `)(() => (
       <div>
         Impliy any extra importance using the{' '}
-        <Text theme={theme()(colors)} type="strong">
-          strong type
+        <Text theme={theme()(colors)} element="strong">
+          strong element
         </Text>
       </div>
     ))
   )
 
   .add(
-    'Type - p',
+    'Element - p',
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)} type="p">
-        Define a paragraph using the p type.
+      <Text theme={theme()(colors)} element="p">
+        Define a paragraph using the p element.
       </Text>
       ~~~
 
     `)(() => (
       <div>
-        <Text theme={theme()(colors)} type="p">
-          Define a paragraph using the p type.
+        <Text theme={theme()(colors)} element="p">
+          Define a paragraph using the p element.
+        </Text>
+      </div>
+    ))
+  )
+
+  /* ========================================================
+  *  Context
+  *  ===================================================== */
+
+  .add(
+    'Context - Accent Text',
+    withInfo(`
+
+  Usage
+
+  ~~~js
+  <Text context='accent' theme={theme()(colors)}>
+    Accent text.
+  </Text>
+  ~~~
+
+`)(() => (
+      <div>
+        <Text context="accent" theme={theme()(colors)}>
+          Accent text.
+        </Text>
+      </div>
+    ))
+  )
+
+  .add(
+    'Context - Danger Text',
+    withInfo(`
+
+  Usage
+
+  ~~~js
+  <Text context='danger' theme={theme()(colors)}>
+    Danger text.
+  </Text>
+  ~~~
+
+`)(() => (
+      <div>
+        <Text context="danger" theme={theme()(colors)}>
+          Danger text.
+        </Text>
+      </div>
+    ))
+  )
+
+  .add(
+    'Context - Muted Text',
+    withInfo(`
+
+  Usage
+
+  ~~~js
+  <Text context='muted' theme={theme()(colors)}>
+    Muted text.
+  </Text>
+  ~~~
+
+`)(() => (
+      <div>
+        <Text context="muted" theme={theme()(colors)}>
+          Muted text.
+        </Text>
+      </div>
+    ))
+  )
+
+  .add(
+    'Context - Success Text',
+    withInfo(`
+
+  Usage
+
+  ~~~js
+  <Text context='success' theme={theme()(colors)}>
+    Success text.
+  </Text>
+  ~~~
+
+`)(() => (
+      <div>
+        <Text context="success" theme={theme()(colors)}>
+          Success text.
+        </Text>
+      </div>
+    ))
+  )
+
+  .add(
+    'Context - Warning Text',
+    withInfo(`
+
+  Usage
+
+  ~~~js
+  <Text context='warning' theme={theme()(colors)}>
+    Warning text.
+  </Text>
+  ~~~
+
+`)(() => (
+      <div>
+        <Text context="warning" theme={theme()(colors)}>
+          Warning text.
         </Text>
       </div>
     ))

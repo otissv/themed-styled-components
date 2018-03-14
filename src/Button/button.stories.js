@@ -14,7 +14,7 @@ const stories = storiesOf('Button', module)
 
 stories
   .add(
-    'Default Button',
+    'Default - Button',
     withInfo(`
       Button component
     
@@ -166,7 +166,7 @@ stories
   *  ===================================================== */
 
   .add(
-    'Stretch',
+    'Stretch - Button',
     withInfo(`
     stretch makes the button fit the full width.
   

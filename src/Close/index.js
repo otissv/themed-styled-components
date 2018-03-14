@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { styles } from '../utils/theme.util'
-import { svg } from '../Svg'
-import closeIcon from '../icons/web-application/close.svg'
+import { styles, sharedStyles } from '../utils/theme.util'
+import { icon } from '../Icon'
 
-const Svg = svg``
+const Icon = icon``
 
 const CloseStyled = styled.button`
   ${styles('close')};
   ${styles('close', 'context')};
   ${styles('close', 'size')};
-
+  ${sharedStyles('close')};
   ${props => props.styled};
 `
 
@@ -30,10 +29,10 @@ class Close extends React.Component {
   }
 
   render() {
-    const { onClick, svgProps, theme } = this.props
+    const { onClick, svgProps, theme, iconProps } = this.props
     return (
       <CloseStyled onClick={onClick} theme={theme}>
-        <Svg src={closeIcon} {...svgProps} theme={theme} />
+        <Icon icon="close" {...iconProps} theme={theme} />
       </CloseStyled>
     )
   }

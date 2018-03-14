@@ -12,7 +12,7 @@ const Row = row``
 const stories = storiesOf('Row', module)
 
 stories.add(
-  'Default Row',
+  'Default - Row',
   withInfo(`
   
       ~~~js

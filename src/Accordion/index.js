@@ -1,17 +1,28 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { styles, sharedStyles } from '../utils/theme.util'
 
 const AccordionStyled = styled.ul`
-  flex: ${props => props.theme.accordion.flex};
-  list-style-type: ${props => props.theme.accordion.listStyleType};
-  margin: ${props => props.theme.accordion.margin};
-  padding: ${props => props.theme.accordion.padding};
+  ${styles('accordion')};
+  ${sharedStyles('accordion')};
+  ${props => props.styled};
+`
 
-  ${props => props.styledAccordion};
-`;
-
-export class Accordion extends Component {
+class Accordion extends Component {
   render() {
-    return <AccordionStyled className="Accordion" {...this.props} />;
+    const { children, theme } = this.props
+
+    return (
+      <AccordionStyled className="Accordion" {...this.props}>
+        {children({
+          theme,
+          buttonProps: { theme },
+          contentProps: { theme },
+          itemProps: { theme }
+        })}
+      </AccordionStyled>
+    )
   }
 }
+
+export const accordion = styled(Accordion)

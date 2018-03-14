@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import autobind from 'class-autobind'
 import styled from 'styled-components'
 import { SidebarButton } from './SidebarButton'
-import { Svg } from '../Svg'
+import { Icon } from '../Icon'
 
 const Container = styled.div`
   background: ${props => props.theme.sidebar.background};
@@ -68,7 +68,7 @@ export class Sidebar extends Component {
               onClick={this.handleOnSidebarButtonClick}
               active={active === 'left'}
             >
-              <Svg src={buttonLeft.icon} />
+              <Icon src={buttonLeft.icon} />
             </SidebarButton>
           ) : null}
 
@@ -81,7 +81,7 @@ export class Sidebar extends Component {
               onClick={this.handleOnSidebarButtonClick}
               active={active === 'right'}
             >
-              <Svg src={buttonRight.icon} />
+              <Icon src={buttonRight.icon} />
             </SidebarButton>
           ) : null}
         </SidebarButtons>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { styles } from '../utils/theme.util'
+import { styles, sharedStyles } from '../utils/theme.util'
 
 const RowStyled = styled.div`
   ${styles('row')};
   ${styles('row', 'context')};
   ${styles('row', 'container')};
-
+  ${sharedStyles('row')};
   ${props => props.styled};
 `
 

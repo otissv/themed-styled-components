@@ -13,7 +13,7 @@ const stories = storiesOf('Close', module)
 const Close = close``
 
 stories.add(
-  'Default Close',
+  'Default - Close',
   withInfo(`
   
       ~~~js

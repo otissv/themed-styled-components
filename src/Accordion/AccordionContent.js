@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { styles, sharedStyles } from '../utils/theme.util'
 
 const AccordionContentStyled = styled.div`
-  display: ${props => (props.opened ? 'block' : 'none')};
-  ${props => props.styledAccordionContent};
-`;
+  ${styles('accordion.content')};
+  ${sharedStyles('accordion.content')};
+  ${props => props.styled};
+`
 
-export class AccordionContent extends Component {
+class AccordionContent extends Component {
   render() {
     return (
       <AccordionContentStyled className="Accordion-content" {...this.props} />
-    );
+    )
   }
 }
+
+export const accordionContent = styled(AccordionContent)

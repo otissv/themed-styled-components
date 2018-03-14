@@ -5,5 +5,5 @@ export function spacing() {
     medium: '20px',
     large: '30px',
     xlarge: '60px'
-  };
+  }
 }

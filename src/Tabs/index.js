@@ -5,7 +5,7 @@ import { TabList } from './TabList'
 import { TabItem } from './TabItem'
 import { TabPanel } from './TabPanel'
 import { TabItemNavLink } from './TabItemNavLink'
-import Svg from '../Svg'
+import Icon from '../Icon'
 
 const TabContainer = styled.div`
   display: ${props => props.theme.tabs.display};
@@ -52,7 +52,7 @@ export class Tabs extends Component {
             data-route={path}
             onClick={this.handleOnChange}
           >
-            {icon && <Svg small styledSvg="margin-right: 5px" src={icon} />}{' '}
+            {icon && <Icon small styledSvg="margin-right: 5px" src={icon} />}{' '}
             {tabName}
           </TabItemNavLink>
         </TabItem>

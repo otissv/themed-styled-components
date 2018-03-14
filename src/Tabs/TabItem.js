@@ -17,11 +17,11 @@ const Close = styled.button`
   right: ${props => props.theme.tabs.item.right};
 `
 
-const Svg = styled(Isvg)`
-  fill: ${props => props.theme.tabs.item.svg.fill};
-  height: ${props => props.theme.tabs.item.svg.height};
-  width: ${props => props.theme.tabs.item.svg.width};
-  display: ${props => props.theme.tabs.item.svg.display};
+const Icon = styled(Isvg)`
+  fill: ${props => props.theme.tabs.item.icon.fill};
+  height: ${props => props.theme.tabs.item.icon.height};
+  width: ${props => props.theme.tabs.item.icon.width};
+  display: ${props => props.theme.tabs.item.icon.display};
 
   ${props => props.styledIcon};
 `
@@ -31,7 +31,7 @@ class CloseTab extends Component {
     const { onClick, src } = this.props
     return (
       <Close onClick={onClick}>
-        <Svg {...this.props} src={src} />
+        <Icon {...this.props} src={src} />
       </Close>
     )
   }

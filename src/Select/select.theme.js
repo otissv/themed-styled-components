@@ -24,13 +24,13 @@ export function select({ animation, border, colors, depth, font, spacing }) {
     },
     context: {
       error: {
-        border: `${border.thinSize} ${border.thinStyle} ${colors.error}`
+        border: `${border.thinSize} ${border.style} ${colors.error}`
       },
       primary: {
-        border: `${border.thinSize} ${border.thinStyle} ${colors.primary}`
+        border: `${border.thinSize} ${border.style} ${colors.primary}`
       },
       success: {
-        border: `${border.thinSize} ${border.thinStyle} ${colors.success}`
+        border: `${border.thinSize} ${border.style} ${colors.success}`
       },
       disabled: {}
     },
@@ -73,5 +73,5 @@ export function select({ animation, border, colors, depth, font, spacing }) {
         background: colors.secondary
       }
     }
-  };
+  }
 }

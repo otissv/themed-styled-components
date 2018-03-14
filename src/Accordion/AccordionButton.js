@@ -1,96 +1,60 @@
-import React, { Component } from 'react';
-import autobind from 'class-autobind';
-import styled from 'styled-components';
-
-const Content = styled.div`
-  color: ${props => props.theme.accordion.content.color};
-  cursor: ${props => props.theme.accordion.content.cursor};
-  float: ${props => props.theme.accordion.content.float};
-  font-size: ${props => props.theme.accordion.content.fontSize};
-  font-weight: ${props => props.theme.accordion.content.fontWeight};
-  height: ${props => props.theme.accordion.content.height};
-  letter-spacing: ${props => props.theme.accordion.content.letterSpacing};
-  line-height: ${props => props.theme.accordion.content.lineHeight};
-  margin-top: ${props => props.theme.accordion.content.marginTop};
-  outline: ${props => props.theme.accordion.content.outline};
-  padding: ${props => props.theme.accordion.content.padding};
-
-  &:hover {
-    background: ${props => props.theme.accordion.content.hover};
-    border: ${props => props.theme.accordion.content.hover};
-    color: ${props => props.theme.accordion.content.hover};
-  }
-`;
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { styles, sharedStyles } from '../utils/theme.util'
+import { icon } from '../Icon'
 
 const AccordionButtonStyled = styled.button`
-  background: ${props => props.theme.accordion.button.background};
-  border: ${props => props.theme.accordion.button.border};
-  color: ${props => props.theme.accordion.button.color};
-  letter-spacing: ${props => props.theme.accordion.button.letterSpacing};
-  line-height: ${props => props.theme.accordion.button.lineHeight};
-  outline: ${props => props.theme.accordion.button.outline};
-  padding-top: ${props => props.theme.accordion.button.paddingTop};
-  padding-left: ${props => props.theme.accordion.button.paddingLeft};
-  padding-bottom: ${props => props.theme.accordion.button.paddingBottom};
-  padding-right: ${props => props.theme.accordion.button.paddingRight};
-  position: r${props => props.theme.accordion.button.position};
-  text-align: ${props => props.theme.accordion.button}.textAlign;
-  width: ${props => props.theme.accordion.button.width};
-  cursor: ${props => props.theme.accordion.button.cursor};
+  ${styles('accordion.button')};
+  ${sharedStyles('accordion.button')};
+  ${props => props.styled};
+`
 
-  &:hover {
-    background: ${props =>
-      props.hover
-        ? props.theme.colors.secondary
-        : props.theme.colors.background};
-  }
+const Icon = icon`
+  ${styles('accordion.button.icon')};
+  ${sharedStyles('accordion.button.icon')};
+  ${props => props.styled};
+`
 
-  ${props => props.styledAccordionButton};
-`;
-
-const Indicator = styled.span`
-  display: ${props => props.theme.accordion.button.indicator.display};
-  font-size: ${props => props.theme.accordion.button.indicator.fontSize};
-  width: ${props => props.theme.accordion.button.indicator.width};
-`;
-
-export class AccordionButton extends Component {
+class AccordionButton extends Component {
   constructor(props) {
-    super(props);
-    autobind(this);
+    super(props)
+
     this.state = {
       hover: false
-    };
+      // opend
+    }
   }
 
-  handleOnMouseOver(event) {
-    this.setState({ hover: true });
-  }
-
-  handleOnMouseLeave(event) {
-    this.setState({ hover: false });
+  handleOnMouse = () => {
+    this.setState({ hover: !this.state.hover })
   }
 
   render() {
-    const { children, kitid, onClick, opened } = this.props;
+    const { children, iconProps, onClick, opened, theme } = this.props
+    const activeIcon = opened ? 'chevron-down' : 'chevron-right'
+
     return (
       <AccordionButtonStyled
         className="Accordion-button"
-        {...this.props}
-        data-kitid={kitid}
-        hover={this.state.hover}
-        onMouseOver={this.handleOnMouseOver}
-        onMouseLeave={this.handleOnMouseLeave}
         onClick={onClick}
+        onMouseEnter={this.handleOnMouse}
+        onMouseLeave={this.handleOnMouse}
+        {...this.props}
       >
-        {opened ? <Indicator>-</Indicator> : <Indicator>+</Indicator>}
         {children}
-        {this.state.hover ? (
-          <Content onClick={onClick} title="Collection Details">
-            ...
-          </Content>
-        ) : null}
+        <Icon
+          theme={theme}
+          icon={activeIcon}
+          styled={
+            this.state.hover
+              ? styles('accordion.button.icon.&:hover')(this.props)
+              : ''
+          }
+          {...iconProps}
+        />
       </AccordionButtonStyled>
-    );
+    )
   }
 }
+
+export const accordionButton = styled(AccordionButton)

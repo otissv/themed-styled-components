@@ -1,5 +1,3 @@
-import { datauri } from '../datauri'
-
 export function checkbox({ animation, border, colors, font, spacing }) {
   return {
     '-webkitAppearance': 'none',
@@ -10,7 +8,7 @@ export function checkbox({ animation, border, colors, font, spacing }) {
     borderRadius: 0,
     color: colors.foreground,
     display: 'inline-block',
-    height: '30px',
+    height: '40px',
     margin: `-4px ${spacing.small} 0 0`,
     outline: 'none',
     overflow: 'hidden',
@@ -18,7 +16,7 @@ export function checkbox({ animation, border, colors, font, spacing }) {
     transition: animation.easeMedium(),
     transitionProperty: 'background-color, border',
     verticalAlign: 'middle',
-    width: '30px',
+    width: '40px',
 
     '&:not(:disabled)': {
       cursor: 'pointer'
@@ -31,14 +29,16 @@ export function checkbox({ animation, border, colors, font, spacing }) {
     },
     '&:indeterminate': {
       backgroundColor: colors.foreground,
-      color: colors.background,
-      backgroundImage: datauri.check
+      color: colors.background
     },
     '&:checked': {
       backgroundColor: colors.foreground,
-      color: colors.background,
-      backgroundImage: datauri.check
+      color: colors.background
     },
+
+    /*===============================================
+    * Context
+    * ============================================ */
     accent: {
       backgroundColor: colors.background,
       border: border.thinAccent,
@@ -50,12 +50,10 @@ export function checkbox({ animation, border, colors, font, spacing }) {
       },
       '&:indeterminate': {
         backgroundColor: colors.accent,
-        backgroundImage: datauri.check,
         color: colors.background
       },
       '&:checked': {
         backgroundColor: colors.accent,
-        backgroundImage: datauri.check,
         color: colors.background
       }
     },
@@ -70,16 +68,31 @@ export function checkbox({ animation, border, colors, font, spacing }) {
       },
       '&:indeterminate': {
         backgroundColor: colors.danger,
-        backgroundImage: datauri.check,
         color: colors.background
       },
       '&:checked': {
         backgroundColor: colors.danger,
-        backgroundImage: datauri.check,
         color: colors.background
       }
     },
-
+    muted: {
+      backgroundColor: colors.background,
+      border: border.thinMuted,
+      '&:hover': {
+        backgroundColor: colors.muted2
+      },
+      '&:focus': {
+        backgroundColor: colors.muted2
+      },
+      '&:indeterminate': {
+        backgroundColor: colors.muted,
+        color: colors.background
+      },
+      '&:checked': {
+        backgroundColor: colors.muted,
+        color: colors.background
+      }
+    },
     primary: {
       backgroundColor: colors.background,
       border: border.thinPrimary,
@@ -91,16 +104,13 @@ export function checkbox({ animation, border, colors, font, spacing }) {
       },
       '&:indeterminate': {
         backgroundColor: colors.primary,
-        backgroundImage: datauri.check,
         color: colors.background
       },
       '&:checked': {
         backgroundColor: colors.primary,
-        backgroundImage: datauri.check,
         color: colors.background
       }
     },
-
     success: {
       backgroundColor: colors.background,
       border: border.thinSuccess,
@@ -112,16 +122,13 @@ export function checkbox({ animation, border, colors, font, spacing }) {
       },
       '&:indeterminate': {
         backgroundColor: colors.success,
-        backgroundImage: datauri.check,
         color: colors.background
       },
       '&:checked': {
         backgroundColor: colors.success,
-        backgroundImage: datauri.check,
         color: colors.background
       }
     },
-
     warning: {
       backgroundColor: colors.background,
       border: border.thinWarning,
@@ -133,13 +140,63 @@ export function checkbox({ animation, border, colors, font, spacing }) {
       },
       '&:indeterminate': {
         backgroundColor: colors.warning,
-        backgroundImage: datauri.check,
         color: colors.background
       },
       '&:checked': {
         backgroundColor: colors.warning,
-        backgroundImage: datauri.check,
         color: colors.background
+      }
+    },
+
+    /* =====================================
+    * Checkbox Icon 
+    * =================================== */
+    icon: {
+      display: 'none',
+      position: 'absolute',
+      alignItems: 'center',
+      bottom: 0,
+      color: '#fff',
+      justifyContent: 'center',
+      margin: '-4px 10px',
+      pointerEvents: 'none',
+      top: 0,
+      transform: 'scale(1.5,1.5)',
+      width: '40px',
+
+      //context
+      accent: {
+        color: '#fff'
+      },
+      danger: {
+        color: '#fff'
+      },
+      muted: {
+        color: '#fff'
+      },
+      primary: {
+        color: '#fff'
+      },
+      success: {
+        color: '#fff'
+      },
+      warning: {
+        color: '#fff'
+      },
+
+      // Size
+      large: {
+        transform: 'scale(2.2,2.2)',
+        marginLeft: '23px',
+        marginTop: '0px'
+      },
+      small: {
+        transform: 'scale(0.7)',
+        width: '15px',
+        margin: '-6px -3px'
+      },
+      checked: {
+        display: 'block'
       }
     },
 
@@ -148,8 +205,8 @@ export function checkbox({ animation, border, colors, font, spacing }) {
     * =================================== */
 
     large: {
-      height: '40px',
-      width: '40px'
+      height: '55px',
+      width: '55px'
     },
     small: {
       height: '15px',
@@ -160,8 +217,29 @@ export function checkbox({ animation, border, colors, font, spacing }) {
     * Checkbox Label 
     * =================================== */
     label: {
+      position: 'relative',
       marginBottom: spacing.small,
       fontSize: 'inherit',
+
+      // Context
+      accent: {
+        color: colors.accent
+      },
+      danger: {
+        color: colors.danger
+      },
+      muted: {
+        color: colors.muted
+      },
+      primary: {
+        color: colors.primary
+      },
+      success: {
+        color: colors.success
+      },
+      warning: {
+        color: colors.warning
+      },
 
       //Size
       large: {

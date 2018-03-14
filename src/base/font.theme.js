@@ -9,16 +9,17 @@ export function font({ colors }) {
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
     `,
     // family
-    code: "'Source Code Pro', 'Consolas', 'Inconsolata', 'Source Code Pro', 'Monaco', monospace !important",
+    code:
+      "'Source Code Pro', 'Consolas', 'Inconsolata', 'Source Code Pro', 'Monaco', monospace !important",
     serif: "'Montserrat', sans-serif",
     sans: '',
     // size
     xsmall: '11px',
     small: '13px',
-    default: '14px',
+    default: '15px',
     large: '20px',
     xlarge: '24px',
     // height
     lineHeight: 1.5
-  };
+  }
 }

@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {
-  getThemedValue,
-  kebabCase,
-  makeStyles,
-  stateStyled
-} from '../utils/theme.util'
+import { styles, sharedStyles } from '../utils/theme.util'
 import styled from 'styled-components'
 
 function ignoreProps(ignore) {
@@ -20,172 +15,101 @@ function ignoreProps(ignore) {
   }
 }
 
-const cleanProps = ignoreProps('type')
+const cleanProps = ignoreProps(['element'])
 
-function styles(props) {
-  const THEME = 'text'
-  const theme = props.theme[THEME]
+function getStyles() {
+  return function(props) {
+    return `
+    ${styles('text')(props)}
+    ${styles('text', 'context')(props)}
+    ${styles('text.bold', 'bold', true)(props)}
+    ${sharedStyles('text')};
 
-  return makeStyles(theme, key => {
-    const THEME = 'text'
-    const theme = props.theme[THEME]
-
-    switch (key) {
-      case 'color':
-        return `color: ${getThemedValue({
-          style: 'color',
-          props,
-          key: 'context',
-          theme: THEME
-        })};`
-      case 'fontSize':
-        return `font-size: ${getThemedValue({
-          style: 'fontSize',
-          props,
-          key: 'size',
-          theme: THEME
-        })};`
-      case 'fontWeight':
-        return `font-weight: ${getThemedValue({
-          style: 'fontWeight',
-          props,
-          key: 'bold',
-          theme: THEME
-        })};`
-      case 'lineHeight':
-        return `line-height: ${getThemedValue({
-          style: 'lineHeight',
-          props,
-          key: 'size',
-          theme: THEME
-        })};`
-
-      case '&:hover':
-        return stateStyled({
-          key,
-          props,
-          theme: THEME
-        })
-      case '&:active':
-        return stateStyled({
-          key,
-          props,
-          theme: THEME
-        })
-      case '&:focus':
-        return stateStyled({
-          key,
-          props,
-          theme: THEME
-        })
-      default:
-        return `${key[0] === '-' ? '-' : ''}${kebabCase(key)}: ${theme[key]};`
-    }
-  })
-}
-
-function textWrapStyles(props) {
-  if (!props.textWrap) return ''
-
-  const THEME = `text.${props.textWrap}`
-  const theme = props.theme[THEME]
-  return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
-}
-
-function getStyles(props) {
-  ;`${styles(props)} ${textWrapStyles(props)}`
+    `
+  }
 }
 
 const Link = styled.a`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Abbr = styled.abbr`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Code = styled.code`
-  ${props => getStyles(props)} ${props => {
-    const theme = props.theme.text.code
-    return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
-  }};
-
-  ${props => props.styled};
+ ${getStyles()}
+  ${styles('text', 'element', true)} ${props => props.styled};
 `
 
 const Del = styled.del`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Dfn = styled.dfn`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Em = styled.em`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const H1 = styled.h1`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 const H2 = styled.h2`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const H3 = styled.h3`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const H4 = styled.h4`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const H5 = styled.h5`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const H6 = styled.h6`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Hr = styled.hr`
-  ${props => props.styledText};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Ins = styled.ins`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Q = styled.q`
-  ${props => getStyles(props)} ${props => {
-    const theme = props.theme.text.q
-    return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
-  }};
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()}
+  ${styles('text.q', 'q', true)}
+  ${props => props.styled};
 `
 
 const Mark = styled.mark`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const P = styled.p`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Sm = styled.small`
-  ${props => getStyles(props)} ${props => {
-    const theme = props.theme.text.small
-    return makeStyles(theme, key => `${kebabCase(key)}: ${theme[key]};`)
-  }};
-  ${props => getStyles(props)} ${props => props.styled};
+${styles('text.sm', 'sm', true)}
+  ${getStyles()} ${props => props.styled};
 `
 
 const Span = styled.span`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 const Strong = styled.strong`
-  ${props => getStyles(props)} ${props => props.styled};
+  ${getStyles()} ${props => props.styled};
 `
 
 class Text extends Component {
@@ -203,7 +127,7 @@ class Text extends Component {
     href: PropTypes.string,
     textWrap: PropTypes.oneOf(['truncate', 'break', 'nowrap']),
     size: PropTypes.oneOf(['small', 'large']),
-    type: PropTypes.oneOf([
+    element: PropTypes.oneOf([
       'a',
       'abbr',
       'code',
@@ -229,7 +153,7 @@ class Text extends Component {
 
   render() {
     // Elements
-    const type = {
+    const element = {
       a: props => (
         <Link href={props.href} {...props}>
           {props.children}
@@ -279,8 +203,8 @@ class Text extends Component {
       strong: props => <Strong {...props}>{props.children}</Strong>
     }
 
-    const Component = type[this.props.type] || type['p']
-    return <Component {...cleanProps(this.props)} />
+    const Component = element[this.props.element] || element['p']
+    return <Component {...this.props} />
   }
 }
 

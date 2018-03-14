@@ -14,7 +14,7 @@ const stories = storiesOf('Checkbox', module)
 
 stories
   .add(
-    'Default Checkbox',
+    'Default - Checkbox',
     withInfo(`
   
       ~~~js
@@ -25,7 +25,7 @@ stories
   )
 
   .add(
-    'Checked Checkbox',
+    'Checked - Checkbox',
     withInfo(`
   
       ~~~js
@@ -38,7 +38,7 @@ stories
   )
 
   .add(
-    'Labeled Checkbox',
+    'Labeled - Checkbox',
     withInfo(`
   
       ~~~js
@@ -135,7 +135,7 @@ stories
       ~~~
 
     `)(() => (
-      <Checkbox context="warning" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox context="warning" theme={theme()(colors)}>
         Warning
       </Checkbox>
     ))

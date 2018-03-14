@@ -1,36 +1,41 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { styles } from '../utils/theme.util'
+import { styles, sharedStyles } from '../utils/theme.util'
 
 const CardStyled = styled.div`
   ${styles('card')};
-  ${styles('card.footer.collapse')};
+  ${styles('card.collapse', 'collapse', true)};
   ${styles('card', 'context')};
   ${styles('card', 'size')};
+  ${sharedStyles('card')};
+
   ${props => props.styled};
 `
 
 const CardHeaderStyled = styled.div`
   ${styles('card.header')};
-  ${styles('card.footer.collapse')};
+  ${styles('card.footer.collapse', 'collapse', true)};
   ${styles('card.header', 'context')};
   ${styles('card.header', 'size')};
+  ${sharedStyles('card.header')};
   ${props => props.styled};
 `
 const CardBodyStyled = styled.div`
   ${styles('card.body')};
-  ${styles('card.footer.collapse')};
+  ${styles('card.footer.collapse', 'collapse', true)};
   ${styles('card.body', 'context')};
   ${styles('card.body', 'size')};
+  ${sharedStyles('card.body')};
   ${props => props.styled};
 `
 
 const CardFooterStyled = styled.div`
   ${styles('card.footer')};
-  ${styles('card.footer.collapse')};
+  ${styles('card.footer.collapse', 'collapse', true)};
   ${styles('card.footer', 'context')};
   ${styles('card.footer', 'size')};
+  ${sharedStyles('card.footer')};
   ${props => props.styled};
 `
 
@@ -117,6 +122,7 @@ class Card extends Component {
       'ghost'
     ]),
     collapse: PropTypes.bool,
+    stretch: PropTypes.bool,
     theme: PropTypes.object.isRequired
   }
 

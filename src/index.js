@@ -30,7 +30,7 @@ class Layout extends Component {
   render() {
     return (
       <ThemeProvider
-        theme={theme()}
+        theme={theme}
         schemes={{ dark, light }}
         active={this.state.active}
       >

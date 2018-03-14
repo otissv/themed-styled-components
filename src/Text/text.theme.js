@@ -6,7 +6,7 @@ export function text({ animation, border, colors, font, spacing }) {
     * Bold 
     * =================================== */
     bold: {
-      fonWeight: 'bold'
+      fontWeight: 'bold'
     },
 
     /* =====================================
@@ -99,9 +99,17 @@ export function text({ animation, border, colors, font, spacing }) {
     strong: {
       fontWeight: 700
     }
-  }
 
-  // align
-  // Vertical
-  // Wrap
+    /* =====================================
+    * Align 
+    * =================================== */
+
+    /* =====================================
+    * Vertical 
+    * =================================== */
+
+    /* =====================================
+    * Wrap 
+    * =================================== */
+  }
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { styles } from '../utils/theme.util'
+import { styles, sharedStyles } from '../utils/theme.util'
 
 const ButtonGroupStyled = styled.div`
   ${styles('buttonGroup')};
-  ${styles('buttonGroup.stretch')};
-
+  ${styles('buttonGroup.stretch', 'stretch', true)};
+  ${sharedStyles('buttonGroup')};
   ${props => props.styled};
 `
 

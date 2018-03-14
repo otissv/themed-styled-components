@@ -4,11 +4,8 @@ import { ThemeProvider } from 'styled-components'
 export class Provider extends React.Component {
   render() {
     const { active, schemes, theme } = this.props
+    const _theme = theme()(schemes[active])
 
-    return (
-      <ThemeProvider theme={theme(schemes[active])}>
-        {this.props.children}
-      </ThemeProvider>
-    )
+    return <ThemeProvider theme={_theme}>{this.props.children}</ThemeProvider>
   }
 }

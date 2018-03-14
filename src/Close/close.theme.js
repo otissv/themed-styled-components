@@ -16,7 +16,7 @@ export function close({ animation, colors }) {
       color: colors.danger
     },
     muted: {
-      color: colors.secondary
+      color: colors.muted
     },
     primary: {
       color: colors.primary

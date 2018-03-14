@@ -2,7 +2,7 @@ import { Component } from 'react'
 import styled from 'styled-components'
 import { Input } from '../Input'
 import { Button } from '../Button'
-import { Svg } from '../Svg'
+import { Icon } from '../Icon'
 import caretDownIcon from '../icons/directional/caret-down.svg'
 
 const SelectContainer = styled.div`
@@ -147,8 +147,4 @@ export class Select extends Component {
       </SelectContainer>
     )
   }
-}
-
-{
-  /* <Svg src={triangleDown} /> */
 }

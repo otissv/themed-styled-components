@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ButtonSquared } from './ButtonSquared'
-import { Svg } from './Svg'
+import { Icon } from './Icon'
 
 export class IconButton extends React.Component {
   render() {
@@ -9,7 +9,7 @@ export class IconButton extends React.Component {
       src,
       styledButtonSquared,
       styledIconButton,
-      styledSvg
+      styledIcon
     } = this.props
     return (
       <ButtonSquared
@@ -17,7 +17,7 @@ export class IconButton extends React.Component {
         onClick={onClick}
         styledButtonSquared={styledIconButton || styledButtonSquared}
       >
-        <Svg className="Icon-Button-svg" src={src} styledSvg={styledSvg} />
+        <Icon className="Icon-Button-icon" src={src} styledIcon={styledIcon} />
       </ButtonSquared>
     )
   }

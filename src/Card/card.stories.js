@@ -17,7 +17,7 @@ const stories = storiesOf('Card', module)
 
 stories
   .add(
-    'Default Card',
+    'Default - Card',
     withInfo(`
       
       ~~~js
@@ -196,6 +196,34 @@ stories
   )
 
   /* ==========================================================================
+  * Card Collapse
+  * ======================================================================== */
+
+  .add(
+    'Collapse - Card',
+    withInfo(`
+    
+    ~~~js
+
+    ~~~
+
+  `)(() => (
+      <Card className="Card" theme={theme()(colors)} collapse>
+        {() => (
+          <Fragment>
+            <h3>Collapse</h3>
+            <p>
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua.
+            </p>
+          </Fragment>
+        )}
+      </Card>
+    ))
+  )
+
+  /* ==========================================================================
   * Card Size
   * ======================================================================== */
 
@@ -273,7 +301,7 @@ stories
   * Card Header and Footer
   * ======================================================================== */
   .add(
-    'Card Header and Footer',
+    'Header and Footer -  Card',
     withInfo(`
       Button component
     
@@ -405,7 +433,7 @@ stories
   )
 
   .add(
-    'Collapse Card Header and Footer',
+    'Collapse Header and Footer - Card',
     withInfo(`
       Button component
     

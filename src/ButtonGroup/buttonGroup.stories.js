@@ -15,7 +15,7 @@ const stories = storiesOf('Button Group', module)
 
 stories
   .add(
-    'Default Button Group',
+    'Default - Button Group',
     withInfo(`
   
       ~~~js
@@ -188,6 +188,10 @@ stories
     ))
   )
 
+  /* ==========================================================================
+  * Button Group Size
+  * ======================================================================== */
+
   .add(
     'Size - Small Button Group',
     withInfo(`
@@ -223,10 +227,6 @@ stories
     ))
   )
 
-  /* ==========================================================================
-  * Button Group Size
-  * ======================================================================== */
-
   .add(
     'Size - Large Button Group',
     withInfo(`
@@ -261,7 +261,7 @@ stories
   * ======================================================================== */
 
   .add(
-    'Stretch Button',
+    'Stretch - Button Group',
     withInfo(`
          
       ~~~js
