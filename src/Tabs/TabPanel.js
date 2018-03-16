@@ -24,6 +24,7 @@ class TabPanel extends Component {
   render() {
     const { children, theme, uid } = this.props
 
+    console.log(uid, this.getActiveStyle({ active: '1', uid }))
     return (
       <TabConsumer>
         {({ active }) => (

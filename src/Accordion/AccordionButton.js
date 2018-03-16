@@ -20,8 +20,9 @@ const Icon = icon`
 
 class AccordionButton extends Component {
   static propTypes = {
-    children: PropTypes.func.isRequired,
+    children: PropTypes.func,
     theme: PropTypes.object.isRequired,
+    title: PropTypes.string,
     toggleProps: PropTypes.object
   }
 
@@ -39,7 +40,7 @@ class AccordionButton extends Component {
   }
 
   render() {
-    const { children, theme, toggleProps } = this.props
+    const { children, theme, title, toggleProps } = this.props
 
     const _toggleProps = toggleProps || {
       opened: { icon: 'chevron-down' },
@@ -61,7 +62,7 @@ class AccordionButton extends Component {
                   onMouseLeave={this.handleOnMouse}
                   {...this.props}
                 >
-                  {children}
+                  {title || children}
                   <Icon
                     theme={theme}
                     onClick={setActiveItem}

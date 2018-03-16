@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
-import { TabList } from './TabList'
-import { TabPanel } from './TabPanel'
+import { tabList } from './TabList'
+import { tabPanel } from './TabPanel'
 
 const TabStyled = styled.div`
   ${styles('tabs')};
@@ -11,12 +11,20 @@ const TabStyled = styled.div`
   ${props => props.styled};
 `
 
+const TabList = tabList``
+
+const TabPanel = tabPanel`;`
+
 const TabContext = React.createContext({ active: '' })
 
 class Tabs extends Component {
+  static defaultProps = {
+    items: []
+  }
+
   static propTypes = {
     active: PropTypes.string,
-    children: PropTypes.func.isRequired,
+    children: PropTypes.func,
     tabListProps: PropTypes.object,
     tabPanelProps: PropTypes.object,
     theme: PropTypes.object.isRequired
@@ -29,12 +37,38 @@ class Tabs extends Component {
     }
   }
 
+  getItems = () => {
+    const { items, tabListProps, tabPanelProps, theme } = this.props
+    console.log(this.props)
+    return (
+      <Fragment>
+        <TabList theme={theme} {...tabListProps} items={items} />
+        {items.map(item => {
+          let Component = item.component
+
+          return (
+            <TabPanel theme={theme} uid={item.uid} {...tabPanelProps}>
+              {context => <Component {...context} />}
+            </TabPanel>
+          )
+        })}
+      </Fragment>
+    )
+  }
+
   setActiveItem = event => {
     this.setState({ active: event.currentTarget.dataset.uid })
   }
 
   render() {
-    const { active, children, tabListProps, tabPanelProps, theme } = this.props
+    const {
+      active,
+      children,
+      items,
+      tabListProps,
+      tabPanelProps,
+      theme
+    } = this.props
 
     return (
       <TabContext.Provider
@@ -44,11 +78,13 @@ class Tabs extends Component {
         }}
       >
         <TabStyled className="Tabs" {...this.props}>
-          {children({
-            theme,
-            tabListProps: { theme, ...tabListProps },
-            tabPanelProps: { theme, ...tabPanelProps }
-          })}
+          {items
+            ? this.getItems()
+            : children({
+                theme,
+                tabListProps: { theme, ...tabListProps },
+                tabPanelProps: { theme, ...tabPanelProps }
+              })}
         </TabStyled>
       </TabContext.Provider>
     )

@@ -1,7 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { accordionItem } from './AccordionItem'
+import { accordionButton } from './AccordionButton'
+import { accordionContent } from './AccordionContent'
 
 const AccordionStyled = styled.ul`
   ${styles('accordion')};
@@ -9,9 +12,17 @@ const AccordionStyled = styled.ul`
   ${props => props.styled};
 `
 
+const AccordionItem = accordionItem``
+const AccordionButton = accordionButton``
+const AccordionContent = accordionContent``
+
 const AccordionContext = React.createContext({ active: '' })
 
 class Accordion extends Component {
+  static defaultProps = {
+    items: []
+  }
+
   static propTypes = {
     active: PropTypes.string,
     children: PropTypes.func.isRequired,
@@ -19,6 +30,37 @@ class Accordion extends Component {
     buttonProps: PropTypes.object,
     contentProps: PropTypes.object,
     itemProps: PropTypes.object
+  }
+
+  getItems = () => {
+    const { items, buttonProps, contentProps, itemProps, theme } = this.props
+
+    return this.props.items.map(item => {
+      return (
+        <AccordionItem
+          key={item.uid}
+          theme={theme}
+          uid={item.uid}
+          {...itemProps}
+        >
+          {props => (
+            <Fragment>
+              <AccordionButton
+                theme={theme}
+                iconOpenPros={{ icon: 'chevron-right' }}
+                iconClosePros={{ icon: 'chevron-down' }}
+                {...buttonProps}
+              >
+                {item.title}
+              </AccordionButton>
+              <AccordionContent theme={theme} {...contentProps}>
+                {item.content}
+              </AccordionContent>
+            </Fragment>
+          )}
+        </AccordionItem>
+      )
+    })
   }
 
   constructor(props) {
@@ -33,7 +75,7 @@ class Accordion extends Component {
   }
 
   render() {
-    const { active, children, theme } = this.props
+    const { active, children, items, theme } = this.props
 
     return (
       <AccordionContext.Provider
@@ -43,13 +85,15 @@ class Accordion extends Component {
         }}
       >
         <AccordionStyled className="Accordion" {...this.props}>
-          {children({
-            setActiveItem: this.setActiveItem,
-            theme,
-            buttonProps: { theme },
-            contentProps: { theme },
-            itemProps: { theme }
-          })}
+          {items
+            ? this.getItems()
+            : children({
+                setActiveItem: this.setActiveItem,
+                theme,
+                buttonProps: { theme },
+                contentProps: { theme },
+                itemProps: { theme }
+              })}
         </AccordionStyled>
       </AccordionContext.Provider>
     )
