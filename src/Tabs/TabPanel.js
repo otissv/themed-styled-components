@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { styles, sharedStyles } from '../utils/theme.util'
 import { TabConsumer } from './index'
 
 const TabPanelStyled = styled.div`
+  ${styles('tabs.panel')};
+  ${sharedStyles('tabs.panel')};
   ${props => props.styled};
 `
 
 class TabPanel extends Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+    theme: PropTypes.object.isRequired,
+    uid: PropTypes.string
+  }
+
   getActiveStyle = ({ active, uid }) => {
-    console.log(active)
     return active === uid ? 'display: block;' : 'display: none'
   }
 

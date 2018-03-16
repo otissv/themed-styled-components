@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { icon } from '../Icon'
@@ -18,6 +19,12 @@ const Icon = icon`
 `
 
 class AccordionButton extends Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+    theme: PropTypes.object.isRequired,
+    toggleProps: PropTypes.object
+  }
+
   constructor(props) {
     super(props)
 
@@ -32,7 +39,7 @@ class AccordionButton extends Component {
   }
 
   render() {
-    const { children, onClick, opened, theme, toggleProps } = this.props
+    const { children, theme, toggleProps } = this.props
 
     const _toggleProps = toggleProps || {
       opened: { icon: 'chevron-down' },

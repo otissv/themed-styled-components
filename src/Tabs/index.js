@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { styles, sharedStyles } from '../utils/theme.util'
 import { TabList } from './TabList'
 import { TabPanel } from './TabPanel'
 
 const TabStyled = styled.div`
+  ${styles('tabs')};
+  ${sharedStyles('tabs')};
   ${props => props.styled};
 `
 
 const TabContext = React.createContext({ active: '' })
 
 class Tabs extends Component {
+  static propTypes = {
+    active: PropTypes.string,
+    children: PropTypes.func.isRequired,
+    tabListProps: PropTypes.object,
+    tabPanelProps: PropTypes.object,
+    theme: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props)
     this.state = {

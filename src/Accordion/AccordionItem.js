@@ -1,4 +1,5 @@
 import React, { Component, Children } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { AccordionConsumer } from './index'
@@ -12,6 +13,12 @@ const AccordionItemStyled = styled.li`
 `
 
 class AccordionItem extends Component {
+  static propTypes = {
+    children: PropTypes.func.isRequired,
+    theme: PropTypes.object.isRequired,
+    uid: PropTypes.string
+  }
+
   constructor(props) {
     super(props)
     this.state = {

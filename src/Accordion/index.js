@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 
@@ -11,6 +12,15 @@ const AccordionStyled = styled.ul`
 const AccordionContext = React.createContext({ active: '' })
 
 class Accordion extends Component {
+  static propTypes = {
+    active: PropTypes.string,
+    children: PropTypes.func.isRequired,
+    theme: PropTypes.object.isRequired,
+    buttonProps: PropTypes.object,
+    contentProps: PropTypes.object,
+    itemProps: PropTypes.object
+  }
+
   constructor(props) {
     super(props)
     this.state = {
