@@ -162,7 +162,28 @@ stories
     withInfo(`
   
       ~~~js
-    
+      <Accordion
+        theme={theme()(colors)}
+        active="1"
+        items={[
+          {
+            uid: '1',
+            title: 'Dynamic Item 1',
+            content: 'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing'
+          },
+          {
+            uid: '2',
+            title: 'Dynamic Item 2',
+            content: 'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing'
+          },
+          {
+            uid: '3',
+            title: 'Dynamic Item 3',
+            content: 'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing'
+          }
+        ]}
+      />
+    ))
       ~~~
 
     `)(() => (
