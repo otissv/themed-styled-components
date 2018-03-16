@@ -85,7 +85,7 @@ class Accordion extends Component {
         }}
       >
         <AccordionStyled className="Accordion" {...this.props}>
-          {items
+          {items.length > 0
             ? this.getItems()
             : children({
                 setActiveItem: this.setActiveItem,

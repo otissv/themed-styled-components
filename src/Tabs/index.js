@@ -78,7 +78,7 @@ class Tabs extends Component {
         }}
       >
         <TabStyled className="Tabs" {...this.props}>
-          {items
+          {items.length > 0
             ? this.getItems()
             : children({
                 theme,
