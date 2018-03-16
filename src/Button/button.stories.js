@@ -4,12 +4,13 @@ import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 
 import { button } from './index'
+import { icon } from '../Icon'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
 
 const Button = button``
-
+const Icon = icon``
 const stories = storiesOf('Button', module)
 
 stories
@@ -180,3 +181,34 @@ stories
       </Button>
     ))
   )
+
+  /* ========================================================
+  *  Icon
+  *  ===================================================== */
+
+  .add(
+    'Icon - Button',
+    withInfo(`
+  stretch makes the button fit the full width.
+
+~~~js
+<Button stretch >Large Button</Button>
+~~~
+
+`)(() => (
+      <div>
+        <Button theme={theme()(colors)} stretch>
+          <Icon theme={theme()(colors)} icon="home" />
+        </Button>
+      </div>
+    ))
+  )
+
+// button
+// width: 42px;
+//   height: 42px;
+//   padding: 0;
+//   border-radius: 100%
+
+//icon
+// height: 30px;

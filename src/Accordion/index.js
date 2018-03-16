@@ -8,21 +8,43 @@ const AccordionStyled = styled.ul`
   ${props => props.styled};
 `
 
+const AccordionContext = React.createContext({ active: '' })
+
 class Accordion extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      active: props.active
+    }
+  }
+
+  setActiveItem = event => {
+    this.setState({ active: event.currentTarget.dataset.uid })
+  }
+
   render() {
-    const { children, theme } = this.props
+    const { active, children, theme } = this.props
 
     return (
-      <AccordionStyled className="Accordion" {...this.props}>
-        {children({
-          theme,
-          buttonProps: { theme },
-          contentProps: { theme },
-          itemProps: { theme }
-        })}
-      </AccordionStyled>
+      <AccordionContext.Provider
+        value={{
+          ...this.state,
+          setActiveItem: this.setActiveItem
+        }}
+      >
+        <AccordionStyled className="Accordion" {...this.props}>
+          {children({
+            setActiveItem: this.setActiveItem,
+            theme,
+            buttonProps: { theme },
+            contentProps: { theme },
+            itemProps: { theme }
+          })}
+        </AccordionStyled>
+      </AccordionContext.Provider>
     )
   }
 }
 
 export const accordion = styled(Accordion)
+export const AccordionConsumer = AccordionContext.Consumer

@@ -22,36 +22,135 @@ stories.add(
   withInfo(`
   
       ~~~js
-      
+      <Accordion theme={theme()(colors)} active="1">
+      {({ itemProps, buttonProps, contentProps }) => (
+        <Fragment>
+          <AccordionItem {...itemProps} uid="1">
+            {props => (
+              <Fragment>
+                <AccordionButton
+                  toggleProps={{
+                    opened: { icon: 'chevron-down' },
+                    closed: { icon: 'chevron-right' }
+                  }}
+                  {...buttonProps}
+                >
+                  Item 1
+                </AccordionButton>
+                <AccordionContent {...contentProps}>
+                  Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </AccordionContent>
+              </Fragment>
+            )}
+          </AccordionItem>
+
+          <AccordionItem {...itemProps} uid="2">
+            {props => (
+              <Fragment>
+                <AccordionButton
+                  {...buttonProps}
+                  iconOpenPros={{ icon: 'chevron-right' }}
+                  iconClosePros={{ icon: 'chevron-down' }}
+                >
+                  Item 2
+                </AccordionButton>
+                <AccordionContent {...contentProps}>
+                  Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </AccordionContent>
+              </Fragment>
+            )}
+          </AccordionItem>
+
+          <AccordionItem {...itemProps} uid="3">
+            {props => (
+              <Fragment>
+                <AccordionButton
+                  {...buttonProps}
+                  iconOpenPros={{ icon: 'chevron-right' }}
+                  iconClosePros={{ icon: 'chevron-down' }}
+                >
+                  Item 3
+                </AccordionButton>
+                <AccordionContent {...contentProps}>
+                  Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </AccordionContent>
+              </Fragment>
+            )}
+          </AccordionItem>
+        </Fragment>
+      )}
+    </Accordion>
       ~~~
 
     `)(() => (
-    <Accordion theme={theme()(colors)}>
+    <Accordion theme={theme()(colors)} active="1">
       {({ itemProps, buttonProps, contentProps }) => (
-        <AccordionItem {...itemProps}>
-          {props => [
-            <Fragment>
-              <AccordionButton
-                {...buttonProps}
-                iconOpenPros={{ icon: 'chevron-right' }}
-                iconClosePros={{ icon: 'chevron-down' }}
-              >
-                Item
-              </AccordionButton>
-              <AccordionContent {...contentProps}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </AccordionContent>
-            </Fragment>,
-            <Fragment>
-              <AccordionButton {...buttonProps}>Item</AccordionButton>
-              <AccordionContent {...contentProps}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </AccordionContent>
-            </Fragment>
-          ]}
-        </AccordionItem>
+        <Fragment>
+          <AccordionItem {...itemProps} uid="1">
+            {props => (
+              <Fragment>
+                <AccordionButton
+                  toggleProps={{
+                    opened: { icon: 'chevron-down' },
+                    closed: { icon: 'chevron-right' }
+                  }}
+                  {...buttonProps}
+                >
+                  Item 1
+                </AccordionButton>
+                <AccordionContent {...contentProps}>
+                  Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </AccordionContent>
+              </Fragment>
+            )}
+          </AccordionItem>
+
+          <AccordionItem {...itemProps} uid="2">
+            {props => (
+              <Fragment>
+                <AccordionButton
+                  {...buttonProps}
+                  iconOpenPros={{ icon: 'chevron-right' }}
+                  iconClosePros={{ icon: 'chevron-down' }}
+                >
+                  Item 2
+                </AccordionButton>
+                <AccordionContent {...contentProps}>
+                  Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </AccordionContent>
+              </Fragment>
+            )}
+          </AccordionItem>
+
+          <AccordionItem {...itemProps} uid="3">
+            {props => (
+              <Fragment>
+                <AccordionButton
+                  {...buttonProps}
+                  iconOpenPros={{ icon: 'chevron-right' }}
+                  iconClosePros={{ icon: 'chevron-down' }}
+                >
+                  Item 3
+                </AccordionButton>
+                <AccordionContent {...contentProps}>
+                  Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et dolore
+                  magna aliqua.
+                </AccordionContent>
+              </Fragment>
+            )}
+          </AccordionItem>
+        </Fragment>
       )}
     </Accordion>
   ))

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { icon } from '../Icon'
+import { AccordionConsumer } from './index'
+import { AccordionItemConsumer } from './AccordionItem'
 
 const AccordionButtonStyled = styled.button`
   ${styles('accordion.button')};
@@ -30,29 +32,45 @@ class AccordionButton extends Component {
   }
 
   render() {
-    const { children, iconProps, onClick, opened, theme } = this.props
-    const activeIcon = opened ? 'chevron-down' : 'chevron-right'
+    const { children, onClick, opened, theme, toggleProps } = this.props
 
+    const _toggleProps = toggleProps || {
+      opened: { icon: 'chevron-down' },
+      closed: { icon: 'chevron-right' }
+    }
     return (
-      <AccordionButtonStyled
-        className="Accordion-button"
-        onClick={onClick}
-        onMouseEnter={this.handleOnMouse}
-        onMouseLeave={this.handleOnMouse}
-        {...this.props}
-      >
-        {children}
-        <Icon
-          theme={theme}
-          icon={activeIcon}
-          styled={
-            this.state.hover
-              ? styles('accordion.button.icon.&:hover')(this.props)
-              : ''
-          }
-          {...iconProps}
-        />
-      </AccordionButtonStyled>
+      <AccordionConsumer>
+        {({ active, setActiveItem }) => (
+          <AccordionItemConsumer>
+            {({ uid }) => {
+              const iconProps =
+                active === uid ? _toggleProps.opened : _toggleProps.closed
+              return (
+                <AccordionButtonStyled
+                  className="Accordion-button"
+                  onClick={setActiveItem}
+                  data-uid={uid}
+                  onMouseEnter={this.handleOnMouse}
+                  onMouseLeave={this.handleOnMouse}
+                  {...this.props}
+                >
+                  {children}
+                  <Icon
+                    theme={theme}
+                    onClick={setActiveItem}
+                    styled={
+                      this.state.hover
+                        ? styles('accordion.button.icon.&:hover')(this.props)
+                        : ''
+                    }
+                    {...iconProps}
+                  />
+                </AccordionButtonStyled>
+              )
+            }}
+          </AccordionItemConsumer>
+        )}
+      </AccordionConsumer>
     )
   }
 }

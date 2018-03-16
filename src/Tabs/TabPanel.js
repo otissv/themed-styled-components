@@ -1,22 +1,34 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import { TabConsumer } from './index'
 
 const TabPanelStyled = styled.div`
-  display: ${props => props.theme.tabs.panel.display};
-  flex: ${props => props.theme.tabs.panel.flex};
-  ${props => props.styledTabPanel};
-`;
+  ${props => props.styled};
+`
 
-export class TabPanel extends Component {
+class TabPanel extends Component {
+  getActiveStyle = ({ active, uid }) => {
+    console.log(active)
+    return active === uid ? 'display: block;' : 'display: none'
+  }
+
   render() {
-    const { styledTabPanel, component } = this.props.item;
-    const Component = component && component.element;
-    const componentProps = (component && component.props) || {};
+    const { children, theme, uid } = this.props
 
     return (
-      <TabPanelStyled className="Tab-panel" styledTabPanel={styledTabPanel}>
-        {Component ? <Component {...componentProps} /> : <div />}
-      </TabPanelStyled>
-    );
+      <TabConsumer>
+        {({ active }) => (
+          <TabPanelStyled
+            className="Tab-panel"
+            {...this.props}
+            styled={this.getActiveStyle({ active, uid })}
+          >
+            {children({ theme })}
+          </TabPanelStyled>
+        )}
+      </TabConsumer>
+    )
   }
 }
+
+export const tabPanel = styled(TabPanel)

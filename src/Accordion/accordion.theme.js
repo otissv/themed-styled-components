@@ -1,12 +1,23 @@
-export function accordion({ border, colors, font, spacing, widths }) {
+export function accordion({
+  animation,
+  border,
+  colors,
+  font,
+  spacing,
+  widths
+}) {
   return {
     flex: 1,
     listStyleType: 'none',
     margin: 0,
     padding: 0,
+    transition: animation.easeMedium(),
 
     content: {
-      padding: 0
+      display: 'none',
+      overflow: 'hidden',
+      padding: 0,
+      transition: animation.easeMedium()
     },
 
     button: {
@@ -22,6 +33,7 @@ export function accordion({ border, colors, font, spacing, widths }) {
       padding: 0,
       textAlign: 'left',
       textDecoration: 'none',
+      transition: animation.easeMedium(),
       width: '100%',
 
       '&:hover': {
@@ -30,6 +42,8 @@ export function accordion({ border, colors, font, spacing, widths }) {
 
       icon: {
         float: 'right',
+        transition: animation.easeMedium(),
+
         '&:hover': {
           color: colors.secondary
         }
@@ -38,10 +52,13 @@ export function accordion({ border, colors, font, spacing, widths }) {
 
     item: {
       cursor: 'pointer',
+      display: 'list-item',
       lineHeight: 1.4,
       margin: 0,
       overflow: 'hidden',
-      padding: 0
+      padding: 0,
+      textAlign: '-webkit-match-parent',
+      transition: animation.easeMedium()
     }
   }
 }

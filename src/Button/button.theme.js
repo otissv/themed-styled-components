@@ -17,7 +17,6 @@ export function button({ animation, border, colors, depth, font, spacing }) {
     padding: `0 ${spacing.large}`,
     textAlign: 'center',
     textDecoration: 'none',
-    textTransform: 'uppercase',
     transition: animation.easeMedium(),
     verticalAlign: 'middle',
 

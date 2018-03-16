@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { AccordionConsumer } from './index'
+import { AccordionItemConsumer } from './AccordionItem'
 
 const AccordionContentStyled = styled.div`
   ${styles('accordion.content')};
@@ -11,7 +13,19 @@ const AccordionContentStyled = styled.div`
 class AccordionContent extends Component {
   render() {
     return (
-      <AccordionContentStyled className="Accordion-content" {...this.props} />
+      <AccordionConsumer>
+        {({ active }) => (
+          <AccordionItemConsumer>
+            {({ uid }) => (
+              <AccordionContentStyled
+                className="Accordion-content"
+                styled={active === uid ? 'display:block;' : ''}
+                {...this.props}
+              />
+            )}
+          </AccordionItemConsumer>
+        )}
+      </AccordionConsumer>
     )
   }
 }
