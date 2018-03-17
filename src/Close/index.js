@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 import { icon } from '../Icon'
 
 const Icon = icon``
@@ -18,7 +19,7 @@ class Close extends React.Component {
   static propTypes = {
     svgProps: PropTypes.object,
     onClick: PropTypes.func,
-    theme: PropTypes.object.isRequired,
+    theme: PropTypes.object,
     context: PropTypes.oneOf([
       'accent',
       'danger',
@@ -29,11 +30,19 @@ class Close extends React.Component {
   }
 
   render() {
-    const { onClick, svgProps, theme, iconProps } = this.props
+    const { onClick, svgProps, iconProps } = this.props
     return (
-      <CloseStyled onClick={onClick} theme={theme}>
-        <Icon icon="close" {...iconProps} theme={theme} />
-      </CloseStyled>
+      <ThemeConsumer>
+        {theme => {
+          const _theme = theme || this.props.theme
+
+          return (
+            <CloseStyled onClick={onClick} theme={theme}>
+              <Icon icon="close" {...iconProps} theme={theme} />
+            </CloseStyled>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 import { icon } from '../Icon'
 
 const CheckboxStyled = styled.input`
@@ -49,7 +50,7 @@ class Checkbox extends Component {
       'warning'
     ]),
     onChange: PropTypes.func,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   onChange = () => {
@@ -64,40 +65,48 @@ class Checkbox extends Component {
       iconProps,
       labelProps,
       onChange,
-      size,
-      theme
+      size
     } = this.props
 
     return (
-      <Label
-        className="CheckboxLabel"
-        context={context}
-        size={size}
-        theme={theme}
-        checked={this.state.checked}
-        {...labelProps}
-      >
-        <Icon
-          className="CheckboxIcon"
-          checked={this.state.checked}
-          context={context}
-          icon="check"
-          size={size}
-          theme={theme}
-          {...iconProps}
-        />
-        <CheckboxStyled
-          className="Checkbox"
-          aria-checked={this.state.checked}
-          onChange={this.onChange}
-          value={this.state.checked}
-          role="checkbox"
-          type="checkbox"
-          {...this.props}
-          children={null}
-        />
-        {children}
-      </Label>
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+
+          return (
+            <Label
+              className="CheckboxLabel"
+              context={context}
+              size={size}
+              theme={_theme}
+              checked={this.state.checked}
+              {...labelProps}
+            >
+              <Icon
+                className="CheckboxIcon"
+                checked={this.state.checked}
+                context={context}
+                icon="check"
+                size={size}
+                theme={_theme}
+                {...iconProps}
+              />
+              <CheckboxStyled
+                className="Checkbox"
+                aria-checked={this.state.checked}
+                onChange={this.onChange}
+                value={this.state.checked}
+                role="checkbox"
+                theme={_theme}
+                type="checkbox"
+                {...this.props}
+                children={null}
+              />
+              {children}
+            </Label>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }

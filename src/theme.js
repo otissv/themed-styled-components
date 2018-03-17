@@ -9,7 +9,7 @@ import { icon } from './Icon/icon.theme'
 import { iconButton } from './IconButton/iconButton.theme'
 import { input } from './Input/input.theme'
 import { list } from './List/list.theme'
-import { logo } from './Logo/logo.theme'
+import { login } from './Login/login.theme'
 import { modal } from './Modal/modal.theme'
 import { nav } from './Nav/nav.theme'
 import { row } from './Row/row.theme'
@@ -113,7 +113,7 @@ export function theme(props = {}) {
       iconButton: iconButton(base, shared(base)),
       input: input(base, shared(base)),
       list: list(base, shared(base)),
-      logo: logo(base, shared(base)),
+      login: login(base, shared(base)),
       modal: modal(base, shared(base)),
       nav: nav(base, shared(base)),
       row: row(base, shared(base)),

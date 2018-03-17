@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 const ButtonGroupStyled = styled.div`
   ${styles('buttonGroup')};
@@ -21,11 +22,19 @@ class ButtonGroup extends Component {
   render() {
     const { buttonProps, children, stretch, theme } = this.props
 
-    const child =
-      typeof children === 'function'
-        ? children({ theme, stretch: true, ...buttonProps })
-        : children
-    return <ButtonGroupStyled {...this.props}>{child}</ButtonGroupStyled>
+    return (
+      <ThemeConsumer>
+        {theme => (
+          <ButtonGroupStyled theme={theme} {...this.props}>
+            {children({
+              theme: theme || this.props.theme,
+              stretch: true,
+              ...buttonProps
+            })}
+          </ButtonGroupStyled>
+        )}
+      </ThemeConsumer>
+    )
   }
 }
 

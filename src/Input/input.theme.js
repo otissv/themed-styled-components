@@ -33,7 +33,6 @@ export function input({ animation, border, colors, font, widths }) {
     * =================================== */
     accent: {
       borderBottom: border.thinAccent,
-      color: colors.accent,
       '&:hover': {
         border: `${border.thinSize} ${border.style} ${colors.accent}`
       },
@@ -45,7 +44,6 @@ export function input({ animation, border, colors, font, widths }) {
       }
     },
     blank: {
-      color: colors.foreground,
       border: border.thinTransparent,
       '&:hover': {
         border: border.thinDashedSecondary
@@ -59,7 +57,6 @@ export function input({ animation, border, colors, font, widths }) {
     },
     danger: {
       borderBottom: border.thinDanger,
-      color: colors.danger,
       '&:active': {
         border: `${border.thinSize} ${border.style} ${colors.danger}`
       },
@@ -72,7 +69,6 @@ export function input({ animation, border, colors, font, widths }) {
     },
     primary: {
       borderBottom: border.thinPrimary,
-      color: colors.primary,
       '&:active': {
         border: `${border.thinSize} ${border.style} ${colors.primary}`
       },
@@ -85,7 +81,6 @@ export function input({ animation, border, colors, font, widths }) {
     },
     success: {
       borderBottom: border.thinSuccess,
-      color: colors.success,
       '&:active': {
         border: `${border.thinSize} ${border.style} ${colors.success}`
       },
@@ -97,8 +92,7 @@ export function input({ animation, border, colors, font, widths }) {
       }
     },
     warning: {
-      borderBottom: border.thinWarning,
-      color: colors.warning
+      borderBottom: border.thinWarning
     },
 
     /* =====================================

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { ThemeConsumer } from '../ThemeContext'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { icon } from '../Icon'
 
@@ -36,25 +37,32 @@ const InputIcon = styled.div`
 
 class Input extends Component {
   render() {
-    const { icon, iconProps, iconContainerProps, theme, pos } = this.props
+    const { icon, iconProps, iconContainerProps, pos } = this.props
 
-    return icon ? (
-      <InputIcon
-        className="InputIconContainer"
-        theme={theme}
-        {...iconContainerProps}
-      >
-        <Icon
-          className="InputIcon"
-          theme={theme}
-          icon={icon}
-          pos={pos}
-          {...iconProps}
-        />
-        <InputStyled className="Input" {...this.props} />
-      </InputIcon>
-    ) : (
-      <InputStyled className="Input" {...this.props} />
+    return (
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+          return icon ? (
+            <InputIcon
+              className="InputIconContainer"
+              theme={_theme}
+              {...iconContainerProps}
+            >
+              <Icon
+                className="InputIcon"
+                theme={_theme}
+                icon={icon}
+                pos={pos}
+                {...iconProps}
+              />
+              <InputStyled className="Input" theme={_theme} {...this.props} />
+            </InputIcon>
+          ) : (
+            <InputStyled className="Input" theme={_theme} {...this.props} />
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }

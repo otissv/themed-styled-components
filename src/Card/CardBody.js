@@ -4,28 +4,28 @@ import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { ThemeConsumer } from '../ThemeContext'
 
-const ButtonStyled = styled.button`
-  ${styles('button')};
-  ${styles('button', 'context')};
-  ${styles('button', 'size')};
-  ${styles('button.stretch', 'stretch', true)};
-  ${sharedStyles('button')};
-
+const CardBodyStyled = styled.div`
+  ${styles('card.body')};
+  ${styles('card.footer.collapse', 'collapse', true)};
+  ${styles('card.body', 'context')};
+  ${styles('card.body', 'size')};
+  ${sharedStyles('card.body')};
   ${props => props.styled};
 `
 
-export class Button extends Component {
+class CardBody extends Component {
   static propTypes = {
-    size: PropTypes.oneOf(['small', 'large']),
+    backgroundImage: PropTypes.string,
+    children: PropTypes.any.isRequired,
+    collapse: PropTypes.bool,
     context: PropTypes.oneOf([
       'accent',
       'danger',
       'primary',
       'success',
-      'warning',
-      'ghost'
+      'warning'
     ]),
-    stretch: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'large']),
     theme: PropTypes.object.isRequired
   }
 
@@ -35,13 +35,13 @@ export class Button extends Component {
     return (
       <ThemeConsumer>
         {theme => (
-          <ButtonStyled theme={theme} {...this.props}>
+          <CardBodyStyled theme={theme} {...this.props}>
             {children}
-          </ButtonStyled>
+          </CardBodyStyled>
         )}
       </ThemeConsumer>
     )
   }
 }
 
-export const button = styled(Button)
+export const cardBody = styled(CardBody)

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ThemeConsumer } from '../ThemeContext'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { tabList } from './TabList'
 import { tabPanel } from './TabPanel'
@@ -27,7 +28,7 @@ class Tabs extends Component {
     children: PropTypes.func,
     tabListProps: PropTypes.object,
     tabPanelProps: PropTypes.object,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   constructor(props) {
@@ -39,20 +40,33 @@ class Tabs extends Component {
 
   getItems = () => {
     const { items, tabListProps, tabPanelProps, theme } = this.props
-    console.log(this.props)
+
     return (
-      <Fragment>
-        <TabList theme={theme} {...tabListProps} items={items} />
-        {items.map(item => {
-          let Component = item.component
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
 
           return (
-            <TabPanel theme={theme} uid={item.uid} {...tabPanelProps}>
-              {context => <Component {...context} />}
-            </TabPanel>
+            <Fragment>
+              <TabList theme={_theme} {...tabListProps} items={items} />
+              {items.map(item => {
+                let Component = item.component
+
+                return (
+                  <TabPanel
+                    key={item.uid}
+                    theme={_theme}
+                    uid={item.uid}
+                    {...tabPanelProps}
+                  >
+                    {context => <Component {...context} />}
+                  </TabPanel>
+                )
+              })}
+            </Fragment>
           )
-        })}
-      </Fragment>
+        }}
+      </ThemeConsumer>
     )
   }
 
@@ -71,22 +85,29 @@ class Tabs extends Component {
     } = this.props
 
     return (
-      <TabContext.Provider
-        value={{
-          ...this.state,
-          setActiveItem: this.setActiveItem
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+          return (
+            <TabContext.Provider
+              value={{
+                ...this.state,
+                setActiveItem: this.setActiveItem
+              }}
+            >
+              <TabStyled className="Tabs" theme={_theme} {...this.props}>
+                {items.length > 0
+                  ? this.getItems()
+                  : children({
+                      theme,
+                      tabListProps: { theme, ...tabListProps },
+                      tabPanelProps: { theme, ...tabPanelProps }
+                    })}
+              </TabStyled>
+            </TabContext.Provider>
+          )
         }}
-      >
-        <TabStyled className="Tabs" {...this.props}>
-          {items.length > 0
-            ? this.getItems()
-            : children({
-                theme,
-                tabListProps: { theme, ...tabListProps },
-                tabPanelProps: { theme, ...tabPanelProps }
-              })}
-        </TabStyled>
-      </TabContext.Provider>
+      </ThemeConsumer>
     )
   }
 }

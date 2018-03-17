@@ -156,6 +156,6 @@ export function button({ animation, border, colors, depth, font, spacing }) {
     /* =====================================
     * Stretch 
     * =================================== */
-    stretch: { width: '100%' }
+    stretch: { flex: 1 }
   }
 }

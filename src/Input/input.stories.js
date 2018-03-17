@@ -1,4 +1,5 @@
 import React from 'react'
+import { ThemeProvider } from '../ThemeContext'
 
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
@@ -17,10 +18,14 @@ stories
     withInfo(`
   
       ~~~js
-      <Input placeholder="Default" theme={theme()(colors)} />
+      <Input placeholder="Default" />
       ~~~
 
-    `)(() => <Input placeholder="Default" theme={theme()(colors)} />)
+    `)(() => (
+      <ThemeProvider>
+        <Input placeholder="Default" />
+      </ThemeProvider>
+    ))
   )
 
   /* =====================================
@@ -35,17 +40,13 @@ stories
           context="accent"
           value="Accent"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        context="accent"
-        value="Accent"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input context="accent" value="Accent" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -58,17 +59,13 @@ stories
           context="blank"
           value="Blank"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        context="blank"
-        value="Blank"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input context="blank" value="Blank" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -81,17 +78,13 @@ stories
           context="danger"
           value="Danger"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        context="danger"
-        value="Danger"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input context="danger" value="Danger" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -104,17 +97,13 @@ stories
           context="primary"
           value="Primary"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        context="primary"
-        value="Primary"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input context="primary" value="Primary" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -127,17 +116,13 @@ stories
           context="success"
           value="Success"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        context="success"
-        value="Success"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input context="success" value="Success" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -150,17 +135,13 @@ stories
           context="warning"
           value="Warning"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        context="warning"
-        value="Warning"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input context="warning" value="Warning" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -176,17 +157,13 @@ stories
           disabled
           value="Disabled"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        disabled
-        value="Disabled"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input disabled value="Disabled" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -203,17 +180,13 @@ stories
           icon="account-o"
           placeholder="user name"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        icon="account-o"
-        placeholder="user name"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input icon="account-o" placeholder="user name" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -232,19 +205,19 @@ stories
           placeholder="password"
           type='password'
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        pos="right"
-        icon="lock-outline"
-        placeholder="password"
-        type="password"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input
+          pos="right"
+          icon="lock-outline"
+          placeholder="password"
+          type="password"
+          onChange={() => {}}
+        />
+      </ThemeProvider>
     ))
   )
 
@@ -263,7 +236,7 @@ stories
   //         icon="link"
   //         placeholder="url"
   //         onChange={() => {}}
-  //         theme={theme()(colors)}
+  //
   //       />
   //       ~~~
 
@@ -274,7 +247,7 @@ stories
   //       icon="link"
   //       placeholder="url"
   //       onChange={() => {}}
-  //       theme={theme()(colors)}
+  //
   //     />
   //   ))
   // )
@@ -292,17 +265,13 @@ stories
           size="large"
           value="Large"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        size="large"
-        value="Large"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input size="large" value="Large" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -315,17 +284,13 @@ stories
           size="small"
           value="Small"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        size="small"
-        value="Small"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input size="small" value="Small" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -342,17 +307,13 @@ stories
           widths="large"
           value="Large"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        widths="large"
-        value="Large"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input widths="large" value="Large" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -365,17 +326,13 @@ stories
           widths="medium"
           value="Medium"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        widths="medium"
-        value="Medium"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input widths="medium" value="Medium" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -388,17 +345,13 @@ stories
           widths="small"
           value="Small"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        widths="small"
-        value="Small"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input widths="small" value="Small" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
 
@@ -411,17 +364,13 @@ stories
           widths="xlarge"
           value="Xlarge"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        widths="xlarge"
-        value="Xlarge"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input widths="xlarge" value="Xlarge" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )
   .add(
@@ -433,16 +382,12 @@ stories
           widths="xsmall"
           value="Xsmall"
           onChange={() => {}}
-          theme={theme()(colors)}
         />
         ~~~
   
       `)(() => (
-      <Input
-        widths="xsmall"
-        value="Xsmall"
-        onChange={() => {}}
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Input widths="xsmall" value="Xsmall" onChange={() => {}} />
+      </ThemeProvider>
     ))
   )

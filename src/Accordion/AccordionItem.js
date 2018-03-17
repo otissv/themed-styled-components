@@ -1,5 +1,6 @@
 import React, { Component, Children } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeConsumer } from '../ThemeContext'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { AccordionConsumer } from './index'
@@ -15,7 +16,7 @@ const AccordionItemStyled = styled.li`
 class AccordionItem extends Component {
   static propTypes = {
     children: PropTypes.func.isRequired,
-    theme: PropTypes.object.isRequired,
+    theme: PropTypes.object,
     uid: PropTypes.string
   }
 
@@ -27,14 +28,22 @@ class AccordionItem extends Component {
   }
 
   render() {
-    const { children, theme } = this.props
+    const { children } = this.props
 
     return (
-      <AccordionItemContext.Provider value={this.state}>
-        <AccordionItemStyled className="Accordion-item" {...this.props}>
-          {children({ theme })}
-        </AccordionItemStyled>
-      </AccordionItemContext.Provider>
+      <ThemeConsumer>
+        {theme => (
+          <AccordionItemContext.Provider value={this.state}>
+            <AccordionItemStyled
+              className="Accordion-item"
+              theme={theme}
+              {...this.props}
+            >
+              {children({ theme: this.props.theme || theme })}
+            </AccordionItemStyled>
+          </AccordionItemContext.Provider>
+        )}
+      </ThemeConsumer>
     )
   }
 }

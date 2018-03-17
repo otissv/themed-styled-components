@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 const TextareaStyled = styled.textarea`
   ${styles('textarea')};
@@ -18,7 +19,13 @@ function maybeModifier(initial) {
 
 class Textarea extends Component {
   render() {
-    return <TextareaStyled className="Textarea" {...this.props} />
+    return (
+      <ThemeConsumer>
+        {theme => (
+          <TextareaStyled className="Textarea" theme={theme} {...this.props} />
+        )}
+      </ThemeConsumer>
+    )
   }
 }
 

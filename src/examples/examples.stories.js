@@ -1,23 +1,19 @@
 import React, { Fragment } from 'react'
-import { ThemeProvider } from '../ThemeContext'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-
-import { row } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
 
-const Row = row``
-const stories = storiesOf('Row', module)
+const stories = storiesOf('Examples', module)
 
 stories.add(
-  'Default - Row',
+  'Login 1 - Example',
   withInfo(`
   
       ~~~js
       
       ~~~
 
-    `)(() => <Row theme={theme()(colors)} />)
+    // `)(() => <div />)
 )

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-
+import { ThemeProvider } from '../ThemeContext'
 import { checkbox } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
@@ -18,10 +18,14 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox theme={theme()(colors)} onChange={() => {}} />
+      <Checkbox onChange={() => {}} />
       ~~~
 
-    `)(() => <Checkbox theme={theme()(colors)} onChange={() => {}} />)
+    `)(() => (
+      <ThemeProvider>
+        <Checkbox onChange={() => {}} />
+      </ThemeProvider>
+    ))
   )
 
   .add(
@@ -29,11 +33,13 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox theme={theme()(colors)} onChange={() => {}} checked={true} />
+      <Checkbox onChange={() => {}} checked={true} />
       ~~~
 
     `)(() => (
-      <Checkbox theme={theme()(colors)} onChange={() => {}} checked={true} />
+      <ThemeProvider>
+        <Checkbox onChange={() => {}} checked={true} />
+      </ThemeProvider>
     ))
   )
 
@@ -42,13 +48,13 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox theme={theme()(colors)} onChange={() => {}}>Checkbox</Checkbox>
+      <Checkbox onChange={() => {}}>Checkbox</Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox theme={theme()(colors)} onChange={() => {}}>
-        Checkbox
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox onChange={() => {}}>Checkbox</Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -61,15 +67,17 @@ stories
     withInfo(`
 
     ~~~js
-    <Checkbox context="accent" theme={theme()(colors)} onChange={() => {}}>
+    <Checkbox context="accent" onChange={() => {}}>
     Accent
     </Checkbox>
     ~~~
 
   `)(() => (
-      <Checkbox context="accent" theme={theme()(colors)} onChange={() => {}}>
-        Accent
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox context="accent" onChange={() => {}}>
+          Accent
+        </Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -78,15 +86,17 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox context="danger" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox context="danger" onChange={() => {}}>
       Danger
       </Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox context="danger" theme={theme()(colors)} onChange={() => {}}>
-        Danger
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox context="danger" onChange={() => {}}>
+          Danger
+        </Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -95,15 +105,17 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox context="primary" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox context="primary" onChange={() => {}}>
       Primary
       </Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox context="primary" theme={theme()(colors)} onChange={() => {}}>
-        Primary
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox context="primary" onChange={() => {}}>
+          Primary
+        </Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -112,15 +124,17 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox context="success" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox context="success" onChange={() => {}}>
       Success
       </Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox context="success" theme={theme()(colors)} onChange={() => {}}>
-        Success
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox context="success" onChange={() => {}}>
+          Success
+        </Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -129,15 +143,15 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox context="warning" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox context="warning" onChange={() => {}}>
       Warning
       </Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox context="warning" theme={theme()(colors)}>
-        Warning
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox context="warning">Warning</Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -150,15 +164,17 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox size="large" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox size="large" onChange={() => {}}>
         Large
       </Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox size="large" theme={theme()(colors)} onChange={() => {}}>
-        Large
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox size="large" onChange={() => {}}>
+          Large
+        </Checkbox>
+      </ThemeProvider>
     ))
   )
 
@@ -167,14 +183,16 @@ stories
     withInfo(`
   
       ~~~js
-      <Checkbox size="small" theme={theme()(colors)} onChange={() => {}}>
+      <Checkbox size="small" onChange={() => {}}>
       Small
       </Checkbox>
       ~~~
 
     `)(() => (
-      <Checkbox size="small" theme={theme()(colors)} onChange={() => {}}>
-        Small
-      </Checkbox>
+      <ThemeProvider>
+        <Checkbox size="small" onChange={() => {}}>
+          Small
+        </Checkbox>
+      </ThemeProvider>
     ))
   )

@@ -2,8 +2,11 @@ import React, { Fragment } from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-
-import { card, cardHeader, cardBody, cardFooter } from './index'
+import { ThemeProvider } from '../ThemeContext'
+import { card } from './index'
+import { cardHeader } from './CardHeader'
+import { cardBody } from './CardBody'
+import { cardFooter } from './CardFooter'
 import { dark } from '../dark'
 import { light as colors } from '../light'
 import { theme } from '../theme'
@@ -21,14 +24,14 @@ stories
     withInfo(`
       
       ~~~js
-      <Card className="Card" theme={theme()(colors)}>
+      <Card className="Card">
         {() => (
           <Fragment>
             <h3>Default</h3>
             <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </p>
           </Fragment>
         )}
@@ -36,18 +39,20 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)}>
-        {() => (
-          <Fragment>
-            <h3>Default</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card">
+          {() => (
+            <Fragment>
+              <h3>Default</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -60,14 +65,14 @@ stories
     withInfo(`
     
     ~~~js
-    <Card className="Card" theme={theme()(colors)} context="accent">
+    <Card className="Card" context="accent">
       {() => (
         <Fragment>
           <h3>Accent</h3>
           <p>
-            Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua.
+            Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
           </p>
         </Fragment>
       )}
@@ -75,18 +80,20 @@ stories
     ~~~
 
   `)(() => (
-      <Card className="Card" theme={theme()(colors)} context="accent">
-        {() => (
-          <Fragment>
-            <h3>Accent</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" context="accent">
+          {() => (
+            <Fragment>
+              <h3>Accent</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -95,14 +102,14 @@ stories
     withInfo(`
       
       ~~~js
-      <Card className="Card" theme={theme()(colors)} context="primary">
+      <Card className="Card" context="primary">
         {() => (
           <Fragment>
             <h3>Primary</h3>
             <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </p>
           </Fragment>
         )}
@@ -110,18 +117,20 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} context="primary">
-        {() => (
-          <Fragment>
-            <h3>Primary</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" context="primary">
+          {() => (
+            <Fragment>
+              <h3>Primary</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -130,14 +139,14 @@ stories
     withInfo(`
    
       ~~~js
-      <Card className="Card" theme={theme()(colors)} context="danger">
+      <Card className="Card" context="danger">
         {() => (
           <Fragment>
             <h3>Danger</h3>
             <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </p>
           </Fragment>
         )}
@@ -145,18 +154,20 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} context="danger">
-        {() => (
-          <Fragment>
-            <h3>Danger</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" context="danger">
+          {() => (
+            <Fragment>
+              <h3>Danger</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -165,14 +176,14 @@ stories
     withInfo(`
    
       ~~~js
-      <Card className="Card" theme={theme()(colors)} context="ghost">
+      <Card className="Card" context="ghost">
         {() => (
           <Fragment>
             <h3>Ghost</h3>
             <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </p>
           </Fragment>
         )}
@@ -180,18 +191,20 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} context="ghost">
-        {() => (
-          <Fragment>
-            <h3>Ghost</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" context="ghost">
+          {() => (
+            <Fragment>
+              <h3>Ghost</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -204,22 +217,35 @@ stories
     withInfo(`
     
     ~~~js
-
+    <Card className="Card" collapse>
+      {() => (
+        <Fragment>
+          <h3>Collapse</h3>
+          <p>
+            Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua.
+          </p>
+        </Fragment>
+      )}
+    </Card>
     ~~~
 
   `)(() => (
-      <Card className="Card" theme={theme()(colors)} collapse>
-        {() => (
-          <Fragment>
-            <h3>Collapse</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" collapse>
+          {() => (
+            <Fragment>
+              <h3>Collapse</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -232,14 +258,14 @@ stories
     withInfo(`
       
       ~~~js
-      <Card className="Card" theme={theme()(colors)} size="small">
+      <Card className="Card" size="small">
         {() => (
           <Fragment>
             <h3>Small</h3>
             <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </p>
           </Fragment>
         )}
@@ -247,18 +273,20 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} size="small">
-        {() => (
-          <Fragment>
-            <h3>Small</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" size="small">
+          {() => (
+            <Fragment>
+              <h3>Small</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -267,14 +295,14 @@ stories
     withInfo(`
       
       ~~~js
-      <Card className="Card" theme={theme()(colors)} size="large">
+      <Card className="Card" size="large">
         {() => (
           <Fragment>
             <h3>Large</h3>
             <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
+              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </p>
           </Fragment>
         )}
@@ -282,18 +310,20 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} size="large">
-        {() => (
-          <Fragment>
-            <h3>Large</h3>
-            <p>
-              Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing
-              elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-              aliqua.
-            </p>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" size="large">
+          {() => (
+            <Fragment>
+              <h3>Large</h3>
+              <p>
+                Lorem ipsum <a href="#">dolor</a> sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </p>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -306,17 +336,17 @@ stories
       Button component
     
       ~~~js
-      <Card className="Card" theme={theme()(colors)} collapse>
-        {({ cardBodyProps, cardHeaderProps }) => (
+      <Card className="Card" collapse>
+        {() => (
           <Fragment>
-            <CardHeader {...cardHeaderProps}>
+            <CardHeader>
               <h3>Title</h3>
             </CardHeader>
-            <CardBody {...cardBodyProps}>
+            <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt.
             </CardBody>
-            <CardFooter {...cardBodyProps}>
+            <CardFooter>
               <a href="#">Read More</a>
             </CardFooter>
           </Fragment>
@@ -325,22 +355,24 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} collapse>
-        {({ cardBodyProps, cardHeaderProps }) => (
-          <Fragment>
-            <CardHeader {...cardHeaderProps}>
-              <h3>Title</h3>
-            </CardHeader>
-            <CardBody {...cardBodyProps}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt.
-            </CardBody>
-            <CardFooter {...cardBodyProps}>
-              <a href="#">Read More</a>
-            </CardFooter>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" collapse>
+          {() => (
+            <Fragment>
+              <CardHeader>
+                <h3>Title</h3>
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </CardBody>
+              <CardFooter>
+                <a href="#">Read More</a>
+              </CardFooter>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -350,17 +382,17 @@ stories
       Button component
     
       ~~~js
-      <Card className="Card" theme={theme()(colors)} collapse size='small'>
-        {({ cardBodyProps, cardHeaderProps }) => (
+      <Card className="Card" collapse size="small">
+        {() => (
           <Fragment>
-            <CardHeader {...cardHeaderProps} size='small'>
+            <CardHeader size="small">
               <h3>Small</h3>
             </CardHeader>
-            <CardBody {...cardBodyProps} size='small'>
+            <CardBody size="small">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt.
             </CardBody>
-            <CardFooter {...cardBodyProps} size='small'>
+            <CardFooter size="small">
               <a href="#">Read More</a>
             </CardFooter>
           </Fragment>
@@ -369,22 +401,24 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} collapse size="small">
-        {({ cardBodyProps, cardHeaderProps }) => (
-          <Fragment>
-            <CardHeader {...cardHeaderProps} size="small">
-              <h3>Small</h3>
-            </CardHeader>
-            <CardBody {...cardBodyProps} size="small">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt.
-            </CardBody>
-            <CardFooter {...cardBodyProps} size="small">
-              <a href="#">Read More</a>
-            </CardFooter>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" collapse size="small">
+          {() => (
+            <Fragment>
+              <CardHeader size="small">
+                <h3>Small</h3>
+              </CardHeader>
+              <CardBody size="small">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </CardBody>
+              <CardFooter size="small">
+                <a href="#">Read More</a>
+              </CardFooter>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -394,17 +428,17 @@ stories
       Button component
     
       ~~~js
-      <Card className="Card" theme={theme()(colors)} collapse size='large'>
-        {({ cardBodyProps, cardHeaderProps }) => (
+      <Card className="Card" collapse size="large">
+        {() => (
           <Fragment>
-            <CardHeader {...cardHeaderProps} size='large'>
+            <CardHeader size="large">
               <h3>Large</h3>
             </CardHeader>
-            <CardBody {...cardBodyProps} size='large'>
+            <CardBody size="large">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt.
             </CardBody>
-            <CardFooter {...cardBodyProps} size='large'>
+            <CardFooter size="large">
               <a href="#">Read More</a>
             </CardFooter>
           </Fragment>
@@ -413,22 +447,24 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} collapse size="large">
-        {({ cardBodyProps, cardHeaderProps }) => (
-          <Fragment>
-            <CardHeader {...cardHeaderProps} size="large">
-              <h3>Large</h3>
-            </CardHeader>
-            <CardBody {...cardBodyProps} size="large">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt.
-            </CardBody>
-            <CardFooter {...cardBodyProps} size="large">
-              <a href="#">Read More</a>
-            </CardFooter>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" collapse size="large">
+          {() => (
+            <Fragment>
+              <CardHeader size="large">
+                <h3>Large</h3>
+              </CardHeader>
+              <CardBody size="large">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </CardBody>
+              <CardFooter size="large">
+                <a href="#">Read More</a>
+              </CardFooter>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )
 
@@ -438,17 +474,17 @@ stories
       Button component
     
       ~~~js
-      <Card className="Card" theme={theme()(colors)} collapse>
-        {({ cardBodyProps, cardHeaderProps }) => (
+      <Card className="Card" collapse>
+        {() => (
           <Fragment>
-            <CardHeader {...cardHeaderProps} collapse>
+            <CardHeader collapse>
               <h3>Large</h3>
             </CardHeader>
-            <CardBody {...cardBodyProps} collapse>
+            <CardBody collapse>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt.
             </CardBody>
-            <CardFooter {...cardBodyProps} collapse>
+            <CardFooter collapse>
               <a href="#">Read More</a>
             </CardFooter>
           </Fragment>
@@ -457,21 +493,23 @@ stories
       ~~~
 
     `)(() => (
-      <Card className="Card" theme={theme()(colors)} collapse>
-        {({ cardBodyProps, cardHeaderProps }) => (
-          <Fragment>
-            <CardHeader {...cardHeaderProps} collapse>
-              <h3>Large</h3>
-            </CardHeader>
-            <CardBody {...cardBodyProps} collapse>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt.
-            </CardBody>
-            <CardFooter {...cardBodyProps} collapse>
-              <a href="#">Read More</a>
-            </CardFooter>
-          </Fragment>
-        )}
-      </Card>
+      <ThemeProvider>
+        <Card className="Card" collapse>
+          {() => (
+            <Fragment>
+              <CardHeader collapse>
+                <h3>Large</h3>
+              </CardHeader>
+              <CardBody collapse>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </CardBody>
+              <CardFooter collapse>
+                <a href="#">Read More</a>
+              </CardFooter>
+            </Fragment>
+          )}
+        </Card>
+      </ThemeProvider>
     ))
   )

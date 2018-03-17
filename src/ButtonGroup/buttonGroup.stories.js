@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-
+import { ThemeProvider } from '../ThemeContext'
 import { buttonGroup } from './index'
 import { Button } from '../Button'
 import { dark } from '../dark'
@@ -19,27 +19,29 @@ stories
     withInfo(`
   
       ~~~js
-      <ButtonGroup theme={theme()(colors)}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Button</Button>
-            <Button {...buttonProps}>Button</Button>
-            <Button {...buttonProps}>Button</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ButtonGroup>
+          {() => (
+            <Fragment>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Button</Button>
-            <Button {...buttonProps}>Button</Button>
-            <Button {...buttonProps}>Button</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup>
+          {() => (
+            <Fragment>
+              <Button>Button</Button>
+              <Button>Button</Button>
+              <Button>Button</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -52,21 +54,7 @@ stories
     withInfo(`
          
       ~~~js
-      <ButtonGroup
-        theme={theme()(colors)}
-        buttonProps={{ context: 'accent' }}
-      >
-        {buttonProps => <Fragment>
-          <Button {...buttonProps}>Accent</Button>
-          <Button {...buttonProps}>Accent</Button>
-          <Button {...buttonProps}>Accent</Button>
-          </Fragment>}
-      </ButtonGroup>
-      ~~~
-
-      
-    `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'accent' }}>
+      <ButtonGroup buttonProps={{ context: 'accent' }}>
         {buttonProps => (
           <Fragment>
             <Button {...buttonProps}>Accent</Button>
@@ -75,6 +63,21 @@ stories
           </Fragment>
         )}
       </ButtonGroup>
+      ~~~
+
+      
+    `)(() => (
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ context: 'accent' }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Accent</Button>
+              <Button {...buttonProps}>Accent</Button>
+              <Button {...buttonProps}>Accent</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -83,7 +86,7 @@ stories
     withInfo(`
          
       ~~~js
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'danger' }}>
+      <ButtonGroup  buttonProps={{ context: 'danger' }}>
         {buttonProps => <Fragment>
           <Button {...buttonProps}>Danger</Button>
           <Button {...buttonProps}>Danger</Button>
@@ -93,15 +96,17 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'danger' }}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Danger</Button>
-            <Button {...buttonProps}>Danger</Button>
-            <Button {...buttonProps}>Danger</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ context: 'danger' }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Danger</Button>
+              <Button {...buttonProps}>Danger</Button>
+              <Button {...buttonProps}>Danger</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -110,7 +115,7 @@ stories
     withInfo(`
          
       ~~~js
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'ghost' }}>
+      <ButtonGroup  buttonProps={{ context: 'ghost' }}>
         {buttonProps => (
           <Fragment>
             <Button {...buttonProps}>Ghost</Button>
@@ -122,15 +127,17 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'ghost' }}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Ghost</Button>
-            <Button {...buttonProps}>Ghost</Button>
-            <Button {...buttonProps}>Ghost</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ context: 'ghost' }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Ghost</Button>
+              <Button {...buttonProps}>Ghost</Button>
+              <Button {...buttonProps}>Ghost</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -139,7 +146,7 @@ stories
     withInfo(`
     
       ~~~js
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'success' }}>
+      <ButtonGroup  buttonProps={{ context: 'success' }}>
         {buttonProps => <Fragment>
           <Button {...buttonProps}>Success</Button>
           <Button {...buttonProps}>Success</Button>
@@ -149,15 +156,17 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'success' }}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Success</Button>
-            <Button {...buttonProps}>Success</Button>
-            <Button {...buttonProps}>Success</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ context: 'success' }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Success</Button>
+              <Button {...buttonProps}>Success</Button>
+              <Button {...buttonProps}>Success</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -166,7 +175,7 @@ stories
     withInfo(`
     
       ~~~js
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'warning' }}>
+      <ButtonGroup  buttonProps={{ context: 'warning' }}>
         {buttonProps => <Fragment>
           <Button {...buttonProps}>Warning</Button>
           <Button {...buttonProps}>Warning</Button>
@@ -176,15 +185,17 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ context: 'warning' }}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Warning</Button>
-            <Button {...buttonProps}>Warning</Button>
-            <Button {...buttonProps}>Warning</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ context: 'warning' }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Warning</Button>
+              <Button {...buttonProps}>Warning</Button>
+              <Button {...buttonProps}>Warning</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -198,7 +209,7 @@ stories
          
       ~~~js
       <ButtonGroup
-        theme={theme()(colors)}
+        
         buttonProps={{ size: 'small', stretch: false }}
       >
         {buttonProps => (
@@ -212,18 +223,17 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup
-        theme={theme()(colors)}
-        buttonProps={{ size: 'small', stretch: false }}
-      >
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Small</Button>
-            <Button {...buttonProps}>Small</Button>
-            <Button {...buttonProps}>Small</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ size: 'small', stretch: false }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Small</Button>
+              <Button {...buttonProps}>Small</Button>
+              <Button {...buttonProps}>Small</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -232,7 +242,7 @@ stories
     withInfo(`
          
       ~~~js
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ size: 'large' }}>
+      <ButtonGroup  buttonProps={{ size: 'large' }}>
         {buttonProps => (
           <Fragment>
             <Button {...buttonProps}>Large</Button>
@@ -244,15 +254,17 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)} buttonProps={{ size: 'large' }}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Large</Button>
-            <Button {...buttonProps}>Large</Button>
-            <Button {...buttonProps}>Large</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup buttonProps={{ size: 'large' }}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Large</Button>
+              <Button {...buttonProps}>Large</Button>
+              <Button {...buttonProps}>Large</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )
 
@@ -265,7 +277,7 @@ stories
     withInfo(`
          
       ~~~js
-      <ButtonGroup theme={theme()(colors)} stretch={true}>
+      <ButtonGroup  stretch={true}>
         {buttonProps => (
           <Fragment>
             <Button {...buttonProps}>Stretch</Button>
@@ -277,14 +289,16 @@ stories
       ~~~
 
     `)(() => (
-      <ButtonGroup theme={theme()(colors)} stretch={true}>
-        {buttonProps => (
-          <Fragment>
-            <Button {...buttonProps}>Stretch</Button>
-            <Button {...buttonProps}>Stretch</Button>
-            <Button {...buttonProps}>Stretch</Button>
-          </Fragment>
-        )}
-      </ButtonGroup>
+      <ThemeProvider>
+        <ButtonGroup stretch={true}>
+          {buttonProps => (
+            <Fragment>
+              <Button {...buttonProps}>Stretch</Button>
+              <Button {...buttonProps}>Stretch</Button>
+              <Button {...buttonProps}>Stretch</Button>
+            </Fragment>
+          )}
+        </ButtonGroup>
+      </ThemeProvider>
     ))
   )

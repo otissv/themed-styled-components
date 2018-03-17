@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ThemeConsumer } from '../ThemeContext'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { icon } from '../Icon'
 import { AccordionConsumer } from './index'
@@ -20,8 +21,8 @@ const Icon = icon`
 
 class AccordionButton extends Component {
   static propTypes = {
-    children: PropTypes.func,
-    theme: PropTypes.object.isRequired,
+    children: PropTypes.any.isRequired,
+    theme: PropTypes.object,
     title: PropTypes.string,
     toggleProps: PropTypes.object
   }
@@ -47,38 +48,45 @@ class AccordionButton extends Component {
       closed: { icon: 'chevron-right' }
     }
     return (
-      <AccordionConsumer>
-        {({ active, setActiveItem }) => (
-          <AccordionItemConsumer>
-            {({ uid }) => {
-              const iconProps =
-                active === uid ? _toggleProps.opened : _toggleProps.closed
-              return (
-                <AccordionButtonStyled
-                  className="Accordion-button"
-                  onClick={setActiveItem}
-                  data-uid={uid}
-                  onMouseEnter={this.handleOnMouse}
-                  onMouseLeave={this.handleOnMouse}
-                  {...this.props}
-                >
-                  {title || children}
-                  <Icon
-                    theme={theme}
-                    onClick={setActiveItem}
-                    styled={
-                      this.state.hover
-                        ? styles('accordion.button.icon.&:hover')(this.props)
-                        : ''
-                    }
-                    {...iconProps}
-                  />
-                </AccordionButtonStyled>
-              )
-            }}
-          </AccordionItemConsumer>
+      <ThemeConsumer>
+        {theme => (
+          <AccordionConsumer>
+            {({ active, setActiveItem }) => (
+              <AccordionItemConsumer>
+                {({ uid }) => {
+                  const iconProps =
+                    active === uid ? _toggleProps.opened : _toggleProps.closed
+                  return (
+                    <AccordionButtonStyled
+                      className="Accordion-button"
+                      onClick={setActiveItem}
+                      data-uid={uid}
+                      onMouseEnter={this.handleOnMouse}
+                      onMouseLeave={this.handleOnMouse}
+                      theme={theme}
+                      {...this.props}
+                    >
+                      {title || children}
+                      <Icon
+                        theme={this.props.theme || theme}
+                        onClick={setActiveItem}
+                        styled={
+                          this.state.hover
+                            ? styles('accordion.button.icon.&:hover')(
+                                this.props
+                              )
+                            : ''
+                        }
+                        {...iconProps}
+                      />
+                    </AccordionButtonStyled>
+                  )
+                }}
+              </AccordionItemConsumer>
+            )}
+          </AccordionConsumer>
         )}
-      </AccordionConsumer>
+      </ThemeConsumer>
     )
   }
 }

@@ -5,6 +5,7 @@ import { styles, sharedStyles } from '../utils/theme.util'
 import { accordionItem } from './AccordionItem'
 import { accordionButton } from './AccordionButton'
 import { accordionContent } from './AccordionContent'
+import { ThemeConsumer } from '../ThemeContext'
 
 const AccordionStyled = styled.ul`
   ${styles('accordion')};
@@ -25,7 +26,7 @@ class Accordion extends Component {
 
   static propTypes = {
     active: PropTypes.string,
-    children: PropTypes.func.isRequired,
+    children: PropTypes.func,
     theme: PropTypes.object.isRequired,
     buttonProps: PropTypes.object,
     contentProps: PropTypes.object,
@@ -33,32 +34,35 @@ class Accordion extends Component {
   }
 
   getItems = () => {
-    const { items, buttonProps, contentProps, itemProps, theme } = this.props
+    const { items, theme } = this.props
+
+    const buttonProps = { theme, ...this.props }
+    const contentProps = { theme, ...this.props }
+    const itemProps = { theme, ...this.props }
 
     return this.props.items.map(item => {
       return (
-        <AccordionItem
-          key={item.uid}
-          theme={theme}
-          uid={item.uid}
-          {...itemProps}
-        >
-          {props => (
-            <Fragment>
-              <AccordionButton
-                theme={theme}
-                iconOpenPros={{ icon: 'chevron-right' }}
-                iconClosePros={{ icon: 'chevron-down' }}
-                {...buttonProps}
-              >
-                {item.title}
-              </AccordionButton>
-              <AccordionContent theme={theme} {...contentProps}>
-                {item.content}
-              </AccordionContent>
-            </Fragment>
+        <ThemeConsumer key={item.uid}>
+          {theme => (
+            <AccordionItem theme={theme} uid={item.uid} {...itemProps}>
+              {props => (
+                <Fragment>
+                  <AccordionButton
+                    theme={theme}
+                    iconOpenPros={{ icon: 'chevron-right' }}
+                    iconClosePros={{ icon: 'chevron-down' }}
+                    {...buttonProps}
+                  >
+                    {item.title}
+                  </AccordionButton>
+                  <AccordionContent theme={theme} {...contentProps}>
+                    {item.content}
+                  </AccordionContent>
+                </Fragment>
+              )}
+            </AccordionItem>
           )}
-        </AccordionItem>
+        </ThemeConsumer>
       )
     })
   }
@@ -78,24 +82,36 @@ class Accordion extends Component {
     const { active, children, items, theme } = this.props
 
     return (
-      <AccordionContext.Provider
-        value={{
-          ...this.state,
-          setActiveItem: this.setActiveItem
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+          console.log(theme)
+          return (
+            <AccordionContext.Provider
+              value={{
+                ...this.state,
+                setActiveItem: this.setActiveItem
+              }}
+            >
+              <AccordionStyled
+                className="Accordion"
+                theme={theme}
+                {...this.props}
+              >
+                {items.length > 0
+                  ? this.getItems()
+                  : children({
+                      setActiveItem: this.setActiveItem,
+                      theme: _theme,
+                      buttonProps: { theme: _theme },
+                      contentProps: { theme: _theme },
+                      itemProps: { theme: _theme }
+                    })}
+              </AccordionStyled>
+            </AccordionContext.Provider>
+          )
         }}
-      >
-        <AccordionStyled className="Accordion" {...this.props}>
-          {items.length > 0
-            ? this.getItems()
-            : children({
-                setActiveItem: this.setActiveItem,
-                theme,
-                buttonProps: { theme },
-                contentProps: { theme },
-                itemProps: { theme }
-              })}
-        </AccordionStyled>
-      </AccordionContext.Provider>
+      </ThemeConsumer>
     )
   }
 }

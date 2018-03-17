@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
+import { ThemeProvider } from '../ThemeContext'
 import { textarea } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
@@ -17,10 +17,14 @@ stories
     withInfo(`
   
       ~~~js
-      <Textarea placeholder="Textarea" theme={theme()(colors)} />
+      <Textarea placeholder="Textarea"/>
       ~~~
 
-    `)(() => <Textarea placeholder="Textarea" theme={theme()(colors)} />)
+    `)(() => (
+      <ThemeProvider>
+        <Textarea placeholder="Textarea" />
+      </ThemeProvider>
+    ))
   )
 
   /* =====================================
@@ -32,11 +36,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Accent" context="accent" theme={theme()(colors)} />
+        <Textarea placeholder="Accent" context="accent"/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Accent" context="accent" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Accent" context="accent" />
+      </ThemeProvider>
     ))
   )
 
@@ -45,11 +51,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Danger" context="danger" theme={theme()(colors)} />
+        <Textarea placeholder="Danger" context="danger"/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Danger" context="danger" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Danger" context="danger" />
+      </ThemeProvider>
     ))
   )
 
@@ -58,15 +66,17 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Success" context="success" theme={theme()(colors)} />
+        <Textarea placeholder="Success" context="success"/>
         ~~~
   
       `)(() => (
-      <Textarea
-        placeholder="Success"
-        context="success"
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Textarea
+          placeholder="Success"
+          context="success"
+          theme={theme()(colors)}
+        />
+      </ThemeProvider>
     ))
   )
 
@@ -75,15 +85,17 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Warning" context="warning" theme={theme()(colors)} />
+        <Textarea placeholder="Warning" context="warning"/>
         ~~~
   
       `)(() => (
-      <Textarea
-        placeholder="Warning"
-        context="warning"
-        theme={theme()(colors)}
-      />
+      <ThemeProvider>
+        <Textarea
+          placeholder="Warning"
+          context="warning"
+          theme={theme()(colors)}
+        />
+      </ThemeProvider>
     ))
   )
 
@@ -96,11 +108,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Disabled" disabled theme={theme()(colors)} />
+        <Textarea placeholder="Disabled" disabled/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Warning" disabled theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Warning" disabled />
+      </ThemeProvider>
     ))
   )
 
@@ -113,11 +127,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Large" widths='large' theme={theme()(colors)} />
+        <Textarea placeholder="Large" widths='large'/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Large" widths="large" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Large" widths="large" />
+      </ThemeProvider>
     ))
   )
 
@@ -126,11 +142,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Medium" widths='medium' theme={theme()(colors)} />
+        <Textarea placeholder="Medium" widths='medium'/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Medium" widths="medium" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Medium" widths="medium" />
+      </ThemeProvider>
     ))
   )
 
@@ -139,11 +157,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Small" widths='small' theme={theme()(colors)} />
+        <Textarea placeholder="Small" widths='small'/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Small" widths="small" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Small" widths="small" />
+      </ThemeProvider>
     ))
   )
 
@@ -152,11 +172,13 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Xlarge" widths='xlarge' theme={theme()(colors)} />
+        <Textarea placeholder="Xlarge" widths='xlarge'/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Xlarge" widths="xlarge" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Xlarge" widths="xlarge" />
+      </ThemeProvider>
     ))
   )
 
@@ -165,10 +187,12 @@ stories
     withInfo(`
     
         ~~~js
-        <Textarea placeholder="Xsmall" widths='small' theme={theme()(colors)} />
+        <Textarea placeholder="Xsmall" widths='small'/>
         ~~~
   
       `)(() => (
-      <Textarea placeholder="Xsmall" widths="small" theme={theme()(colors)} />
+      <ThemeProvider>
+        <Textarea placeholder="Xsmall" widths="small" />
+      </ThemeProvider>
     ))
   )

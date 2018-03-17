@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { TabConsumer } from './index'
+import { ThemeConsumer } from '../ThemeContext'
 
-const TabPanelStyled = styled.div`
+const TabPanelStyled = styled.section`
   ${styles('tabs.panel')};
   ${sharedStyles('tabs.panel')};
   ${props => props.styled};
@@ -13,7 +14,7 @@ const TabPanelStyled = styled.div`
 class TabPanel extends Component {
   static propTypes = {
     children: PropTypes.func.isRequired,
-    theme: PropTypes.object.isRequired,
+    theme: PropTypes.object,
     uid: PropTypes.string
   }
 
@@ -22,21 +23,29 @@ class TabPanel extends Component {
   }
 
   render() {
-    const { children, theme, uid } = this.props
+    const { children, uid } = this.props
 
-    console.log(uid, this.getActiveStyle({ active: '1', uid }))
     return (
-      <TabConsumer>
-        {({ active }) => (
-          <TabPanelStyled
-            className="Tab-panel"
-            {...this.props}
-            styled={this.getActiveStyle({ active, uid })}
-          >
-            {children({ theme })}
-          </TabPanelStyled>
-        )}
-      </TabConsumer>
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+
+          return (
+            <TabConsumer>
+              {({ active }) => (
+                <TabPanelStyled
+                  className="Tab-panel"
+                  theme={_theme}
+                  {...this.props}
+                  styled={this.getActiveStyle({ active, uid })}
+                >
+                  {children({ theme: _theme })}
+                </TabPanelStyled>
+              )}
+            </TabConsumer>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }

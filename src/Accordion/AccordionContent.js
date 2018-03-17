@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { ThemeConsumer } from '../ThemeContext'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { AccordionConsumer } from './index'
 import { AccordionItemConsumer } from './AccordionItem'
@@ -13,25 +14,30 @@ const AccordionContentStyled = styled.div`
 
 class AccordionContent extends Component {
   static propTypes = {
-    children: PropTypes.func.isRequired,
-    theme: PropTypes.object.isRequired
+    children: PropTypes.any.isRequired,
+    theme: PropTypes.object
   }
 
   render() {
     return (
-      <AccordionConsumer>
-        {({ active }) => (
-          <AccordionItemConsumer>
-            {({ uid }) => (
-              <AccordionContentStyled
-                className="Accordion-content"
-                styled={active === uid ? 'display:block;' : ''}
-                {...this.props}
-              />
+      <ThemeConsumer>
+        {theme => (
+          <AccordionConsumer>
+            {({ active }) => (
+              <AccordionItemConsumer>
+                {({ uid }) => (
+                  <AccordionContentStyled
+                    className="Accordion-content"
+                    styled={active === uid ? 'display:block;' : ''}
+                    theme={theme}
+                    {...this.props}
+                  />
+                )}
+              </AccordionItemConsumer>
             )}
-          </AccordionItemConsumer>
+          </AccordionConsumer>
         )}
-      </AccordionConsumer>
+      </ThemeConsumer>
     )
   }
 }

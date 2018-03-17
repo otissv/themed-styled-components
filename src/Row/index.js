@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 const RowStyled = styled.div`
   ${styles('row')};
@@ -26,7 +27,11 @@ class Row extends Component {
   }
 
   render() {
-    return <RowStyled {...this.props}>{this.props.children}</RowStyled>
+    return (
+      <ThemeConsumer>
+        {theme => <RowStyled {...this.props}>{this.props.children}</RowStyled>}
+      </ThemeConsumer>
+    )
   }
 }
 

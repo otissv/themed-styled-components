@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
+
 import styled from 'styled-components'
 
 function ignoreProps(ignore) {
@@ -204,7 +206,11 @@ class Text extends Component {
     }
 
     const Component = element[this.props.element] || element['p']
-    return <Component {...this.props} />
+    return (
+      <ThemeConsumer>
+        {theme => <Component theme={theme} {...this.props} />}
+      </ThemeConsumer>
+    )
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ThemeProvider } from '../ThemeContext'
 import { ButtonSquared } from './ButtonSquared'
 import { Icon } from './Icon'
 

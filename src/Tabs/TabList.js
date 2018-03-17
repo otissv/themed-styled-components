@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 import { button } from '../Button'
 import { buttonGroup } from '../ButtonGroup'
@@ -56,19 +57,27 @@ class TabList extends Component {
   }
 
   render() {
-    const { itemsProps, theme } = this.props
+    const { itemsProps } = this.props
 
     return (
-      <TabListStyled className="Tab-list" {...this.props}>
-        <ButtonGroup
-          theme={theme}
-          onWheel={this.handelOnWheel}
-          buttonProps={itemsProps}
-        >
-          {context => <Fragment>{this.getItems(context)}</Fragment>}
-        </ButtonGroup>
-        {}
-      </TabListStyled>
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+
+          return (
+            <TabListStyled className="Tab-list" theme={_theme} {...this.props}>
+              <ButtonGroup
+                theme={_theme}
+                onWheel={this.handelOnWheel}
+                buttonProps={itemsProps}
+              >
+                {context => <Fragment>{this.getItems(context)}</Fragment>}
+              </ButtonGroup>
+              {}
+            </TabListStyled>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }

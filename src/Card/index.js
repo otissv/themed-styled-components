@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 const CardStyled = styled.div`
   ${styles('card')};
@@ -12,102 +13,6 @@ const CardStyled = styled.div`
 
   ${props => props.styled};
 `
-
-const CardHeaderStyled = styled.div`
-  ${styles('card.header')};
-  ${styles('card.footer.collapse', 'collapse', true)};
-  ${styles('card.header', 'context')};
-  ${styles('card.header', 'size')};
-  ${sharedStyles('card.header')};
-  ${props => props.styled};
-`
-const CardBodyStyled = styled.div`
-  ${styles('card.body')};
-  ${styles('card.footer.collapse', 'collapse', true)};
-  ${styles('card.body', 'context')};
-  ${styles('card.body', 'size')};
-  ${sharedStyles('card.body')};
-  ${props => props.styled};
-`
-
-const CardFooterStyled = styled.div`
-  ${styles('card.footer')};
-  ${styles('card.footer.collapse', 'collapse', true)};
-  ${styles('card.footer', 'context')};
-  ${styles('card.footer', 'size')};
-  ${sharedStyles('card.footer')};
-  ${props => props.styled};
-`
-
-class CardHeader extends Component {
-  static propTypes = {
-    backgroundImage: PropTypes.string,
-    children: PropTypes.any.isRequired,
-    collapse: PropTypes.bool,
-    context: PropTypes.oneOf([
-      'accent',
-      'danger',
-      'primary',
-      'success',
-      'warning'
-    ]),
-    pos: PropTypes.oneOf(['left', 'right']),
-    size: PropTypes.oneOf(['small', 'large']),
-    theme: PropTypes.object.isRequired
-  }
-
-  render() {
-    const { children } = this.props
-
-    return <CardHeaderStyled {...this.props}>{children}</CardHeaderStyled>
-  }
-}
-
-class CardBody extends Component {
-  static propTypes = {
-    backgroundImage: PropTypes.string,
-    children: PropTypes.any.isRequired,
-    collapse: PropTypes.bool,
-    context: PropTypes.oneOf([
-      'accent',
-      'danger',
-      'primary',
-      'success',
-      'warning'
-    ]),
-    size: PropTypes.oneOf(['small', 'large']),
-    theme: PropTypes.object.isRequired
-  }
-
-  render() {
-    const { children } = this.props
-
-    return <CardBodyStyled {...this.props}>{children}</CardBodyStyled>
-  }
-}
-
-class CardFooter extends Component {
-  static propTypes = {
-    backgroundImage: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'large']),
-    children: PropTypes.any.isRequired,
-    collapse: PropTypes.bool,
-    context: PropTypes.oneOf([
-      'accent',
-      'danger',
-      'primary',
-      'success',
-      'warning'
-    ]),
-    theme: PropTypes.object.isRequired
-  }
-
-  render() {
-    const { children } = this.props
-
-    return <CardFooterStyled {...this.props}>{children}</CardFooterStyled>
-  }
-}
 
 class Card extends Component {
   static propTypes = {
@@ -123,32 +28,30 @@ class Card extends Component {
     ]),
     collapse: PropTypes.bool,
     stretch: PropTypes.bool,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   render() {
-    const {
-      children,
-      theme,
-      cardFooter,
-      cardHeaderProps,
-      cardBodyProps
-    } = this.props
+    const { children, cardFooter, cardHeaderProps, cardBodyProps } = this.props
 
     return (
-      <CardStyled {...this.props}>
-        {children({
-          theme,
-          cardBodyProps: { theme, ...cardBodyProps },
-          cardFooter: { theme, ...cardFooter },
-          cardHeaderProps: { theme, ...cardHeaderProps }
-        })}
-      </CardStyled>
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+          return (
+            <CardStyled theme={_theme} {...this.props}>
+              {children({
+                theme: _theme,
+                cardBodyProps: { theme: _theme, ...cardBodyProps },
+                cardFooter: { theme: _theme, ...cardFooter },
+                cardHeaderProps: { theme: _theme, ...cardHeaderProps }
+              })}
+            </CardStyled>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }
 
 export const card = styled(Card)
-export const cardHeader = styled(CardHeader)
-export const cardBody = styled(CardBody)
-export const cardFooter = styled(CardFooter)

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ThemeProvider } from '../ThemeContext'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Isvg from 'react-inlinesvg'

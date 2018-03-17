@@ -6,8 +6,11 @@ import { withInfo } from '@storybook/addon-info'
 import { button } from './index'
 import { icon } from '../Icon'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light } from '../light'
 import { theme } from '../theme'
+import { ThemeProvider } from '../ThemeContext'
+
+const schemes = { dark, light }
 
 const Button = button``
 const Icon = icon``
@@ -23,7 +26,11 @@ stories
       <Button>Default</Button>
       ~~~
 
-    `)(() => <Button theme={theme()(colors)}>Default</Button>)
+    `)(() => (
+      <ThemeProvider>
+        <Button>Default</Button>
+      </ThemeProvider>
+    ))
   )
 
   /* ========================================================
@@ -34,15 +41,15 @@ stories
     'Context - Accent Button',
     withInfo(`
     context="accent" adds the context styles to the button.
-  
+
     ~~~js
     <Button context="accent">Accent</Button>
     ~~~
 
     `)(() => (
-      <Button theme={theme()(colors)} context="accent">
-        Accent
-      </Button>
+      <ThemeProvider>
+        <Button context="accent">Accent</Button>
+      </ThemeProvider>
     ))
   )
 
@@ -50,15 +57,15 @@ stories
     'Context - Danger Button',
     withInfo(`
       context="danger" adds the context styles to the button.
-    
+
       ~~~js
       <Button size="small">Danger</Button>
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} context="danger">
-        Danger
-      </Button>
+      <ThemeProvider>
+        <Button context="danger">Danger</Button>
+      </ThemeProvider>
     ))
   )
 
@@ -66,15 +73,15 @@ stories
     'Context - Ghost Button',
     withInfo(`
       context="ghost" adds the context styles to the button.
-    
+
       ~~~js
       <Button size="small">Ghost</Button>
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} context="ghost">
-        Ghost
-      </Button>
+      <ThemeProvider>
+        <Button context="ghost">Ghost</Button>
+      </ThemeProvider>
     ))
   )
 
@@ -82,15 +89,15 @@ stories
     'Context - Success Button',
     withInfo(`
       context="success" adds the context styles to the button.
-    
+
       ~~~js
       <Button context="primary">Success</Button>
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} context="success">
-        Success
-      </Button>
+      <ThemeProvider>
+        <Button context="success">Success</Button>
+      </ThemeProvider>
     ))
   )
 
@@ -98,15 +105,15 @@ stories
     'Context - Warning Button',
     withInfo(`
       context="warning" adds the context styles to the button.
-    
+
       ~~~js
       <Button context="warning">Warning</Button>
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} context="warning">
-        Warning
-      </Button>
+      <ThemeProvider>
+        <Button context="warning">Warning</Button>
+      </ThemeProvider>
     ))
   )
 
@@ -114,15 +121,15 @@ stories
     'Context - Primary Button',
     withInfo(`
       context="primary" adds the context styles to the button.
-    
+
       ~~~js
       <Button context="primary">Primary</Button>
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} context="primary">
-        Primary
-      </Button>
+      <ThemeProvider>
+        <Button context="primary">Primary</Button>
+      </ThemeProvider>
     ))
   )
 
@@ -134,15 +141,17 @@ stories
     'Size - Large Button',
     withInfo(`
     size="large" makes the button lager.
-    
+
     ~~~js
     <Button size="large" >Large Button</Button>
     ~~~
 
  `)(() => (
-      <Button theme={theme()(colors)} size="large">
-        Large Button
-      </Button>
+      <ThemeProvider>
+        <Button theme={theme()(colors)} size="large">
+          Large Button
+        </Button>
+      </ThemeProvider>
     ))
   )
 
@@ -150,15 +159,17 @@ stories
     'Size - Small Button',
     withInfo(`
       size="small" prop makes the button smaller.
-    
+
       ~~~js
       <Button size="small">Small Button</Button>
       ~~~
 
       `)(() => (
-      <Button theme={theme()(colors)} size="small">
-        Small Button
-      </Button>
+      <ThemeProvider>
+        <Button theme={theme()(colors)} size="small">
+          Small Button
+        </Button>
+      </ThemeProvider>
     ))
   )
 
@@ -170,39 +181,23 @@ stories
     'Stretch - Button',
     withInfo(`
     stretch makes the button fit the full width.
-  
+
   ~~~js
   <Button stretch >Large Button</Button>
   ~~~
 
 `)(() => (
-      <Button theme={theme()(colors)} stretch>
-        Stretch Button
-      </Button>
+      <ThemeProvider>
+        <Button theme={theme()(colors)} stretch>
+          Stretch Button
+        </Button>
+      </ThemeProvider>
     ))
   )
 
-  /* ========================================================
+/* ========================================================
   *  Icon
   *  ===================================================== */
-
-  .add(
-    'Icon - Button',
-    withInfo(`
-  stretch makes the button fit the full width.
-
-~~~js
-<Button stretch >Large Button</Button>
-~~~
-
-`)(() => (
-      <div>
-        <Button theme={theme()(colors)} stretch>
-          <Icon theme={theme()(colors)} icon="home" />
-        </Button>
-      </div>
-    ))
-  )
 
 // button
 // width: 42px;

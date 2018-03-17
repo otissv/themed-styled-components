@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-
+import { ThemeProvider } from '../ThemeContext'
 import { text } from './index'
 import { dark } from '../dark'
 import { light as colors } from '../light'
@@ -17,10 +17,14 @@ stories
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)}>Default text</Text>
+      <Text>Default text</Text>
       ~~~
 
-    `)(() => <Text theme={theme()(colors)}>Default text</Text>)
+    `)(() => (
+      <ThemeProvider>
+        <Text>Default text</Text>
+      </ThemeProvider>
+    ))
   )
 
   /* ========================================================
@@ -34,17 +38,15 @@ stories
   Usage
 
   ~~~js
-  <Text bold={true} theme={theme()(colors)}>
+  <Text bold={true}>
     bold text.
   </Text>
   ~~~
 
 `)(() => (
-      <div>
-        <Text bold theme={theme()(colors)}>
-          Bold text.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text bold>Bold text.</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -57,18 +59,18 @@ stories
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)} element="a">
+      <Text element="a">
       a element.
       </Text>
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Turn text into hypertext using the{' '}
-        <Text href="#" theme={theme()(colors)} element="a">
+        <Text href="#" element="a">
           a element.
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -78,7 +80,6 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
           element="abbr"
           title="Abbreviation Component"
         >
@@ -87,16 +88,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define an abbreviation using the{' '}
-        <Text
-          theme={theme()(colors)}
-          element="abbr"
-          title="Abbreviation Component"
-        >
+        <Text element="abbr" title="Abbreviation Component">
           abbr element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -106,7 +103,6 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
           element="code"
         >
           code element
@@ -114,12 +110,10 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define inline code snippets using the{' '}
-        <Text theme={theme()(colors)} element="code">
-          code element
-        </Text>
-      </div>
+        <Text element="code">code element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -129,7 +123,6 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
           element="del"
         >
         del element
@@ -137,12 +130,10 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Mark document changes as deleted text using the{' '}
-        <Text theme={theme()(colors)} element="del">
-          del element
-        </Text>
-      </div>
+        <Text element="del">del element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -152,7 +143,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="dfn"
         >
         dfn element
@@ -160,12 +151,10 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a definition term using the{' '}
-        <Text theme={theme()(colors)} element="dfn">
-          dfn element
-        </Text>
-      </div>
+        <Text element="dfn">dfn element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -175,7 +164,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="em"
         >
         em element
@@ -183,12 +172,9 @@ stories
       ~~~
 
     `)(() => (
-      <div>
-        Define a definition term using the{' '}
-        <Text theme={theme()(colors)} element="em">
-          em element
-        </Text>
-      </div>
+      <ThemeProvider>
+        Define a definition term using the <Text element="em">em element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -198,7 +184,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="h1"
         >
         h1 element
@@ -206,12 +192,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a h1 heading term using the{' '}
-        <Text theme={theme()(colors)} element="h1" styled="display:inline;">
+        <Text element="h1" styled="display:inline;">
           h1 element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -221,7 +207,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="h2"
         >
         h2 element
@@ -229,12 +215,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a h2 heading term using the{' '}
-        <Text theme={theme()(colors)} element="h2" styled="display:inline;">
+        <Text element="h2" styled="display:inline;">
           h2 element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -244,7 +230,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="h3"
         >
         h3 element
@@ -252,12 +238,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a h3 heading term using the{' '}
-        <Text theme={theme()(colors)} element="h3" styled="display:inline;">
+        <Text element="h3" styled="display:inline;">
           h3 element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -267,7 +253,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="h4"
         >
         h4 element
@@ -275,12 +261,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a h4 heading term using the{' '}
-        <Text theme={theme()(colors)} element="h4" styled="display:inline;">
+        <Text element="h4" styled="display:inline;">
           h4 element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -290,7 +276,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="h5"
         >
         h5 element
@@ -298,12 +284,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a h5 heading term using the{' '}
-        <Text theme={theme()(colors)} element="h5" styled="display:inline;">
+        <Text element="h5" styled="display:inline;">
           h5 element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -313,7 +299,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="h6"
         >
         h6 element
@@ -321,12 +307,12 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define a h6 heading term using the{' '}
-        <Text theme={theme()(colors)} element="h6" styled="display:inline;">
+        <Text element="h6" styled="display:inline;">
           h6 element
         </Text>
-      </div>
+      </ThemeProvider>
     ))
   )
 
@@ -335,13 +321,13 @@ stories
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)} element="hr"/>
+      <Text element="hr"/>
       ~~~
 
     `)(() => (
-      <div>
-        <Text theme={theme()(colors)} element="hr" />
-      </div>
+      <ThemeProvider>
+        <Text element="hr" />
+      </ThemeProvider>
     ))
   )
 
@@ -351,7 +337,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="q"
         >
         q element
@@ -359,12 +345,9 @@ stories
       ~~~
 
     `)(() => (
-      <div>
-        Define inline quotations using{' '}
-        <Text theme={theme()(colors)} element="q">
-          q element
-        </Text>
-      </div>
+      <ThemeProvider>
+        Define inline quotations using <Text element="q">q element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -374,7 +357,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="sm"
         >
         sm element
@@ -382,12 +365,10 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         De-emphasize text for sm print using the{' '}
-        <Text theme={theme()(colors)} element="sm">
-          sm element
-        </Text>
-      </div>
+        <Text element="sm">sm element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -397,7 +378,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="span"
         >
         span element
@@ -405,12 +386,10 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Define parts of inline text with the{' '}
-        <Text theme={theme()(colors)} element="span">
-          span element
-        </Text>
-      </div>
+        <Text element="span">span element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -420,7 +399,7 @@ stories
   
       ~~~js
       <Text
-          theme={theme()(colors)}
+         
           element="strong"
         >
         strong element
@@ -428,12 +407,10 @@ stories
       ~~~
 
     `)(() => (
-      <div>
+      <ThemeProvider>
         Impliy any extra importance using the{' '}
-        <Text theme={theme()(colors)} element="strong">
-          strong element
-        </Text>
-      </div>
+        <Text element="strong">strong element</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -442,17 +419,15 @@ stories
     withInfo(`
   
       ~~~js
-      <Text theme={theme()(colors)} element="p">
+      <Text element="p">
         Define a paragraph using the p element.
       </Text>
       ~~~
 
     `)(() => (
-      <div>
-        <Text theme={theme()(colors)} element="p">
-          Define a paragraph using the p element.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text element="p">Define a paragraph using the p element.</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -467,17 +442,15 @@ stories
   Usage
 
   ~~~js
-  <Text context='accent' theme={theme()(colors)}>
+  <Text context='accent'>
     Accent text.
   </Text>
   ~~~
 
 `)(() => (
-      <div>
-        <Text context="accent" theme={theme()(colors)}>
-          Accent text.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text context="accent">Accent text.</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -488,17 +461,15 @@ stories
   Usage
 
   ~~~js
-  <Text context='danger' theme={theme()(colors)}>
+  <Text context='danger'>
     Danger text.
   </Text>
   ~~~
 
 `)(() => (
-      <div>
-        <Text context="danger" theme={theme()(colors)}>
-          Danger text.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text context="danger">Danger text.</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -509,17 +480,15 @@ stories
   Usage
 
   ~~~js
-  <Text context='muted' theme={theme()(colors)}>
+  <Text context='muted'>
     Muted text.
   </Text>
   ~~~
 
 `)(() => (
-      <div>
-        <Text context="muted" theme={theme()(colors)}>
-          Muted text.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text context="muted">Muted text.</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -530,17 +499,15 @@ stories
   Usage
 
   ~~~js
-  <Text context='success' theme={theme()(colors)}>
+  <Text context='success'>
     Success text.
   </Text>
   ~~~
 
 `)(() => (
-      <div>
-        <Text context="success" theme={theme()(colors)}>
-          Success text.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text context="success">Success text.</Text>
+      </ThemeProvider>
     ))
   )
 
@@ -551,16 +518,14 @@ stories
   Usage
 
   ~~~js
-  <Text context='warning' theme={theme()(colors)}>
+  <Text context='warning'>
     Warning text.
   </Text>
   ~~~
 
 `)(() => (
-      <div>
-        <Text context="warning" theme={theme()(colors)}>
-          Warning text.
-        </Text>
-      </div>
+      <ThemeProvider>
+        <Text context="warning">Warning text.</Text>
+      </ThemeProvider>
     ))
   )
