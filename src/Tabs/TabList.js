@@ -39,7 +39,6 @@ class TabList extends Component {
 
     const tabList = event.currentTarget
 
-    console.log(tabList)
     tabList.scrollLeft -=
       event.nativeEvent.wheelDelta || -event.nativeEvent.detail
   }

@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { FormRow } from './FormRow'
-import { FormLabel } from './FormLabel'
-import { FormError } from './FormError'
-import { Input } from '../Input'
-import { Select } from '../Select'
-import { Checkbox } from '../Checkbox'
+import PropTypes from 'prop-types'
+import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
+import { formRow } from './FormRow'
+import { formLabel } from './FormLabel'
+import { formError } from './FormError'
+import { input } from '../Input'
+import { select } from '../Select'
+import { checkbox } from '../Checkbox'
+
+const FormRow = formRow``
+const FormLabel = formLabel``
+const FormError = formError``
+const Input = input``
+const Select = select``
+const Checkbox = checkbox``
 
 export class FormInput extends Component {
   getInputType = () => {
@@ -56,34 +66,38 @@ export class FormInput extends Component {
     const {
       aligned,
       defaults,
-      error,
+      errorProps,
+      formRowProps,
       hasErrors,
       help,
-      label,
+      labelProps,
       name,
       placeholder,
-      presence,
-      styledError,
-      styledFormRow,
-      styledLabel
+      presence
     } = this.props
 
     return (
-      <FormRow styledFormRow={styledFormRow}>
-        <FormLabel
-          presence={presence}
-          aligned={aligned}
-          styledLabel={styledLabel}
-          htmlFor={name}
-          {...label}
-        />
-        {this.getInputType()}
-        {hasErrors ? (
-          <FormError aligned={aligned} styledError={styledError} {...error}>
-            {error.message}
-          </FormError>
-        ) : null}
-      </FormRow>
+      <ThemeConsumer>
+        {theme => {
+          return (
+            <FormRow theme={theme} {...formRowProps}>
+              <FormLabel
+                presence={presence}
+                aligned={aligned}
+                htmlFor={name}
+                theme={theme}
+                {...labelProps}
+              />
+              {this.getInputType()}
+              {hasErrors ? (
+                <FormError aligned={aligned} theme={theme} {...errorProps} />
+              ) : null}
+            </FormRow>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }
+
+export const formInput = styled(FormInput)

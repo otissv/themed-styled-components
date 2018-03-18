@@ -10,6 +10,7 @@ export const light = makeColorScheme({
 
   accent2: '#E10098',
   accent: '#E10098',
+  active: '#E10098',
   danger2: '#ee395b',
   danger: '#f0506e',
   error2: '#fef4f6',

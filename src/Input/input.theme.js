@@ -14,18 +14,27 @@ export function input({ animation, border, colors, font, widths }) {
     outline: 'none',
     overflow: 'visible',
     padding: '0 3px',
-    transition: animation.easeInOutMedium(),
+    transition: animation.easeMedium(),
     verticalAlign: 'middle',
     width: '100%',
 
     '&:active': {
-      border: border.thinSecondary
+      borderTop: border.thinSecondary,
+      borderBottom: border.thinSecondary,
+      borderLeft: border.thinSecondary,
+      borderRight: border.thinSecondary
     },
     '&:focus': {
-      border: border.thinSecondary
+      borderTop: border.thinSecondary,
+      borderBottom: border.thinSecondary,
+      borderLeft: border.thinSecondary,
+      borderRight: border.thinSecondary
     },
     '&:hover': {
-      border: border.thinSecondary
+      borderTop: border.thinSecondary,
+      borderBottom: border.thinSecondary,
+      borderLeft: border.thinSecondary,
+      borderRight: border.thinSecondary
     },
 
     /* =====================================
@@ -34,65 +43,128 @@ export function input({ animation, border, colors, font, widths }) {
     accent: {
       borderBottom: border.thinAccent,
       '&:hover': {
-        border: `${border.thinSize} ${border.style} ${colors.accent}`
+        borderTop: border.thinAccent,
+        borderBottom: border.thinAccent,
+        borderLeft: border.thinAccent,
+        borderRight: border.thinAccent
       },
       '&:focus': {
-        border: `${border.thinSize} ${border.style} ${colors.accent}`
+        borderTop: border.thinAccent,
+        borderBottom: border.thinAccent,
+        borderLeft: border.thinAccent,
+        borderRight: border.thinAccent
       },
       '&:active': {
-        border: `${border.thinSize} ${border.style} ${colors.accent}`
+        borderTop: border.thinAccent,
+        borderBottom: border.thinAccent,
+        borderLeft: border.thinAccent,
+        borderRight: border.thinAccent
       }
     },
     blank: {
       border: border.thinTransparent,
       '&:hover': {
-        border: border.thinDashedSecondary
+        borderTop: border.thinDashedSecondary,
+        borderBottom: border.thinDashedSecondary,
+        borderLeft: border.thinDashedSecondary,
+        borderRight: border.thinDashedSecondary
       },
       '&:focus': {
-        border: border.thinDashedSecondary
+        borderTop: border.thinDashedSecondary,
+        borderBottom: border.thinDashedSecondary,
+        borderLeft: border.thinDashedSecondary,
+        borderRight: border.thinDashedSecondary
       },
       '&:active': {
-        border: border.thinDashedSecondary
+        borderTop: border.thinDashedSecondary,
+        borderBottom: border.thinDashedSecondary,
+        borderLeft: border.thinDashedSecondary,
+        borderRight: border.thinDashedSecondary
       }
     },
     danger: {
       borderBottom: border.thinDanger,
       '&:active': {
-        border: `${border.thinSize} ${border.style} ${colors.danger}`
+        borderTop: border.thinDanger,
+        borderBottom: border.thinDanger,
+        borderLeft: border.thinDanger,
+        borderRight: border.thinDanger
       },
       '&:focus': {
-        border: `${border.thinSize} ${border.style} ${colors.danger}`
+        borderTop: border.thinDanger,
+        borderBottom: border.thinDanger,
+        borderLeft: border.thinDanger,
+        borderRight: border.thinDanger
       },
       '&:hover': {
-        border: `${border.thinSize} ${border.style} ${colors.danger}`
+        borderTop: border.thinDanger,
+        borderBottom: border.thinDanger,
+        borderLeft: border.thinDanger,
+        borderRight: border.thinDanger
       }
     },
     primary: {
       borderBottom: border.thinPrimary,
       '&:active': {
-        border: `${border.thinSize} ${border.style} ${colors.primary}`
+        borderTop: border.thinPrimary,
+        borderBottom: border.thinPrimary,
+        borderLeft: border.thinPrimary,
+        borderRight: border.thinPrimary
       },
       '&:focus': {
-        border: `${border.thinSize} ${border.style} ${colors.primary}`
+        borderTop: border.thinPrimary,
+        borderBottom: border.thinPrimary,
+        borderLeft: border.thinPrimary,
+        borderRight: border.thinPrimary
       },
       '&:hover': {
-        border: `${border.thinSize} ${border.style} ${colors.primary}`
+        borderTop: border.thinPrimary,
+        borderBottom: border.thinPrimary,
+        borderLeft: border.thinPrimary,
+        borderRight: border.thinPrimary
       }
     },
     success: {
       borderBottom: border.thinSuccess,
       '&:active': {
-        border: `${border.thinSize} ${border.style} ${colors.success}`
+        borderTop: border.thinSuccess,
+        borderBottom: border.thinSuccess,
+        borderLeft: border.thinSuccess,
+        borderRight: border.thinSuccess
       },
       '&:focus': {
-        border: `${border.thinSize} ${border.style} ${colors.success}`
+        borderTop: border.thinSuccess,
+        borderBottom: border.thinSuccess,
+        borderLeft: border.thinSuccess,
+        borderRight: border.thinSuccess
       },
       '&:hover': {
-        border: `${border.thinSize} ${border.style} ${colors.success}`
+        borderTop: border.thinSuccess,
+        borderBottom: border.thinSuccess,
+        borderLeft: border.thinSuccess,
+        borderRight: border.thinSuccess
       }
     },
     warning: {
-      borderBottom: border.thinWarning
+      borderBottom: border.thinWarning,
+      '&:active': {
+        borderTop: border.thinWarning,
+        borderBottom: border.thinWarning,
+        borderLeft: border.thinWarning,
+        borderRight: border.thinWarning
+      },
+      '&:focus': {
+        borderTop: border.thinWarning,
+        borderBottom: border.thinWarning,
+        borderLeft: border.thinWarning,
+        borderRight: border.thinWarning
+      },
+      '&:hover': {
+        borderTop: border.thinWarning,
+        borderBottom: border.thinWarning,
+        borderLeft: border.thinWarning,
+        borderRight: border.thinWarning
+      }
     },
 
     /* =====================================
@@ -104,15 +176,47 @@ export function input({ animation, border, colors, font, widths }) {
       background: colors.secondary,
       borderBottom: border.thinSecondary,
       '&:active': {
-        borderBottom: border.thinSecondary
+        borderTop: border.thinTransparent,
+        borderBottom: border.thinSecondary,
+        borderLeft: border.thinTransparent,
+        borderRight: border.thinTransparent
       },
       '&:focus': {
-        border: border.thinTransparent,
-        borderBottom: border.thinSecondary
+        borderTop: border.thinTransparent,
+        borderBottom: border.thinSecondary,
+        borderLeft: border.thinTransparent,
+        borderRight: border.thinTransparent
       },
       '&:hover': {
-        border: border.thinTransparent,
-        borderBottom: border.thinSecondary
+        borderTop: border.thinTransparent,
+        borderBottom: border.thinSecondary,
+        borderLeft: border.thinTransparent,
+        borderRight: border.thinTransparent
+      }
+    },
+
+    /* =====================================
+    * Float Label 
+    * =================================== */
+
+    floatlabel: {
+      position: 'relative',
+      height: '40px',
+      lineHeight: '40px',
+      transition: animation.easeMedium(),
+
+      label: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        padding: '0 3px;',
+        transition: animation.easeMedium(),
+
+        floating: {
+          lineHeight: 1,
+          top: font.default,
+          transition: animation.easeMedium()
+        }
       }
     },
 
@@ -122,10 +226,10 @@ export function input({ animation, border, colors, font, widths }) {
 
     iconContainer: {
       '-webkit-backface-visibility': 'hidden',
-      display: 'inline-block',
       maxWidth: '100%',
       position: 'relative',
-      verticalAlign: 'middle'
+      verticalAlign: 'middle',
+      transition: animation.easeMedium()
     },
 
     icon: {
@@ -138,6 +242,7 @@ export function input({ animation, border, colors, font, widths }) {
       justifyContent: 'center',
       pointerEvents: 'none',
       width: '40px',
+      transition: animation.easeMedium(),
 
       // Size
       large: {
@@ -164,10 +269,6 @@ export function input({ animation, border, colors, font, widths }) {
       padding: '0 8px',
       fontSize: font.default
     },
-
-    /* =====================================
-    * Widths 
-    * =================================== */
 
     widths: {
       large: { width: widths.large },

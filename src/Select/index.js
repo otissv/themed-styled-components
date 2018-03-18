@@ -1,150 +1,122 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Input } from '../Input'
-import { Button } from '../Button'
-import { Icon } from '../Icon'
-import caretDownIcon from '../icons/directional/caret-down.svg'
+import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
-const SelectContainer = styled.div`
-  position: ${props => props.theme.select.position};
-  width: ${props => props.theme.select.width};
-  max-width: ${props =>
-    props.theme.select.widths[props.widths] || props.theme.select.maxWidth};
-
-  ${props => props.styledSelectContainer};
+const SelectStyled = styled.div`
+  ${styles('select')};
+  ${sharedStyles('select')};
+  ${props => props.styled};
 `
 
-const Options = styled.div`
-  box-shadow: ${props => props.theme.select.options.boxShadow};
-  position: ${props => props.theme.select.options.position};
-  width: ${props => props.theme.select.options.width};
-  max-height: ${props => props.theme.select.options.maxHeight};
-  border: ${props => props.theme.select.options.border};
-  border-top: ${props => props.theme.select.options.borderTop};
-  visibility: ${props => (props.open ? 'visible' : 'hidden')};
-  width: ${props => props.theme.select.options.width};
-  background: ${props => props.theme.select.options.background};
-  left: ${props => props.theme.select.options.left};
+const SelectContext = React.createContext({ value: '' })
 
-  ${props => props.styledSelectOptions};
-`
-
-const OptionItem = styled(Button)`
-  height: ${props => props.theme.select.options.item.height};
-  width: ${props => props.theme.select.options.item.width};
-  text-align: ${props => props.theme.select.options.item.textAlign};
-  padding: ${props => props.theme.select.options.item.padding};
-  background: ${props => props.theme.select.options.item.background};
-  color: ${props => props.theme.select.options.item.color};
-  text-transform: ${props => props.theme.select.options.item.textTransform};
-
-  ${props => props.styledSelectOptionItem};
-
-  &:hover {
-    background: ${props => props.theme.select.options.item.hover.background};
-    color: ${props => props.theme.select.options.item.hover.color};
-  }
-`
-
-const OpenIcon = styled.div`
-  position: ${props => props.theme.select.icon.position};
-  top: ${props => props.theme.select.icon.top};
-  padding: ${props => props.theme.select.icon.padding};
-  height: ${props => props.theme.select.icon.height};
-  right: ${props => props.theme.select.icon.right};
-  transition: ${props => props.theme.select.icon.transition};
-  width: ${props => props.theme.select.icon.width};
-
-  &:hover {
-    background: ${props => props.theme.select.icon.hover.background};
+class Select extends Component {
+  static propTypes = {
+    active: PropTypes.string,
+    autocomplete: PropTypes.bool,
+    children: PropTypes.func,
+    multselect: PropTypes.bool,
+    onChange: PropTypes.func,
+    onSelect: PropTypes.func,
+    onToggle: PropTypes.func,
+    options: PropTypes.array,
+    theme: PropTypes.object
   }
 
-  ${props => props.styledSelectOpenIcon};
-`
+  static defaultProps = {
+    active: '',
+    autocomplete: false,
+    multselect: false,
+    opened: false,
+    options: []
+  }
 
-export class Select extends Component {
   constructor(props) {
-    super(...arguments)
-
+    super(props)
     this.state = {
-      opened: false
+      opened: props.opened,
+      active: props.active,
+      options: props.options
     }
   }
 
-  handleOnOptionItemClick = event => {
-    event.preventDefault()
-    const { onChange } = this.props
+  componentDidMount() {
+    if (this.props.children) {
+      const children = this.props.children().props.children[1].props.children
 
-    onChange({ target: event.target })
-    this.toggleOpenOptions()
-  }
+      const options = children.map(child => ({
+        value: child.props['value'],
+        label: child.props['label']
+      }))
 
-  closeOptions = () => {
-    if (this.state.opened) {
-      this.setState({ opened: false })
+      this.setState({ options })
     }
   }
 
-  toggleOpenOptions = () => {
+  onToggle = event => {
     this.setState({ opened: !this.state.opened })
   }
 
-  optionItems = () => {
-    const { name, options, styledSelectOptionItem } = this.props
+  onChange = event => {
+    // filter options
 
-    return (
-      options &&
-      options.map(option => (
-        <OptionItem
-          className="Select-option-item"
-          key={option.value}
-          value={option.value}
-          name={name}
-          onClick={this.handleOnOptionItemClick}
-          styledSelectOptionItem={styledSelectOptionItem}
-        >
-          {option.value}
-        </OptionItem>
-      ))
-    )
+    if (this.props.autocomplete) {
+      this.setState({ active: event.target.value })
+    }
+  }
+
+  onSelect = event => {
+    if (!this.props.multselect) {
+      this.setState({ active: event.target.dataset.value, opened: false })
+    }
+  }
+
+  getActiveOption = () => {
+    const { active, options } = this.state
+    return val => {
+      const option = options.filter(o => o.value === active)[0]
+
+      return option ? (val ? option[val] : option) : ''
+    }
   }
 
   render() {
     const {
-      name,
+      autocomplete,
+      children,
+      multselect,
+      onToggle,
       onChange,
-      styledSelectContainer,
-      styledSelectOpenIcon,
-      styledSelectOptions,
-      value
+      onSelect
     } = this.props
 
-    const options = this.optionItems()
     return (
-      <SelectContainer {...this.props} className="Select">
-        <Input
-          className="Select-input"
-          onChange={onChange}
-          name={name}
-          value={value}
-          onClick={this.closeOptions}
-        />
-        <OpenIcon
-          className="Select-open"
-          onClick={this.toggleOpenOptions}
-          styledSelectOpenIcon={styledSelectOpenIcon}
-        >
-          <caretDownIcon height="16px" width="16px" />
-        </OpenIcon>
-
-        <Options
-          className="Select-options"
-          open={this.state.opened}
-          styledSelectOptions={styledSelectOptions}
-        >
-          {options}
-        </Options>
-      </SelectContainer>
+      <ThemeConsumer>
+        {theme => {
+          const _theme = this.props.theme || theme
+          const context = {
+            ...this.state,
+            autocomplete,
+            getActiveOption: this.getActiveOption(),
+            multselect,
+            onToggle: onToggle || this.onToggle,
+            onChange: onChange || this.onChange,
+            onSelect: onSelect || this.onSelect
+          }
+          return (
+            <SelectContext.Provider value={context}>
+              <SelectStyled theme={_theme} className="Select" {...this.props}>
+                {children({ theme: _theme, ...context })}
+              </SelectStyled>
+            </SelectContext.Provider>
+          )
+        }}
+      </ThemeConsumer>
     )
   }
 }
+
+export const select = styled(Select)
+export const SelectConsumer = SelectContext.Consumer

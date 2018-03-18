@@ -45,7 +45,11 @@ stories
   
       `)(() => (
       <ThemeProvider>
-        <Input context="accent" value="Accent" onChange={() => {}} />
+        <Input
+          context="accent"
+          placeholder="Accent"
+          onChange={event => console.dir(event.currentTarget)}
+        />
       </ThemeProvider>
     ))
   )

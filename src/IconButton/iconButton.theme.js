@@ -9,7 +9,7 @@ export function iconButton({ animation, border, colors, font }) {
     margin: '4px 1px',
     outline: 'none',
     textAlign: 'center',
-    transition: `background ${animation.easeInOutMedium}`,
+    transition: `background ${animation.easeMedium}`,
     width: '41px',
 
     hover: {

@@ -85,7 +85,7 @@ class Accordion extends Component {
       <ThemeConsumer>
         {theme => {
           const _theme = this.props.theme || theme
-          console.log(theme)
+
           return (
             <AccordionContext.Provider
               value={{

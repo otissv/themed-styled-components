@@ -4,6 +4,7 @@ import { buttonGroup } from './ButtonGroup/buttonGroup.theme'
 import { card } from './Card/card.theme'
 import { checkbox } from './Checkbox/checkbox.theme'
 import { close } from './Close/close.theme'
+import { floatLabel } from './FloatLabel/floatLabel.theme'
 import { form } from './Form/form.theme'
 import { icon } from './Icon/icon.theme'
 import { iconButton } from './IconButton/iconButton.theme'
@@ -108,6 +109,7 @@ export function theme(props = {}) {
       card: card(base, shared(base)),
       checkbox: checkbox(base, shared(base)),
       close: close(base, shared(base)),
+      floatLabel: floatLabel(base, shared(base)),
       form: form(base, shared(base)),
       icon: icon(base, shared(base)),
       iconButton: iconButton(base, shared(base)),

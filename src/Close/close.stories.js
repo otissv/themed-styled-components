@@ -21,7 +21,7 @@ stories.add(
 
     `)(() => (
     <ThemeProvider>
-      <Close pos="right" theme={theme()(colors)} />
+      <Close pos="right" />
     </ThemeProvider>
   ))
 )

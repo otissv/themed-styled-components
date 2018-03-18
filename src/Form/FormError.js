@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-// import { observeStore } from '../../../lib/store';
+import PropTypes from 'prop-types'
+import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 const FormErrorStyled = styled.p`
   color: ${props => props.theme.form.error.color};
@@ -9,14 +11,20 @@ const FormErrorStyled = styled.p`
   margin: ${props => props.theme.form.error.margin};
   width: ${props => props.theme.form.error.width};
   max-width: ${props =>
-    props.theme.form.error.widths[props.widths] || props.theme.form.error.maxWidth};
+    props.theme.form.error.widths[props.widths] ||
+    props.theme.form.error.maxWidth};
 
   ${props => props.styledFormError};
 `
 
-// @observeStore
-export class FormError extends Component {
+class FormError extends Component {
   render() {
-    return <FormErrorStyled {...this.props} />
+    return (
+      <ThemeConsumer>
+        {theme => <FormErrorStyled theme={theme} {...this.props} />}
+      </ThemeConsumer>
+    )
   }
 }
+
+export const formError = styled(FormError)

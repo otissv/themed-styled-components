@@ -27,7 +27,6 @@ const Icon = icon`
   ${styles(`checkbox.icon`, 'context')}
   ${sharedStyles('checkbox.icon')};
   ${props => props.checked && styles('checkbox.icon.checked', props)}
-  
   ${props => props.styled};
 `
 

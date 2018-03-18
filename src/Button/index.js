@@ -10,7 +10,6 @@ const ButtonStyled = styled.button`
   ${styles('button', 'size')};
   ${styles('button.stretch', 'stretch', true)};
   ${sharedStyles('button')};
-
   ${props => props.styled};
 `
 
