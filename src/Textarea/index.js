@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { ThemeConsumer } from '../ThemeContext'
 
@@ -18,11 +19,25 @@ function maybeModifier(initial) {
 }
 
 class Textarea extends Component {
+  static propTypes = {
+    active: PropTypes.bool,
+    context: PropTypes.string,
+    widths: PropTypes.string,
+    disabled: PropTypes.func,
+    elementRef: PropTypes.func,
+    theme: PropTypes.object
+  }
+
   render() {
     return (
       <ThemeConsumer>
         {theme => (
-          <TextareaStyled className="Textarea" theme={theme} {...this.props} />
+          <TextareaStyled
+            innerRef={this.props.elementRef}
+            className="Textarea"
+            theme={theme}
+            {...this.props}
+          />
         )}
       </ThemeConsumer>
     )

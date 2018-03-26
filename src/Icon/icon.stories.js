@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
+import { ThemeProvider } from '../ThemeContext'
 
 import { icon } from './index'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light } from '../light'
 import { theme } from '../theme'
 
 const Icon = icon``
@@ -16,10 +17,14 @@ stories
     withInfo(`
   
       ~~~js
-      <Icon theme={theme()(colors)} icon='home' />
+      <Icon  icon='home' />
       ~~~
 
-    `)(() => <Icon theme={theme()(colors)} icon="home" />)
+    `)(() => (
+      <ThemeProvider>
+        <Icon icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   /* ==========================================================================
@@ -30,10 +35,14 @@ stories
     withInfo(`
 
     ~~~js
-    <Icon context="accent" theme={theme()(colors)} icon='home' />
+    <Icon context="accent"  icon='home' />
     ~~~
 
-  `)(() => <Icon context="accent" theme={theme()(colors)} icon="home" />)
+  `)(() => (
+      <ThemeProvider>
+        <Icon context="accent" icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   .add(
@@ -41,10 +50,14 @@ stories
     withInfo(`
 
       ~~~js
-      <Icon context="danger" theme={theme()(colors)} icon='home' />
+      <Icon context="danger"  icon='home' />
       ~~~
 
-    `)(() => <Icon context="danger" theme={theme()(colors)} icon="home" />)
+    `)(() => (
+      <ThemeProvider>
+        <Icon context="danger" icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   .add(
@@ -52,10 +65,14 @@ stories
     withInfo(`
 
       ~~~js
-      <Icon context="primary" theme={theme()(colors)} icon='home' />
+      <Icon context="primary"  icon='home' />
       ~~~
 
-    `)(() => <Icon context="primary" theme={theme()(colors)} icon="home" />)
+    `)(() => (
+      <ThemeProvider>
+        <Icon context="primary" icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   .add(
@@ -63,10 +80,14 @@ stories
     withInfo(`
 
       ~~~js
-      <Icon context="success" theme={theme()(colors)} icon='home' />
+      <Icon context="success"  icon='home' />
       ~~~
 
-    `)(() => <Icon context="success" theme={theme()(colors)} icon="home" />)
+    `)(() => (
+      <ThemeProvider>
+        <Icon context="success" icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   .add(
@@ -74,10 +95,14 @@ stories
     withInfo(`
 
       ~~~js
-      <Icon context="warning" theme={theme()(colors)} icon='home'} />
+      <Icon context="warning"  icon='home'} />
       ~~~
 
-    `)(() => <Icon context="warning" theme={theme()(colors)} icon="home" />)
+    `)(() => (
+      <ThemeProvider>
+        <Icon context="warning" icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   /* ==========================================================================
@@ -89,10 +114,14 @@ stories
     withInfo(`
 
     ~~~js
-    <Icon size="large" theme={theme()(colors)} icon='home' />
+    <Icon size="large"  icon='home' />
     ~~~
 
-  `)(() => <Icon size="large" theme={theme()(colors)} icon="home" />)
+  `)(() => (
+      <ThemeProvider>
+        <Icon size="large" icon="home" />
+      </ThemeProvider>
+    ))
   )
 
   .add(
@@ -100,8 +129,12 @@ stories
     withInfo(`
 
 ~~~js
-  <Icon size="small" theme={theme()(colors)} icon='home' />
+  <Icon size="small"  icon='home' />
   ~~~
 
-`)(() => <Icon size="small" theme={theme()(colors)} icon="home" />)
+`)(() => (
+      <ThemeProvider>
+        <Icon size="small" icon="home" />
+      </ThemeProvider>
+    ))
   )

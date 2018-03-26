@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info'
 import { ThemeProvider } from '../ThemeContext'
 import { text } from './index'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 const Text = text``

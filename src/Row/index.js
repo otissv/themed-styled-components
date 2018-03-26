@@ -29,7 +29,11 @@ class Row extends Component {
   render() {
     return (
       <ThemeConsumer>
-        {theme => <RowStyled {...this.props}>{this.props.children}</RowStyled>}
+        {theme => (
+          <RowStyled theme={theme} {...this.props}>
+            {this.props.children}
+          </RowStyled>
+        )}
       </ThemeConsumer>
     )
   }

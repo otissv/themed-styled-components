@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { ThemeProvider } from '../ThemeContext'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 import { button } from '../Button'
@@ -35,7 +35,7 @@ stories.add(
       ~~~
 
     // `)(() => (
-    <Login theme={theme()(colors)}>
+    <Login >
       <LoginHeader>
         {header => {
           return (

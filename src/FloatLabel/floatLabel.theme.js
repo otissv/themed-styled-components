@@ -15,7 +15,8 @@ export function floatLabel({ animation, border, colors, font, widths }) {
 
       floating: {
         lineHeight: 1,
-        fontSize: font.small
+        fontSize: font.small,
+        pointerEvents: 'none'
       },
 
       active: {
@@ -23,7 +24,7 @@ export function floatLabel({ animation, border, colors, font, widths }) {
       }
     },
 
-    input: {
+    text: {
       height: 'auto',
       padding: '3px',
 

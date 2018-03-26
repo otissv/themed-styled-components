@@ -8,7 +8,7 @@ import { accordionItem } from './AccordionItem'
 import { accordionButton } from './AccordionButton'
 import { accordionContent } from './AccordionContent'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 const stories = storiesOf('Accordion', module)
@@ -24,7 +24,7 @@ stories
     withInfo(`
   
       ~~~js
-      <Accordion theme={theme()(colors)} active="1">
+      <Accordion  active="1">
           {({ itemProps, buttonProps, contentProps }) => (
             <Fragment>
               <AccordionItem uid="1">
@@ -89,7 +89,7 @@ stories
 
     `)(() => (
       <ThemeProvider>
-        <Accordion theme={theme()(colors)} active="1">
+        <Accordion  active="1">
           {({ itemProps, buttonProps, contentProps }) => (
             <Fragment>
               <AccordionItem uid="1">
@@ -166,7 +166,7 @@ stories
     `)(() => (
       <ThemeProvider>
         <Accordion
-          theme={theme()(colors)}
+          
           active="1"
           items={[
             {

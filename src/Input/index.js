@@ -36,20 +36,41 @@ const InputIcon = styled.div`
 `
 
 class Input extends Component {
+  static propTypes = {
+    active: PropTypes.bool,
+    children: PropTypes.any,
+    context: PropTypes.string,
+    widths: PropTypes.string,
+    disabled: PropTypes.func,
+    elementRef: PropTypes.func,
+    theme: PropTypes.object,
+    icon: PropTypes.string,
+    iconProps: PropTypes.object,
+    iconContainerProps: PropTypes.object,
+    onBlur: PropTypes.func,
+    onFocus: PropTypes.func,
+    pos: PropTypes.string
+  }
+
   getComponent = ({ theme }) => {
     const {
+      elementRef,
       icon,
       iconProps,
       iconContainerProps,
       onBlur,
       onFocus,
-      pos,
-      floatLabel
+      pos
     } = this.props
 
     const _theme = this.props.theme || theme
     const InputComponent = () => (
-      <InputStyled className="Input" theme={_theme} {...this.props} />
+      <InputStyled
+        innerRef={elementRef}
+        theme={_theme}
+        {...this.props}
+        className={`${this.props.className || ''} Input`}
+      />
     )
 
     return icon ? (

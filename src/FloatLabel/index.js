@@ -21,33 +21,47 @@ const Label = styled.label`
 const FloatContext = React.createContext({ active: '' })
 
 class FloatLabel extends Component {
+  static propTypes = {
+    active: PropTypes.bool,
+    children: PropTypes.any,
+    context: PropTypes.string,
+    disabled: PropTypes.func,
+    elementRef: PropTypes.func,
+    floating: PropTypes.bool,
+    label: PropTypes.string,
+    onBlur: PropTypes.func,
+    onFloatLabel: PropTypes.func,
+    onFocus: PropTypes.func,
+    theme: PropTypes.object,
+    widths: PropTypes.string
+  }
+
   state = {
     active: false,
     floating: false
   }
 
   componentDidMount() {
-    if (this.input) {
-      // !this.state.floating && this.setState({ floating: true })
-    }
+    this.element.value && this.onFloatLabel()
   }
 
   onBlur = event => {
     event.target.value.trim() === '' &&
-      this.state.floating &&
+      this.state.floating === true &&
       this.setState({ floating: false })
   }
 
   onFloatLabel = () => {
-    !this.state.floating && this.setState({ floating: true })
+    this.state.floating === false && this.setState({ floating: true })
+    this.element.focus()
   }
 
   onFocus = () => {
-    !this.state.floating && this.setState({ floating: true })
+    // this.state.floating === false && this.setState({ floating: true })
   }
 
   render() {
-    const { label, element } = this.props
+    const { label, element, onBlur, onFloatLabel, onFocus } = this.props
 
     return (
       <ThemeConsumer>
@@ -57,15 +71,16 @@ class FloatLabel extends Component {
             <FloatContext.Provider
               value={{
                 ...this.state,
-                onBlur: this.onBlur,
-                onFocus: this.onFocus,
-                styled: styles(`floatLabel.${element || 'input'}`)({ theme })
+                onBlur: onBlur || this.onBlur,
+                onFocus: onFocus || this.onFocus,
+                elementRef: element => (this.element = element),
+                styled: styles(`floatLabel.${element || 'text'}`)({ theme })
               }}
             >
               <FloatLabelStyled theme={_theme}>
                 {this.props.children}
                 <Label
-                  onClick={this.onFloatLabel}
+                  onClick={onFloatLabel || this.onFloatLabel}
                   theme={_theme}
                   floating={this.state.floating}
                 >

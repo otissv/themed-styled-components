@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info'
 import { ThemeProvider } from '../ThemeContext'
 import { textarea } from './index'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 const stories = storiesOf('Textarea', module)
@@ -74,7 +74,7 @@ stories
         <Textarea
           placeholder="Success"
           context="success"
-          theme={theme()(colors)}
+          
         />
       </ThemeProvider>
     ))
@@ -93,7 +93,7 @@ stories
         <Textarea
           placeholder="Warning"
           context="warning"
-          theme={theme()(colors)}
+          
         />
       </ThemeProvider>
     ))

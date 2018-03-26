@@ -4,7 +4,7 @@ import { ThemeProvider } from '../ThemeContext'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light } from '../light'
 import { theme } from '../theme'
 import { floatLabel, FloatConsumer } from './index'
 import { input } from '../Input'
@@ -37,7 +37,9 @@ stories
       <ThemeProvider>
         <FloatLabel label="Email">
           <FloatConsumer>
-            {floatLabelContext => <Input {...floatLabelContext} />}
+            {floatLabelContext => (
+              <Input {...floatLabelContext} value="x@x.com" />
+            )}
           </FloatConsumer>
         </FloatLabel>
       </ThemeProvider>
@@ -54,7 +56,7 @@ stories
 
     `)(() => (
       <ThemeProvider>
-        <FloatLabel label="Email" element="input">
+        <FloatLabel label="Email" element="text">
           <FloatConsumer>
             {floatLabelContext => <Input {...floatLabelContext} />}
           </FloatConsumer>

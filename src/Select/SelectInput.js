@@ -16,6 +16,7 @@ const SelectInputStyled = styled(Input)`
 class SelectInput extends Component {
   static propTypes = {
     active: PropTypes.string,
+    elementRef: PropTypes.func,
     children: PropTypes.func,
     onChange: PropTypes.func,
     onToggle: PropTypes.func,
@@ -41,11 +42,13 @@ class SelectInput extends Component {
               onChange,
               onToggle,
               options,
+              elementRef,
               readOnly
             }) => {
               return (
                 <SelectInputStyled
                   className="SelectInput"
+                  innerRef={elementRef}
                   icon="caret-down"
                   onChange={onChange}
                   onClick={onToggle}

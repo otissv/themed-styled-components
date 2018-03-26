@@ -8,7 +8,7 @@ import { cardHeader } from './CardHeader'
 import { cardBody } from './CardBody'
 import { cardFooter } from './CardFooter'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 const Card = card``

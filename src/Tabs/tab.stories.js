@@ -7,7 +7,7 @@ import { tabList } from './TabList'
 import { tabPanel } from './TabPanel'
 
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 const stories = storiesOf('Tabs', module)

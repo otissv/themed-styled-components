@@ -148,7 +148,7 @@ stories
 
  `)(() => (
       <ThemeProvider>
-        <Button theme={theme()(colors)} size="large">
+        <Button  size="large">
           Large Button
         </Button>
       </ThemeProvider>
@@ -166,7 +166,7 @@ stories
 
       `)(() => (
       <ThemeProvider>
-        <Button theme={theme()(colors)} size="small">
+        <Button  size="small">
           Small Button
         </Button>
       </ThemeProvider>
@@ -188,7 +188,7 @@ stories
 
 `)(() => (
       <ThemeProvider>
-        <Button theme={theme()(colors)} stretch>
+        <Button  stretch>
           Stretch Button
         </Button>
       </ThemeProvider>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Isvg from 'react-inlinesvg'
 import { styles, sharedStyles } from '../utils/theme.util'
+import { ThemeConsumer } from '../ThemeContext'
 
 const IconStyled = styled(Isvg)`
   ${styles('icon')};
@@ -23,7 +24,13 @@ class Icon extends Component {
   }
 
   render() {
-    return <IconStyled {...this.props} src={this.getIcon()} />
+    return (
+      <ThemeConsumer>
+        {theme => (
+          <IconStyled theme={theme} {...this.props} src={this.getIcon()} />
+        )}
+      </ThemeConsumer>
+    )
   }
 }
 

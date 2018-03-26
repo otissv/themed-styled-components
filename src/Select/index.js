@@ -17,12 +17,15 @@ class Select extends Component {
     active: PropTypes.string,
     autocomplete: PropTypes.bool,
     children: PropTypes.func,
+    label: PropTypes.string,
     multselect: PropTypes.bool,
     onChange: PropTypes.func,
     onSelect: PropTypes.func,
     onToggle: PropTypes.func,
+    opened: PropTypes.bool,
     options: PropTypes.array,
-    theme: PropTypes.object
+    theme: PropTypes.object,
+    value: PropTypes.string
   }
 
   static defaultProps = {

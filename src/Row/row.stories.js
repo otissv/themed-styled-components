@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info'
 
 import { row } from './index'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light } from '../light'
 import { theme } from '../theme'
 
 const Row = row``
@@ -19,5 +19,9 @@ stories.add(
       
       ~~~
 
-    `)(() => <Row theme={theme()(colors)} />)
+    `)(() => (
+    <ThemeProvider>
+      <Row />
+    </ThemeProvider>
+  ))
 )

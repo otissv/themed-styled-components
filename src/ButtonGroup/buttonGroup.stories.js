@@ -6,7 +6,7 @@ import { ThemeProvider } from '../ThemeContext'
 import { buttonGroup } from './index'
 import { Button } from '../Button'
 import { dark } from '../dark'
-import { light as colors } from '../light'
+import { light  } from '../light'
 import { theme } from '../theme'
 
 const ButtonGroup = buttonGroup``

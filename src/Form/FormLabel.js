@@ -16,13 +16,13 @@ const FormLabelStyled = styled.label`
 
 class FormLabel extends Component {
   render() {
-    const { value, presence } = this.props
+    const { label, presence } = this.props
 
     return (
       <ThemeConsumer>
         {theme => (
           <FormLabelStyled theme={theme} {...this.props}>
-            {value} {presence && '*'}
+            {label} {presence && '*'}
           </FormLabelStyled>
         )}
       </ThemeConsumer>
