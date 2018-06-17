@@ -1,9 +1,10 @@
-import React, { Component, Children } from 'react'
+import React, { Children, Component } from 'react'
+import { sharedStyles, styles } from '../utils/theme.util'
+
+import { AccordionConsumer } from './Accordion'
 import PropTypes from 'prop-types'
 import { ThemeConsumer } from '../ThemeContext'
 import styled from 'styled-components'
-import { styles, sharedStyles } from '../utils/theme.util'
-import { AccordionConsumer } from './index'
 
 const AccordionItemContext = React.createContext({ uid: '' })
 

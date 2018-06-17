@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { ThemeConsumer } from '../ThemeContext'
-import { styles, sharedStyles } from '../utils/theme.util'
-import { icon } from '../Icon'
-import { AccordionConsumer } from './index'
+import { sharedStyles, styles } from '../utils/theme.util'
+
+import { AccordionConsumer } from './Accordion'
 import { AccordionItemConsumer } from './AccordionItem'
+import PropTypes from 'prop-types'
+import { ThemeConsumer } from '../ThemeContext'
+import { icon } from '../Icon'
+import styled from 'styled-components'
 
 const AccordionButtonStyled = styled.button`
   ${styles('accordion.button')};

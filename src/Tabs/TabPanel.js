@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { styles, sharedStyles } from '../utils/theme.util'
-import { TabConsumer } from './index'
+import { TabConsumer } from './Tabs'
 import { ThemeConsumer } from '../ThemeContext'
+import styled from 'styled-components'
 
 const TabPanelStyled = styled.section`
   ${styles('tabs.panel')};

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import PropTypes from 'prop-types'
-import { styles, sharedStyles } from '../utils/theme.util'
 import { ThemeConsumer } from '../ThemeContext'
+import styled from 'styled-components'
 
 const CardHeaderStyled = styled.div`
   ${styles('card.header')};
@@ -27,7 +28,7 @@ class CardHeader extends Component {
     ]),
     pos: PropTypes.oneOf(['left', 'right']),
     size: PropTypes.oneOf(['small', 'large']),
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   render() {

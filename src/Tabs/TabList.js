@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { styles, sharedStyles } from '../utils/theme.util'
-import { ThemeConsumer } from '../ThemeContext'
+import { sharedStyles, styles } from '../utils/theme.util'
 
+import PropTypes from 'prop-types'
+import { TabConsumer } from './Tabs'
+import { ThemeConsumer } from '../ThemeContext'
 import { button } from '../Button'
 import { buttonGroup } from '../ButtonGroup'
-import { TabConsumer } from './index'
+import styled from 'styled-components'
 
 const Button = button`
   ${styles('tabs.item')};
@@ -27,7 +27,7 @@ const TabListStyled = styled.div`
 class TabList extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   static defaultProps = {

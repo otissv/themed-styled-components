@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import PropTypes from 'prop-types'
-import { styles, sharedStyles } from '../utils/theme.util'
 import { ThemeConsumer } from '../ThemeContext'
+import styled from 'styled-components'
 
 const CardFooterStyled = styled.div`
   ${styles('card.footer')};
@@ -26,7 +27,7 @@ class CardFooter extends Component {
       'success',
       'warning'
     ]),
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   render() {

@@ -1,5 +1,8 @@
-export function scrollbar({ colors, spacing }) {
-  return {
+import merge from 'lodash/fp/merge'
+export function scrollbar(props) {
+  const { colors, spacing } = props
+
+  const defaults = {
     width: spacing.xsmall,
     height: spacing.xsmall,
     backgroundColor: colors.background,
@@ -14,4 +17,6 @@ export function scrollbar({ colors, spacing }) {
       }
     }
   }
+
+  return merge(props.scrollbar)(defaults)
 }

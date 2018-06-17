@@ -1,19 +1,20 @@
+import { FloatConsumer, floatLabel } from '../FloatLabel'
 import React, { Fragment } from 'react'
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
-import { dark } from '../dark'
-import { light } from '../light'
-import { theme } from '../theme'
 
+import { Formik } from 'formik'
+import { ThemeProvider } from '../ThemeContext'
+import { button } from '../Button'
+import { dark } from '../dark'
 import { form } from './index'
 import { formError } from './FormError'
 import { formErrorList } from './FormErrorList'
 import { formInput } from './FormInput'
 import { formLabel } from './FormLabel'
 import { formRow } from './FormRow'
-import { button } from '../Button'
-import { floatLabel, FloatConsumer } from '../FloatLabel'
+import { light } from '../light'
+import { storiesOf } from '@storybook/react'
+import { theme } from '../theme'
+import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Form', module)
 
@@ -36,39 +37,36 @@ stories.add(
 
     `)(() => (
     <ThemeProvider>
-      <Form
-        name="myform"
-        model={[
-          {
-            name: 'name',
-            label: 'Name',
-            type: 'text',
-            value: 'Otis',
-            validation: { required: true }
-          },
-          {
-            name: 'phoneNumber',
-            label: 'Phone number',
-            type: 'phone',
-            value: '130-54640-461'
-          },
-          {
-            name: 'email',
-            type: 'email',
-            label: 'Email address',
-            value: 'x@x.com'
-          }
-        ]}
-      >
-        <Fragment>
-          <FormInput name="name" />
-          <FormInput name="phoneNumber" />
-          <FormInput name="email" />
-        </Fragment>
+      <Form name="myForm">
+        <FormInput name="name" />
       </Form>
     </ThemeProvider>
   ))
 )
+
+// <FormInput name="name" {...context} />
+
+// model={[
+//   {
+//     name: 'name',
+//     label: 'Name',
+//     type: 'text',
+//     value: 'Otis',
+//     validation: { required: true }
+//   },
+//   {
+//     name: 'phoneNumber',
+//     label: 'Phone number',
+//     type: 'phone',
+//     value: '130-54640-461'
+//   },
+//   {
+//     name: 'email',
+//     type: 'email',
+//     label: 'Email address',
+//     value: 'x@x.com'
+//   }
+// ]}
 
 // .add(
 //   'FloatLabel - Form',

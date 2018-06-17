@@ -1,16 +1,39 @@
-import React, { Component, Fragment } from 'react'
-import styled from 'styled-components'
+import React, { Component, Fragment, forwardRef } from 'react'
+import { sharedStyles, styles } from '../utils/theme.util'
+
+import { FormConsumer } from './index'
 import PropTypes from 'prop-types'
-import { styles, sharedStyles } from '../utils/theme.util'
 import { ThemeConsumer } from '../ThemeContext'
 import { input } from '../Input'
-import { FormConsumer } from './index'
+import styled from 'styled-components'
 
 const Input = input``
 
 export class FormInput extends Component {
+  state = {
+    ref: null
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.inputRef = null
+  }
+
+  // componentDidMount() {
+  //   // console.log(this.state)
+  //   // console.log(this.inputRef.current)
+  //   debugger
+  // }
+
+  cont
+
+  setInnerRef = ref => {
+    this.inputRef = ref
+  }
+
   render() {
-    const { name, elementRef } = this.props
+    const { name } = this.props
 
     return (
       <ThemeConsumer>
@@ -24,7 +47,7 @@ export class FormInput extends Component {
                     onBlur={form.onBlur}
                     onChange={form.onChange}
                     onFocus={form.onFocus}
-                    value={form[name].value}
+                    value={form.model[name] && form.model[name].value}
                     {...this.props}
                   />
                 )

@@ -1,10 +1,12 @@
-export function animation({ animation = {} }) {
-  const xslow = animation.xslow || '3s'
-  const slow = animation.slow || '0.5s'
-  const medium = animation.medium || '0.3s'
-  const fast = animation.fast || '0.1s'
+import merge from 'lodash/fp/merge'
 
-  return {
+export function animation(props) {
+  const xslow = (props.animation && props.animation.xslow) || '3s'
+  const slow = (props.animation && props.animation.slow) || '0.5s'
+  const medium = (props.animation && props.animation.medium) || '0.3s'
+  const fast = (props.animation && props.animation.fast) || '0.1s'
+
+  const defaults = {
     xslow,
     slow,
     medium,
@@ -40,5 +42,7 @@ export function animation({ animation = {} }) {
     easeInOutXslow: (property = 'all', delay) =>
       `${property} ${xslow} ease-in-out ${delay || ''}`
   }
+
+  return merge(props.animation)(defaults)
 }
 // property duration timing-function delay;

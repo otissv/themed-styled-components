@@ -1,7 +1,9 @@
+import merge from 'lodash/fp/merge'
 import upperFirst from 'lodash/fp/upperFirst'
 
-export function border({ colors }) {
-  return {
+export function border(props) {
+  const colors = props.colors
+  const defaults = {
     none: 0,
     rounded: '3px',
     circle: '100%',
@@ -33,4 +35,6 @@ export function border({ colors }) {
       [`thinDashed${upperFirst(key)}`]: `1px dashed ${colors[key]}`
     }))
   }
+
+  return merge(props.border)(defaults)
 }

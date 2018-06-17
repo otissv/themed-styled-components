@@ -7,6 +7,7 @@ export function floatLabel({ animation, border, colors, font, widths }) {
 
     label: {
       position: 'absolute',
+      pointerEvents: 'none',
       top: '3px',
       left: 0,
       height: 'inherit',

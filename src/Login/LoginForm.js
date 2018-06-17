@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { styles, sharedStyles } from '../utils/theme.util'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import { LoginConsumer } from './index'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const LoginFormStyled = styled.div`
   ${styles('login.form')};
@@ -13,7 +14,7 @@ const LoginFormStyled = styled.div`
 class LoginForm extends React.Component {
   static propTypes = {
     children: PropTypes.func.isRequired,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object
   }
 
   _buildProps = context => {

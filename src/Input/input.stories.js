@@ -1,12 +1,11 @@
 import React from 'react'
 import { ThemeProvider } from '../ThemeContext'
-
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { input } from './index'
 import { dark } from '../dark'
-import { light  } from '../light'
+import { input } from './index'
+import { light } from '../light'
+import { storiesOf } from '@storybook/react'
 import { theme } from '../theme'
+import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Input', module)
 
@@ -38,18 +37,13 @@ stories
         ~~~js
         <Input
           context="accent"
-          value="Accent"
-          onChange={() => {}}
+          placeholder="Accent"
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input
-          context="accent"
-          placeholder="Accent"
-          onChange={event => console.dir(event.currentTarget)}
-        />
+        <Input context="accent" placeholder="Accent" />
       </ThemeProvider>
     ))
   )
@@ -61,14 +55,13 @@ stories
         ~~~js
         <Input
           context="blank"
-          value="Blank"
-          onChange={() => {}}
+          placeholder="Blank"
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input context="blank" value="Blank" onChange={() => {}} />
+        <Input context="blank" placeholder="Blank" />
       </ThemeProvider>
     ))
   )
@@ -80,14 +73,13 @@ stories
         ~~~js
         <Input
           context="danger"
-          value="Danger"
-          onChange={() => {}}
+          placeholder="Danger"
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input context="danger" value="Danger" onChange={() => {}} />
+        <Input context="danger" placeholder="Danger" />
       </ThemeProvider>
     ))
   )
@@ -99,14 +91,14 @@ stories
         ~~~js
         <Input
           context="primary"
-          value="Primary"
-          onChange={() => {}}
+          placeholder="Primary"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input context="primary" value="Primary" onChange={() => {}} />
+        <Input context="primary" placeholder="Primary" />
       </ThemeProvider>
     ))
   )
@@ -118,14 +110,14 @@ stories
         ~~~js
         <Input
           context="success"
-          value="Success"
-          onChange={() => {}}
+          placeholder="Success"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input context="success" value="Success" onChange={() => {}} />
+        <Input context="success" placeholder="Success" />
       </ThemeProvider>
     ))
   )
@@ -137,14 +129,14 @@ stories
         ~~~js
         <Input
           context="warning"
-          value="Warning"
-          onChange={() => {}}
+          placeholder="Warning"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input context="warning" value="Warning" onChange={() => {}} />
+        <Input context="warning" placeholder="Warning" />
       </ThemeProvider>
     ))
   )
@@ -159,14 +151,14 @@ stories
         ~~~js
         <Input
           disabled
-          value="Disabled"
-          onChange={() => {}}
+          placeholder="Disabled"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input disabled value="Disabled" onChange={() => {}} />
+        <Input disabled placeholder="Disabled" />
       </ThemeProvider>
     ))
   )
@@ -183,13 +175,13 @@ stories
         <Input
           icon="account-o"
           placeholder="user name"
-          onChange={() => {}}
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input icon="account-o" placeholder="user name" onChange={() => {}} />
+        <Input icon="account-o" placeholder="user name" />
       </ThemeProvider>
     ))
   )
@@ -208,7 +200,7 @@ stories
           icon="lock-outline"
           placeholder="password"
           type='password'
-          onChange={() => {}}
+         
         />
         ~~~
   
@@ -219,7 +211,6 @@ stories
           icon="lock-outline"
           placeholder="password"
           type="password"
-          onChange={() => {}}
         />
       </ThemeProvider>
     ))
@@ -239,7 +230,7 @@ stories
   //         pos='right'
   //         icon="link"
   //         placeholder="url"
-  //         onChange={() => {}}
+  //
   //
   //       />
   //       ~~~
@@ -250,7 +241,7 @@ stories
   //       pos="right"
   //       icon="link"
   //       placeholder="url"
-  //       onChange={() => {}}
+  //
   //
   //     />
   //   ))
@@ -267,14 +258,14 @@ stories
         ~~~js
         <Input
           size="large"
-          value="Large"
-          onChange={() => {}}
+          placeholder="Large"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input size="large" value="Large" onChange={() => {}} />
+        <Input size="large" placeholder="Large" />
       </ThemeProvider>
     ))
   )
@@ -286,14 +277,14 @@ stories
         ~~~js
         <Input
           size="small"
-          value="Small"
-          onChange={() => {}}
+          placeholder="Small"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input size="small" value="Small" onChange={() => {}} />
+        <Input size="small" placeholder="Small" />
       </ThemeProvider>
     ))
   )
@@ -309,14 +300,14 @@ stories
         ~~~js
         <Input
           widths="large"
-          value="Large"
-          onChange={() => {}}
+          placeholder="Large"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input widths="large" value="Large" onChange={() => {}} />
+        <Input widths="large" placeholder="Large" />
       </ThemeProvider>
     ))
   )
@@ -328,14 +319,14 @@ stories
         ~~~js
         <Input
           widths="medium"
-          value="Medium"
-          onChange={() => {}}
+          placeholder="Medium"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input widths="medium" value="Medium" onChange={() => {}} />
+        <Input widths="medium" placeholder="Medium" />
       </ThemeProvider>
     ))
   )
@@ -347,14 +338,14 @@ stories
         ~~~js
         <Input
           widths="small"
-          value="Small"
-          onChange={() => {}}
+          placeholder="Small"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input widths="small" value="Small" onChange={() => {}} />
+        <Input widths="small" placeholder="Small" />
       </ThemeProvider>
     ))
   )
@@ -366,14 +357,14 @@ stories
         ~~~js
         <Input
           widths="xlarge"
-          value="Xlarge"
-          onChange={() => {}}
+          placeholder="Xlarge"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input widths="xlarge" value="Xlarge" onChange={() => {}} />
+        <Input widths="xlarge" placeholder="Xlarge" />
       </ThemeProvider>
     ))
   )
@@ -384,14 +375,14 @@ stories
         ~~~js
         <Input
           widths="xsmall"
-          value="Xsmall"
-          onChange={() => {}}
+          placeholder="Xsmall"
+         
         />
         ~~~
   
       `)(() => (
       <ThemeProvider>
-        <Input widths="xsmall" value="Xsmall" onChange={() => {}} />
+        <Input widths="xsmall" placeholder="Xsmall" />
       </ThemeProvider>
     ))
   )
