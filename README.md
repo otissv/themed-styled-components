@@ -14,7 +14,9 @@ TODO:
 ## Usage
 
 ```js
-import { ThemeProvider } from 'themed-styled-components'
+import { ThemeProvider, button } from 'themed-styled-components'
+
+const Button = button``
 
 const App = () => (
   <ThemeProvider>
