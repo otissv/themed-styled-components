@@ -65,7 +65,7 @@ const App = () => (
 | warning2         | #fff6ee   |
 | warning          | #faa05a   |
 
-```
+
 ## Development
 
 1.  Run `yarn` to install all the packages.
