@@ -1,48 +1,44 @@
 import { FloatConsumer, floatLabel } from '../FloatLabel'
 import React, { Fragment } from 'react'
 
-import { Formik } from 'formik'
-import { ThemeProvider } from '../ThemeContext'
+import { ThemeProvider } from '../Theme'
 import { button } from '../Button'
-import { dark } from '../dark'
 import { form } from './index'
 import { formError } from './FormError'
 import { formErrorList } from './FormErrorList'
 import { formInput } from './FormInput'
 import { formLabel } from './FormLabel'
 import { formRow } from './FormRow'
-import { light } from '../light'
 import { storiesOf } from '@storybook/react'
-import { theme } from '../theme'
 import { withInfo } from '@storybook/addon-info'
 
-const stories = storiesOf('Form', module)
+// const stories = storiesOf('Form', module)
 
-const Form = form``
-const FormRow = formRow``
-// const FormLabel = formLabel``
-// const FormError = formError``
-// const FormErrorList = formErrorList``
-const FormInput = formInput``
-const FloatLabel = floatLabel``
-const Button = button``
+// const Form = form``
+// const FormRow = formRow``
+// // const FormLabel = formLabel``
+// // const FormError = formError``
+// // const FormErrorList = formErrorList``
+// const FormInput = formInput``
+// const FloatLabel = floatLabel``
+// const Button = button``
 
-stories.add(
-  'Default - Form',
-  withInfo(`
-  
-      ~~~js
-      
-      ~~~
+// stories.add(
+//   'Default - Form',
+//   withInfo(`
 
-    `)(() => (
-    <ThemeProvider>
-      <Form name="myForm">
-        <FormInput name="name" />
-      </Form>
-    </ThemeProvider>
-  ))
-)
+//       ~~~js
+
+//       ~~~
+
+//     `)(() => (
+//     <ThemeProvider>
+//       <Form name="myForm">
+//         <FormInput name="name" />
+//       </Form>
+//     </ThemeProvider>
+//   ))
+// )
 
 // <FormInput name="name" {...context} />
 

@@ -1,15 +1,12 @@
 import React, { Fragment } from 'react'
 
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
+import { ThemeProvider } from '../Theme'
 import { card } from './index'
-import { cardHeader } from './CardHeader'
 import { cardBody } from './CardBody'
 import { cardFooter } from './CardFooter'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
+import { cardHeader } from './CardHeader'
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
 const Card = card``
 const CardHeader = cardHeader``

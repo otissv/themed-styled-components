@@ -1,4 +1,4 @@
-import { makeColorScheme } from './utils/makeColorScheme.util'
+import { makeColorScheme } from '../utils/makeColorScheme.util'
 
 export const light = makeColorScheme({
   foreground: '#666',
@@ -26,5 +26,5 @@ export const light = makeColorScheme({
   tertiary2: '#515151',
   tertiary: '#515151',
   warning2: '#fff6ee',
-  warning: '#faa05a'
+  warning: '#faa05a',
 })

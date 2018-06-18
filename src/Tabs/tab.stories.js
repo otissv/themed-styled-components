@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react'
 
-import { ThemeProvider } from '../ThemeContext'
-import { dark } from '../dark'
-import { light } from '../light'
+import { ThemeProvider } from '../Theme'
 import { storiesOf } from '@storybook/react'
 import { tabList } from './TabList'
 import { tabPanel } from './TabPanel'
 import { tabs } from './index'
-import { theme } from '../theme'
 import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Tabs', module)
@@ -68,7 +65,7 @@ stories
                   { title: 'Tab 6', uid: '6' },
                   { title: 'Tab 7', uid: '7' },
                   { title: 'Tab 8', uid: '8' },
-                  { title: 'Tab 9', uid: '9' }
+                  { title: 'Tab 9', uid: '9' },
                 ]}
               />
 
@@ -154,48 +151,48 @@ stories
             {
               title: 'Tab 1',
               uid: '1',
-              component: () => <div>Dynamic Tab panel 1</div>
+              component: () => <div>Dynamic Tab panel 1</div>,
             },
             {
               title: 'Tab 2',
               uid: '2',
-              component: () => <div>Dynamic Tab panel 2</div>
+              component: () => <div>Dynamic Tab panel 2</div>,
             },
             {
               title: 'Tab 3',
               uid: '3',
-              component: () => <div>Dynamic Tab panel 3</div>
+              component: () => <div>Dynamic Tab panel 3</div>,
             },
             {
               title: 'Tab 4',
               uid: '4',
-              component: () => <div>Dynamic Tab panel 4</div>
+              component: () => <div>Dynamic Tab panel 4</div>,
             },
             {
               title: 'Tab 5',
               uid: '5',
-              component: () => <div>Dynamic Tab panel 5</div>
+              component: () => <div>Dynamic Tab panel 5</div>,
             },
             {
               title: 'Tab 6',
               uid: '6',
-              component: () => <div>Dynamic Tab panel 6</div>
+              component: () => <div>Dynamic Tab panel 6</div>,
             },
             {
               title: 'Tab 7',
               uid: '7',
-              component: () => <div>Dynamic Tab panel 7</div>
+              component: () => <div>Dynamic Tab panel 7</div>,
             },
             {
               title: 'Tab 8',
               uid: '8',
-              component: () => <div>Dynamic Tab panel 8</div>
+              component: () => <div>Dynamic Tab panel 8</div>,
             },
             {
               title: 'Tab 9',
               uid: '9',
-              component: () => <div>Dynamic Tab panel 9</div>
-            }
+              component: () => <div>Dynamic Tab panel 9</div>,
+            },
           ]}
         />
       </ThemeProvider>

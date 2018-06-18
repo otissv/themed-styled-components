@@ -1,10 +1,7 @@
 import React from 'react'
-import { ThemeProvider } from '../ThemeContext'
-import { dark } from '../dark'
+import { ThemeProvider } from '../Theme'
 import { input } from './index'
-import { light } from '../light'
 import { storiesOf } from '@storybook/react'
-import { theme } from '../theme'
 import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Input', module)

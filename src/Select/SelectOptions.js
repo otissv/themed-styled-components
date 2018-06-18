@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { styles, sharedStyles } from '../utils/theme.util'
 import { SelectConsumer } from './index'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme'
 
 const SelectOptionsStyled = styled.div`
   ${styles('select.options')};

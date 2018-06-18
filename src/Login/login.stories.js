@@ -1,11 +1,6 @@
 import React, { Fragment } from 'react'
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
 
+import { ThemeProvider } from '../Theme'
 import { button } from '../Button'
 import { buttonGroup } from '../ButtonGroup'
 import { checkbox } from '../Checkbox'
@@ -13,7 +8,9 @@ import { input } from '../Input'
 import { login } from './index'
 import { loginForm } from './LoginForm'
 import { loginHeader } from './LoginHeader'
+import { storiesOf } from '@storybook/react'
 import { text } from '../Text'
+import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Login', module)
 
@@ -35,7 +32,7 @@ stories.add(
       ~~~
 
     // `)(() => (
-    <Login >
+    <Login>
       <LoginHeader>
         {header => {
           return (

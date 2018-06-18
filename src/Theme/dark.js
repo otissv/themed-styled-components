@@ -1,4 +1,4 @@
-import { makeColorScheme } from './utils/makeColorScheme.util'
+import { makeColorScheme } from '../utils/makeColorScheme.util'
 
 export const dark = makeColorScheme({
   foreground: '#f1f1f1',
@@ -25,5 +25,5 @@ export const dark = makeColorScheme({
   success: '#32d296',
   success2: '#edfbf6',
   warning: '#faa05a',
-  warning: '#fff6ee'
+  warning: '#fff6ee',
 })

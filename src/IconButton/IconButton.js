@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import { ThemeProvider } from '../ThemeContext'
+
 import { ButtonSquared } from './ButtonSquared'
 import { Icon } from './Icon'
 
-export class IconButton extends React.Component {
+export class IconButton extends Component {
   render() {
     const {
       onClick,
       src,
       styledButtonSquared,
       styledIconButton,
-      styledIcon
+      styledIcon,
     } = this.props
     return (
       <ButtonSquared

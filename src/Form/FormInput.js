@@ -3,7 +3,7 @@ import { sharedStyles, styles } from '../utils/theme.util'
 
 import { FormConsumer } from './index'
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme'
 import { input } from '../Input'
 import styled from 'styled-components'
 

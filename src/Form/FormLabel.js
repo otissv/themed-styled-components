@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme'
 
 const FormLabelStyled = styled.label`
   display: ${props => props.display || props.theme.form.label.display};

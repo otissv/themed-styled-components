@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 
 const CardStyled = styled.div`
   ${styles('card')};

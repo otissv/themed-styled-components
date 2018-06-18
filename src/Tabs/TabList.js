@@ -2,15 +2,15 @@ import React, { Component, Fragment } from 'react'
 import { sharedStyles, styles } from '../utils/theme.util'
 
 import PropTypes from 'prop-types'
-import { TabConsumer } from './Tabs'
-import { ThemeConsumer } from '../ThemeContext'
+import { TabConsumer } from './TabContext'
+import { ThemeConsumer } from '../Theme'
 import { button } from '../Button'
 import { buttonGroup } from '../ButtonGroup'
 import styled from 'styled-components'
 
 const Button = button`
   ${styles('tabs.item')};
-  ${sharedStyles('tabs.item')}; 
+  ${sharedStyles('tabs.item')};
   ${props => props.styled};`
 
 const ButtonGroup = buttonGroup`
@@ -27,11 +27,11 @@ const TabListStyled = styled.div`
 class TabList extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    theme: PropTypes.object
+    theme: PropTypes.object,
   }
 
   static defaultProps = {
-    items: []
+    items: [],
   }
 
   handelOnWheel(event) {

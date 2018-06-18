@@ -1,16 +1,9 @@
 import React from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-
+import { ThemeProvider } from '../Theme'
 import { button } from './index'
 import { icon } from '../Icon'
-import { dark } from '../dark'
-import { light } from '../light'
-import { theme } from '../theme'
-import { ThemeProvider } from '../ThemeContext'
-
-const schemes = { dark, light }
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
 const Button = button``
 const Icon = icon``
@@ -148,9 +141,7 @@ stories
 
  `)(() => (
       <ThemeProvider>
-        <Button  size="large">
-          Large Button
-        </Button>
+        <Button size="large">Large Button</Button>
       </ThemeProvider>
     ))
   )
@@ -166,9 +157,7 @@ stories
 
       `)(() => (
       <ThemeProvider>
-        <Button  size="small">
-          Small Button
-        </Button>
+        <Button size="small">Small Button</Button>
       </ThemeProvider>
     ))
   )
@@ -188,9 +177,7 @@ stories
 
 `)(() => (
       <ThemeProvider>
-        <Button  stretch>
-          Stretch Button
-        </Button>
+        <Button stretch>Stretch Button</Button>
       </ThemeProvider>
     ))
   )

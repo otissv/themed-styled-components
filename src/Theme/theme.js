@@ -1,41 +1,41 @@
 // shared
-import { animation as Animation } from './base/animation.theme'
-import { border as Border } from './base/border.theme'
-import { clearfix as Clearfix } from './base/clearfix.theme'
-import { columns as Columns } from './base/columns.theme'
-import { depth as Depth } from './base/depth.theme'
-import { font as Font } from './base/font.theme'
-import { globalStyles as Global } from './base/global.theme'
-import { media as Media } from './base/media.theme'
-import { radius as Radius } from './base/radius.theme'
-import { scrollbar as Scrollbar } from './base/scrollbar.theme'
-import { spacing as Spacing } from './base/spacing.theme'
-import { widths as Widths } from './base/widths.theme'
-import { accordion } from './Accordion/accordion.theme'
-import { button } from './Button/button.theme'
-import { buttonGroup } from './ButtonGroup/buttonGroup.theme'
-import { card } from './Card/card.theme'
-import { checkbox } from './Checkbox/checkbox.theme'
-import { close } from './Close/close.theme'
-import { floatLabel } from './FloatLabel/floatLabel.theme'
-import { form } from './Form/form.theme'
-import { icon } from './Icon/icon.theme'
-import { iconButton } from './IconButton/iconButton.theme'
-import { inject } from './base/inject.theme'
-import { input } from './Input/input.theme'
-import { list } from './List/list.theme'
-import { login } from './Login/login.theme'
-import { modal } from './Modal/modal.theme'
-import { nav } from './Nav/nav.theme'
-import { row } from './Row/row.theme'
-import { select } from './Select/select.theme'
-import { shared } from './shared'
-import { sidebar } from './Sidebar/sidebar.theme'
-import { statusbar } from './Statusbar/statusbar.theme'
-import { tabs } from './Tabs/tabs.theme'
-import { text } from './Text/text.theme'
-import { textarea } from './Textarea/textarea.theme'
-import { toolbar } from './Toolbar/toolbar.theme'
+import { animation as Animation } from '../base/animation.theme'
+import { border as Border } from '../base/border.theme'
+import { clearfix as Clearfix } from '../base/clearfix.theme'
+import { columns as Columns } from '../base/columns.theme'
+import { depth as Depth } from '../base/depth.theme'
+import { font as Font } from '../base/font.theme'
+import { globalStyles as Global } from '../base/global.theme'
+import { media as Media } from '../base/media.theme'
+import { radius as Radius } from '../base/radius.theme'
+import { scrollbar as Scrollbar } from '../base/scrollbar.theme'
+import { spacing as Spacing } from '../base/spacing.theme'
+import { widths as Widths } from '../base/widths.theme'
+import { accordion } from '../Accordion/accordion.theme'
+import { button } from '../Button/button.theme'
+import { buttonGroup } from '../ButtonGroup/buttonGroup.theme'
+import { card } from '../Card/card.theme'
+import { checkbox } from '../Checkbox/checkbox.theme'
+import { close } from '../Close/close.theme'
+import { floatLabel } from '../FloatLabel/floatLabel.theme'
+import { form } from '../Form/form.theme'
+import { icon } from '../Icon/icon.theme'
+import { iconButton } from '../IconButton/iconButton.theme'
+import { inject } from '../base/inject.theme'
+import { input } from '../Input/input.theme'
+import { list } from '../List/list.theme'
+import { login } from '../Login/login.theme'
+import { modal } from '../Modal/modal.theme'
+import { nav } from '../Nav/nav.theme'
+import { row } from '../Row/row.theme'
+import { select } from '../Select/select.theme'
+import { shared } from '../shared'
+import { sidebar } from '../Sidebar/sidebar.theme'
+import { statusbar } from '../Statusbar/statusbar.theme'
+import { tabs } from '../Tabs/tabs.theme'
+import { text } from '../Text/text.theme'
+import { textarea } from '../Textarea/textarea.theme'
+import { toolbar } from '../Toolbar/toolbar.theme'
 
 const defaults = {
   animation: {},
@@ -49,7 +49,7 @@ const defaults = {
   widths: {},
   columns: {},
   radius: {},
-  extend: () => {}
+  extend: () => {},
 }
 
 export function theme(props = {}) {
@@ -65,7 +65,7 @@ export function theme(props = {}) {
     widths,
     columns,
     radius,
-    extend
+    extend,
   } = { ...defaults, ...props }
 
   return function(colors = {}) {
@@ -93,12 +93,12 @@ export function theme(props = {}) {
       spacing: _spacing,
       widths: _widths,
       radius: _radius,
-      columns: _columns
+      columns: _columns,
     }
 
     Global({
       ...base,
-      inject: inject(base, shared(base))
+      inject: inject(base, shared(base)),
     })
 
     return {
@@ -126,7 +126,7 @@ export function theme(props = {}) {
       text: text(base, shared(base)),
       textarea: textarea(base, shared(base)),
       toolbar: toolbar(base, shared(base)),
-      ...extend(base, shared(base))
+      ...extend(base, shared(base)),
     }
   }
 }

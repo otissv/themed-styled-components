@@ -4,7 +4,7 @@ import { sharedStyles, styles } from '../utils/theme.util'
 import { AccordionConsumer } from './Accordion'
 import { AccordionItemConsumer } from './AccordionItem'
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 import styled from 'styled-components'
 
 const AccordionContentStyled = styled.div`
@@ -16,7 +16,7 @@ const AccordionContentStyled = styled.div`
 class AccordionContent extends Component {
   static propTypes = {
     children: PropTypes.any.isRequired,
-    theme: PropTypes.object
+    theme: PropTypes.object,
   }
 
   render() {

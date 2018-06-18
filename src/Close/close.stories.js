@@ -1,11 +1,9 @@
 import React, { Fragment } from 'react'
+
+import { ThemeProvider } from '../Theme'
+import { close } from './index'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
-import { close } from './index'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
 
 const stories = storiesOf('Close', module)
 
@@ -16,7 +14,7 @@ stories.add(
   withInfo(`
   
       ~~~js
-      
+      <Close pos="right" />
       ~~~
 
     `)(() => (

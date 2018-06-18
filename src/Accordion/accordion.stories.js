@@ -1,14 +1,11 @@
 import React, { Fragment } from 'react'
 
-import { ThemeProvider } from '../ThemeContext'
+import { ThemeProvider } from '../Theme'
 import { accordion } from './index'
 import { accordionButton } from './AccordionButton'
 import { accordionContent } from './AccordionContent'
 import { accordionItem } from './AccordionItem'
-import { dark } from '../dark'
-import { light } from '../light'
 import { storiesOf } from '@storybook/react'
-import { theme } from '../theme'
 import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Accordion', module)
@@ -99,7 +96,7 @@ stories
                       {...buttonProps}
                       toggleProps={{
                         opened: { icon: 'chevron-down' },
-                        closed: { icon: 'chevron-right' }
+                        closed: { icon: 'chevron-right' },
                       }}
                     >
                       Item 1
@@ -162,8 +159,29 @@ stories
     withInfo(`
   
       ~~~js
-     
-    ))
+      <Accordion
+        active="1"
+        items={[
+          {
+            uid: '1',
+            title: 'Dynamic Item 1',
+            content:
+              'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing',
+          },
+          {
+            uid: '2',
+            title: 'Dynamic Item 2',
+            content:
+              'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing',
+          },
+          {
+            uid: '3',
+            title: 'Dynamic Item 3',
+            content:
+              'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing',
+          },
+        ]}
+      />
       ~~~
 
     `)(() => (
@@ -175,20 +193,20 @@ stories
               uid: '1',
               title: 'Dynamic Item 1',
               content:
-                'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing'
+                'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing',
             },
             {
               uid: '2',
               title: 'Dynamic Item 2',
               content:
-                'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing'
+                'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing',
             },
             {
               uid: '3',
               title: 'Dynamic Item 3',
               content:
-                'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing'
-            }
+                'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing',
+            },
           ]}
         />
       </ThemeProvider>
@@ -200,8 +218,30 @@ stories
     withInfo(`
   
       ~~~js
-     
-    ))
+      <Accordion
+        pos="left"
+        active="1"
+        items={[
+          {
+            uid: '1',
+            title: 'Item 1',
+            content:
+              'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing',
+          },
+          {
+            uid: '2',
+            title: 'Item 2',
+            content:
+              'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing',
+          },
+          {
+            uid: '3',
+            title: 'Item 3',
+            content:
+              'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing',
+          },
+        ]}
+      />
       ~~~
 
     `)(() => (
@@ -214,20 +254,20 @@ stories
               uid: '1',
               title: 'Item 1',
               content:
-                'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing'
+                'Item 1 Lorem ipsum dolor sit amet, consectetur adipiscing',
             },
             {
               uid: '2',
               title: 'Item 2',
               content:
-                'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing'
+                'Item 2 Lorem ipsum dolor sit amet, consectetur adipiscing',
             },
             {
               uid: '3',
               title: 'Item 3',
               content:
-                'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing'
-            }
+                'Item 3 Lorem ipsum dolor sit amet, consectetur adipiscing',
+            },
           ]}
         />
       </ThemeProvider>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { sharedStyles, styles } from '../utils/theme.util'
 
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 import { icon } from '../Icon'
 import styled from 'styled-components'
 
@@ -34,16 +34,16 @@ class FloatLabel extends Component {
     onFloatLabel: PropTypes.func,
     onFocus: PropTypes.func,
     theme: PropTypes.object,
-    widths: PropTypes.string
+    widths: PropTypes.string,
   }
 
   state = {
     active: false,
-    floating: false
+    floating: false,
   }
 
   componentDidMount() {
-    this.element.value && this.onFloatLabel()
+    this.element && this.element.value && this.onFloatLabel()
   }
 
   onBlur = event => {
@@ -70,7 +70,7 @@ class FloatLabel extends Component {
                 onBlur: onBlur || this.onBlur,
                 onFocus: onFocus || this.onFocus,
                 elementRef: element => (this.element = element),
-                styled: styles(`floatLabel.${element || 'text'}`)({ theme })
+                styled: styles(`floatLabel.${element || 'text'}`)({ theme }),
               }}
             >
               <FloatLabelStyled theme={_theme}>

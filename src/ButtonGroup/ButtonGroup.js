@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { sharedStyles, styles } from '../utils/theme.util'
 
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 import styled from 'styled-components'
 
 const ButtonGroupStyled = styled.div`

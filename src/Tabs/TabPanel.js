@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { sharedStyles, styles } from '../utils/theme.util'
 
 import PropTypes from 'prop-types'
-import { TabConsumer } from './Tabs'
-import { ThemeConsumer } from '../ThemeContext'
+import { TabConsumer } from './TabContext'
+import { ThemeConsumer } from '../Theme/index'
 import styled from 'styled-components'
 
 const TabPanelStyled = styled.section`
@@ -16,7 +16,7 @@ class TabPanel extends Component {
   static propTypes = {
     children: PropTypes.func.isRequired,
     theme: PropTypes.object,
-    uid: PropTypes.string
+    uid: PropTypes.string,
   }
 
   getActiveStyle = ({ active, uid }) => {

@@ -1,14 +1,11 @@
 import React, { Fragment } from 'react'
 
-import { ThemeProvider } from '../ThemeContext'
-import { dark } from '../dark'
-import { light } from '../light'
+import { ThemeProvider } from '../Theme'
 import { select } from './index'
 import { selectInput } from './SelectInput'
 import { selectOption } from './SelectOption'
 import { selectOptions } from './SelectOptions'
 import { storiesOf } from '@storybook/react'
-import { theme } from '../theme'
 import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Select', module)
@@ -23,7 +20,24 @@ stories.add(
   withInfo(`
   
       ~~~js
-      
+      <Select active="option1">
+        {() => (
+          <Fragment>
+            <SelectInput placeholder="Select" />
+            <SelectOptions>
+              <SelectOption value="option1" label="Option 1">
+                Option 1
+              </SelectOption>
+              <SelectOption value="option2" label="Option 2">
+                Option 2
+              </SelectOption>
+              <SelectOption value="option3" label="Option 3">
+                Option 3
+              </SelectOption>
+            </SelectOptions>
+          </Fragment>
+        )}
+      </Select>
       ~~~
 
     `)(() => (
@@ -113,14 +127,3 @@ stories.add(
 //     </ThemeProvider>
 //   ))
 // )
-
-{
-  /* <Select
-        value="0"
-        options={[
-          { label: 'Option 1', value: '0' },
-          { label: 'Option 2', value: '1' },
-          { label: 'Option 3', value: '2' },
-          { label: 'Option 4', value: '3' }
-        ]} */
-}

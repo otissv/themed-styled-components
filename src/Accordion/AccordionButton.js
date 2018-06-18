@@ -4,7 +4,7 @@ import { sharedStyles, styles } from '../utils/theme.util'
 import { AccordionConsumer } from './Accordion'
 import { AccordionItemConsumer } from './AccordionItem'
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 import { icon } from '../Icon'
 import styled from 'styled-components'
 
@@ -25,14 +25,14 @@ class AccordionButton extends Component {
     children: PropTypes.any.isRequired,
     theme: PropTypes.object,
     title: PropTypes.string,
-    toggleProps: PropTypes.object
+    toggleProps: PropTypes.object,
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      hover: false
+      hover: false,
       // opend
     }
   }
@@ -46,7 +46,7 @@ class AccordionButton extends Component {
 
     const _toggleProps = toggleProps || {
       opened: { icon: 'chevron-down' },
-      closed: { icon: 'chevron-right' }
+      closed: { icon: 'chevron-right' },
     }
     return (
       <ThemeConsumer>

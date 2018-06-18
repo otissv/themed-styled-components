@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { sharedStyles, styles } from '../utils/theme.util'
 
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 import { accordionButton } from './AccordionButton'
 import { accordionContent } from './AccordionContent'
 import { accordionItem } from './AccordionItem'
@@ -22,7 +22,7 @@ const AccordionContext = React.createContext({ active: '' })
 
 class Accordion extends Component {
   static defaultProps = {
-    items: []
+    items: [],
   }
 
   static propTypes = {
@@ -31,7 +31,7 @@ class Accordion extends Component {
     children: PropTypes.func,
     contentProps: PropTypes.object,
     itemProps: PropTypes.object,
-    theme: PropTypes.object
+    theme: PropTypes.object,
   }
 
   getItems = () => {
@@ -68,7 +68,7 @@ class Accordion extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: props.active
+      active: props.active,
     }
   }
 
@@ -88,7 +88,7 @@ class Accordion extends Component {
             <AccordionContext.Provider
               value={{
                 ...this.state,
-                setActiveItem: this.setActiveItem
+                setActiveItem: this.setActiveItem,
               }}
             >
               <AccordionStyled
@@ -103,7 +103,7 @@ class Accordion extends Component {
                       theme: _theme,
                       buttonProps: { theme: _theme },
                       contentProps: { theme: _theme },
-                      itemProps: { theme: _theme }
+                      itemProps: { theme: _theme },
                     })}
               </AccordionStyled>
             </AccordionContext.Provider>

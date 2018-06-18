@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import PropTypes from 'prop-types'
+import { TabProvider } from './TabContext'
+import { ThemeConsumer } from '../Theme'
 import styled from 'styled-components'
-import { ThemeConsumer } from '../ThemeContext'
-import { styles, sharedStyles } from '../utils/theme.util'
 import { tabList } from './TabList'
 import { tabPanel } from './TabPanel'
 
@@ -14,13 +16,13 @@ const TabStyled = styled.div`
 
 const TabList = tabList``
 
-const TabPanel = tabPanel`;`
+const TabPanel = tabPanel``
 
 const TabContext = React.createContext({ active: '' })
 
 class Tabs extends Component {
   static defaultProps = {
-    items: []
+    items: [],
   }
 
   static propTypes = {
@@ -28,13 +30,13 @@ class Tabs extends Component {
     children: PropTypes.func,
     tabListProps: PropTypes.object,
     tabPanelProps: PropTypes.object,
-    theme: PropTypes.object
+    theme: PropTypes.object,
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      active: props.active
+      active: props.active,
     }
   }
 
@@ -81,7 +83,7 @@ class Tabs extends Component {
       items,
       tabListProps,
       tabPanelProps,
-      theme
+      theme,
     } = this.props
 
     return (
@@ -89,10 +91,10 @@ class Tabs extends Component {
         {theme => {
           const _theme = this.props.theme || theme
           return (
-            <TabContext.Provider
+            <TabProvider
               value={{
                 ...this.state,
-                setActiveItem: this.setActiveItem
+                setActiveItem: this.setActiveItem,
               }}
             >
               <TabStyled className="Tabs" theme={_theme} {...this.props}>
@@ -101,10 +103,10 @@ class Tabs extends Component {
                   : children({
                       theme,
                       tabListProps: { theme, ...tabListProps },
-                      tabPanelProps: { theme, ...tabPanelProps }
+                      tabPanelProps: { theme, ...tabPanelProps },
                     })}
               </TabStyled>
-            </TabContext.Provider>
+            </TabProvider>
           )
         }}
       </ThemeConsumer>

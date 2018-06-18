@@ -3,7 +3,7 @@ import { sharedStyles, styles } from '../utils/theme.util'
 
 import { AccordionConsumer } from './Accordion'
 import PropTypes from 'prop-types'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme/index'
 import styled from 'styled-components'
 
 const AccordionItemContext = React.createContext({ uid: '' })
@@ -18,13 +18,13 @@ class AccordionItem extends Component {
   static propTypes = {
     children: PropTypes.func.isRequired,
     theme: PropTypes.object,
-    uid: PropTypes.string
+    uid: PropTypes.string,
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      uid: props.uid
+      uid: props.uid,
     }
   }
 

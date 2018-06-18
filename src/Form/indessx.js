@@ -4,7 +4,7 @@ import validator from 'validator'
 import { isIgnoredField } from '../utils/isIgnoredField.util'
 import PropTypes from 'prop-types'
 import { styles, sharedStyles } from '../utils/theme.util'
-import { ThemeConsumer } from '../ThemeContext'
+import { ThemeConsumer } from '../Theme'
 import { recursivelyMapCloneChildren } from '../utils/recursivelyMapCloneChildren.util'
 
 const FormStyled = styled.form`

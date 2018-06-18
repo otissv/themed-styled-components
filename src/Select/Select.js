@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import PropTypes from 'prop-types'
+import { ThemeConsumer } from '../Theme/index'
 import styled from 'styled-components'
-import { styles, sharedStyles } from '../utils/theme.util'
-import { ThemeConsumer } from '../ThemeContext'
 
 const SelectStyled = styled.div`
   ${styles('select')};
@@ -25,7 +26,7 @@ class Select extends Component {
     opened: PropTypes.bool,
     options: PropTypes.array,
     theme: PropTypes.object,
-    value: PropTypes.string
+    value: PropTypes.string,
   }
 
   static defaultProps = {
@@ -33,7 +34,7 @@ class Select extends Component {
     autocomplete: false,
     multselect: false,
     opened: false,
-    options: []
+    options: [],
   }
 
   constructor(props) {
@@ -41,7 +42,7 @@ class Select extends Component {
     this.state = {
       opened: props.opened,
       active: props.active,
-      options: props.options
+      options: props.options,
     }
   }
 
@@ -51,7 +52,7 @@ class Select extends Component {
 
       const options = children.map(child => ({
         value: child.props['value'],
-        label: child.props['label']
+        label: child.props['label'],
       }))
 
       this.setState({ options })
@@ -92,7 +93,7 @@ class Select extends Component {
       multselect,
       onToggle,
       onChange,
-      onSelect
+      onSelect,
     } = this.props
 
     return (
@@ -106,7 +107,7 @@ class Select extends Component {
             multselect,
             onToggle: onToggle || this.onToggle,
             onChange: onChange || this.onChange,
-            onSelect: onSelect || this.onSelect
+            onSelect: onSelect || this.onSelect,
           }
           return (
             <SelectContext.Provider value={context}>

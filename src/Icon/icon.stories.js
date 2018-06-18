@@ -1,12 +1,9 @@
 import React, { Fragment } from 'react'
+
+import { ThemeProvider } from '../Theme'
+import { icon } from './index'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
-
-import { icon } from './index'
-import { dark } from '../dark'
-import { light } from '../light'
-import { theme } from '../theme'
 
 const Icon = icon``
 const stories = storiesOf('Icon', module)
@@ -17,7 +14,7 @@ stories
     withInfo(`
   
       ~~~js
-      <Icon  icon='home' />
+      <Icon icon='home' />
       ~~~
 
     `)(() => (

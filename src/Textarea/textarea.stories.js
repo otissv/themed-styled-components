@@ -1,11 +1,8 @@
 import React from 'react'
+import { ThemeProvider } from '../Theme'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
 import { textarea } from './index'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
+import { withInfo } from '@storybook/addon-info'
 
 const stories = storiesOf('Textarea', module)
 
@@ -71,11 +68,7 @@ stories
   
       `)(() => (
       <ThemeProvider>
-        <Textarea
-          placeholder="Success"
-          context="success"
-          
-        />
+        <Textarea placeholder="Success" context="success" />
       </ThemeProvider>
     ))
   )
@@ -90,11 +83,7 @@ stories
   
       `)(() => (
       <ThemeProvider>
-        <Textarea
-          placeholder="Warning"
-          context="warning"
-          
-        />
+        <Textarea placeholder="Warning" context="warning" />
       </ThemeProvider>
     ))
   )

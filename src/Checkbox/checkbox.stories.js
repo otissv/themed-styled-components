@@ -1,12 +1,8 @@
 import React from 'react'
-
+import { ThemeProvider } from '../Theme'
+import { checkbox } from './index'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
-import { checkbox } from './index'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
 
 const Checkbox = checkbox``
 
@@ -68,7 +64,7 @@ stories
 
     ~~~js
     <Checkbox context="accent" onChange={() => {}}>
-    Accent
+      Accent
     </Checkbox>
     ~~~
 
@@ -87,7 +83,7 @@ stories
   
       ~~~js
       <Checkbox context="danger" onChange={() => {}}>
-      Danger
+        Danger
       </Checkbox>
       ~~~
 
@@ -106,7 +102,7 @@ stories
   
       ~~~js
       <Checkbox context="primary" onChange={() => {}}>
-      Primary
+        Primary
       </Checkbox>
       ~~~
 
@@ -125,7 +121,7 @@ stories
   
       ~~~js
       <Checkbox context="success" onChange={() => {}}>
-      Success
+        Success
       </Checkbox>
       ~~~
 
@@ -144,7 +140,7 @@ stories
   
       ~~~js
       <Checkbox context="warning" onChange={() => {}}>
-      Warning
+        Warning
       </Checkbox>
       ~~~
 
@@ -184,7 +180,7 @@ stories
   
       ~~~js
       <Checkbox size="small" onChange={() => {}}>
-      Small
+        Small
       </Checkbox>
       ~~~
 

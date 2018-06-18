@@ -1,12 +1,9 @@
 import React, { Fragment } from 'react'
 
+import { ThemeProvider } from '../Theme'
 import { storiesOf } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
 import { text } from './index'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
+import { withInfo } from '@storybook/addon-info'
 
 const Text = text``
 const stories = storiesOf('Text', module)

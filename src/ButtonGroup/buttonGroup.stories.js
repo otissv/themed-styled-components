@@ -1,13 +1,10 @@
 import React, { Fragment } from 'react'
 
+import { Button } from '../Button'
+import { ThemeProvider } from '../Theme'
+import { buttonGroup } from './index'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import { ThemeProvider } from '../ThemeContext'
-import { buttonGroup } from './index'
-import { Button } from '../Button'
-import { dark } from '../dark'
-import { light  } from '../light'
-import { theme } from '../theme'
 
 const ButtonGroup = buttonGroup``
 

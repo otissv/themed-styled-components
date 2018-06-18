@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { ThemeProvider } from '../ThemeContext'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { sharedStyles, styles } from '../utils/theme.util'
+
 import Isvg from 'react-inlinesvg'
-import { styles, sharedStyles } from '../utils/theme.util'
-import { ThemeConsumer } from '../ThemeContext'
+import PropTypes from 'prop-types'
+import { ThemeConsumer } from '../Theme/index'
+import styled from 'styled-components'
 
 const IconStyled = styled(Isvg)`
   ${styles('icon')};
@@ -15,7 +15,7 @@ const IconStyled = styled(Isvg)`
 
 class Icon extends Component {
   static propTypes = {
-    src: PropTypes.string
+    src: PropTypes.string,
   }
 
   getIcon = () => {
