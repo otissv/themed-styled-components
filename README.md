@@ -37,7 +37,7 @@ const App = () => (
 ## Color scheme
 
 **light**
-```json
+```js
 {
   foreground: '#666',
   background: '#fff',
